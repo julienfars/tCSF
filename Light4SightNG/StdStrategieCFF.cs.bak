@@ -1,0 +1,436 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
+
+namespace Light4SightNG
+{
+    internal class StdStrategieCFF : StdStrategie
+    {
+        private double[] SC1_aktuellerDeltaKontrast_100 = new double[8];
+        private double[] SC2_aktuellerDeltaKontrast_100 = new double[8];
+        private double[] SC1_aktuellerKontrast_100      = new double[8];
+        private double[] SC2_aktuellerKontrast_100      = new double[8];
+        private double[] SC1_TempKontrast_100          = new double[8];
+        private double[] SC2_TempKontrast_100          = new double[8];
+        private double[] SC1_TempDeltaKontrast_100     = new double[8];
+        private double[] SC2_TempDeltaKontrast_100     = new double[8];
+
+        private int dFreq = 20;
+        private int Frequenz = 20;
+        private bool lastUp = true;
+
+        private Random dRand = new Random();
+
+        new public event EventHandler<AbbruchEventArgs> abbruch;
+        
+        override public void StartStdStrategie()
+        {
+            #region Kontrastwerte der aktiven Kanäle einlesen
+            if (Light4SightNG.IRChannel.SignalAktiv)
+            {
+                SC1_aktuellerKontrast_100[0] = Light4SightNG.IRChannel.KonSC1_100;
+                SC2_aktuellerKontrast_100[0] = Light4SightNG.IRChannel.KonSC2_100;
+                SC1_aktuellerDeltaKontrast_100[0] = Light4SightNG.IRChannel.SC1DeltaK_100;
+                SC2_aktuellerDeltaKontrast_100[0] = Light4SightNG.IRChannel.SC2DeltaK_100;
+            }
+            if (Light4SightNG.IGChannel.SignalAktiv)
+            {
+                SC1_aktuellerKontrast_100[1] = Light4SightNG.IGChannel.KonSC1_100;
+                SC2_aktuellerKontrast_100[1] = Light4SightNG.IGChannel.KonSC2_100;
+                SC1_aktuellerDeltaKontrast_100[1] = Light4SightNG.IGChannel.SC1DeltaK_100;
+                SC2_aktuellerDeltaKontrast_100[1] = Light4SightNG.IGChannel.SC2DeltaK_100;
+            }
+            if (Light4SightNG.IBChannel.SignalAktiv)
+            {
+                SC1_aktuellerKontrast_100[2] = Light4SightNG.IBChannel.KonSC1_100;
+                SC2_aktuellerKontrast_100[2] = Light4SightNG.IBChannel.KonSC2_100;
+                SC1_aktuellerDeltaKontrast_100[2] = Light4SightNG.IBChannel.SC1DeltaK_100;
+                SC2_aktuellerDeltaKontrast_100[2] = Light4SightNG.IBChannel.SC2DeltaK_100;
+            }
+            if (Light4SightNG.ICChannel.SignalAktiv)
+            {
+                SC1_aktuellerKontrast_100[3] = Light4SightNG.ICChannel.KonSC1_100;
+                SC2_aktuellerKontrast_100[3] = Light4SightNG.ICChannel.KonSC2_100;
+                SC1_aktuellerDeltaKontrast_100[3] = Light4SightNG.ICChannel.SC1DeltaK_100;
+                SC2_aktuellerDeltaKontrast_100[3] = Light4SightNG.ICChannel.SC2DeltaK_100;
+            }
+            if (Light4SightNG.ORChannel.SignalAktiv)
+            {
+                SC1_aktuellerKontrast_100[4] = Light4SightNG.ORChannel.KonSC1_100;
+                SC2_aktuellerKontrast_100[4] = Light4SightNG.ORChannel.KonSC2_100;
+                SC1_aktuellerDeltaKontrast_100[4] = Light4SightNG.ORChannel.SC1DeltaK_100;
+                SC2_aktuellerDeltaKontrast_100[4] = Light4SightNG.ORChannel.SC2DeltaK_100;
+            }
+            if (Light4SightNG.OGChannel.SignalAktiv)
+            {
+                SC1_aktuellerKontrast_100[5] = Light4SightNG.OGChannel.KonSC1_100;
+                SC2_aktuellerKontrast_100[5] = Light4SightNG.OGChannel.KonSC2_100;
+                SC1_aktuellerDeltaKontrast_100[5] = Light4SightNG.OGChannel.SC1DeltaK_100;
+                SC2_aktuellerDeltaKontrast_100[5] = Light4SightNG.OGChannel.SC2DeltaK_100;
+            }
+            if (Light4SightNG.OBChannel.SignalAktiv)
+            {
+                SC1_aktuellerKontrast_100[6] = Light4SightNG.OBChannel.KonSC1_100;
+                SC2_aktuellerKontrast_100[6] = Light4SightNG.OBChannel.KonSC2_100;
+                SC1_aktuellerDeltaKontrast_100[6] = Light4SightNG.OBChannel.SC1DeltaK_100;
+                SC2_aktuellerDeltaKontrast_100[6] = Light4SightNG.OBChannel.SC2DeltaK_100;
+            }
+            if (Light4SightNG.OCChannel.SignalAktiv)
+            {
+                SC1_aktuellerKontrast_100[7] = Light4SightNG.OCChannel.KonSC1_100;
+                SC2_aktuellerKontrast_100[7] = Light4SightNG.OCChannel.KonSC2_100;
+                SC1_aktuellerDeltaKontrast_100[7] = Light4SightNG.OCChannel.SC1DeltaK_100;
+                SC2_aktuellerDeltaKontrast_100[7] = Light4SightNG.OCChannel.SC2DeltaK_100;
+            }
+            #endregion
+            prepareLogFile();
+            // Randomisierung();
+            this._setNewFrequency();
+            this._setCurrentContrast();
+            this.SignalWiedergeben();
+            Thread.Sleep(100);
+        }
+
+        private void _setCurrentContrast()
+        {
+                Light4SightNG.IRChannel.Kontrast_100 = SC1_aktuellerKontrast_100[0];
+                Light4SightNG.IGChannel.Kontrast_100 = SC1_aktuellerKontrast_100[1];
+                Light4SightNG.IBChannel.Kontrast_100 = SC1_aktuellerKontrast_100[2];
+                Light4SightNG.ICChannel.Kontrast_100 = SC1_aktuellerKontrast_100[3];
+                Light4SightNG.ORChannel.Kontrast_100 = SC1_aktuellerKontrast_100[4];
+                Light4SightNG.OGChannel.Kontrast_100 = SC1_aktuellerKontrast_100[5];
+                Light4SightNG.OBChannel.Kontrast_100 = SC1_aktuellerKontrast_100[6];
+                Light4SightNG.OCChannel.Kontrast_100 = SC1_aktuellerKontrast_100[7];
+        }
+
+        new public void _setNewFrequency(int f)
+        {
+            Frequenz = f;
+            _setNewFrequency();
+        }
+
+        private void _setNewFrequency()
+        {
+            Light4SightNG.IRChannel.Frequenz = Frequenz;
+            Light4SightNG.IGChannel.Frequenz = Frequenz;
+            Light4SightNG.IBChannel.Frequenz = Frequenz;
+            Light4SightNG.ICChannel.Frequenz = Frequenz;
+            Light4SightNG.ORChannel.Frequenz = Frequenz;
+            Light4SightNG.OGChannel.Frequenz = Frequenz;
+            Light4SightNG.OBChannel.Frequenz = Frequenz;
+            Light4SightNG.OCChannel.Frequenz = Frequenz;
+        }
+
+         private void SignalWiedergeben()
+        {
+            AudioControl.InitWaveContainer();
+            clSignalGeneration.CreateChannelArrays();
+            clSignalGeneration.Untersuchungssignal();
+            AudioControl.PlaySignal();
+        }
+
+        override public void SignalStoppen()
+        {
+            AudioControl.StopSignal();
+            Thread.Sleep(100);
+            clSignalGeneration.ClearChannelArrays();
+            Thread.Sleep(100);
+        }
+
+        override public void gesehen_KeyDown(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Y)
+            {
+                SignalStoppen();
+                Thread.Sleep(10);
+                if (!lastUp) { dFreq = dFreq / 2; }
+                Frequenz += dFreq;
+                _setNewFrequency();
+                lastUp = true;
+                if (dFreq == 0)
+                {
+                    Logmessage("Zielfrequenz erreicht:\t" + Frequenz, false);
+                    Light4SightNG.cff = Frequenz;
+                    this.OnAbbruch(new AbbruchEventArgs(""));
+                }
+                else
+                {
+                    Logmessage("Frequenz: " + Convert.ToString(Frequenz) + "; Schrittweite: " + Convert.ToString(dFreq), false);
+                    SignalWiedergeben();
+                }
+            }
+        }
+
+        override public void nichtgesehen_KeyDown(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.M)
+            {
+                Thread.Sleep(10);
+                SignalStoppen();
+                if (Frequenz == 1)
+                {
+                    Logmessage("Reiz bei 1Hz nicht gesehen!", false);
+                    this.OnAbbruch(new AbbruchEventArgs(""));
+                }
+                if (lastUp) { dFreq = dFreq / 2; }
+                if ((Frequenz - dFreq) > 0)
+                {
+                    Frequenz -= dFreq;
+                }
+                else
+                {
+                    Frequenz = 1;
+                }
+                _setNewFrequency(); 
+                lastUp = false;
+                if (dFreq == 0)
+                {
+                    Logmessage("Zielfrequenz erreicht:\t" + Frequenz, false);
+                    Light4SightNG.cff = Frequenz;
+                    this.OnAbbruch(new AbbruchEventArgs(""));
+                }
+                else
+                {
+                    SignalWiedergeben();
+                    Logmessage("Frequenz: " + Convert.ToString(Frequenz) + "; Schrittweite: " + Convert.ToString(dFreq), false);
+                }
+            }
+        }
+
+        private void prepareLogFile()
+        {
+            string line2, line3, line4, line5, line6, line7, line8, line9, line10;
+            Logmessage(";;Centerfield;;;;;Surroundfield;;",true);
+            Logmessage(";;R;G;B;C;;R;G;B;C;",true);
+
+            if (Light4SightNG.IRChannel.SignalAktiv == true)
+            {
+                line2 = ("Signal aktiv;;" + Light4SightNG.IRChannel.SignalAktiv.ToString() + ";");
+                line3 = ("Signalform;;" + Light4SightNG.IRChannel.Signalform + ";");
+                line4 = ("Helligkeit;;" + Light4SightNG.IRChannel.MittlereHelligkeit_cdm2.ToString() + ";");
+                line5 = ("Frequenz;;" + Light4SightNG.IRChannel.Frequenz.ToString() + ";");
+                line6 = ("Phase;;" + Light4SightNG.IRChannel.Phasenverschiebung.ToString() + ";");
+                line7 = ("Kontrast SC1;;" + Light4SightNG.IRChannel.KonSC1_100.ToString() + ";");
+                line8 = ("Kontrast SC2;;" + Light4SightNG.IRChannel.KonSC2_100.ToString() + ";");
+                line9 = ("Delta Kontrast SC1;;" + Light4SightNG.IRChannel.SC1DeltaK_100.ToString() + ";");
+                line10 = ("Delta Kontrast SC2;;" + Light4SightNG.IRChannel.SC2DeltaK_100.ToString() + ";");
+            }
+            else
+            {
+                line2 = ("Signal aktiv;;");
+                line3 = ("Signalform;;;");
+                line4 = ("Helligkeit;;;");
+                line5 = ("Frequenz;;;");
+                line6 = ("Phase;;;");
+                line7 = ("Kontrast SC1;;;");
+                line8 = ("Kontrast SC2;;;");
+                line9 = ("Delta Kontrast SC1;;;");
+                line10 = ("Delta Kontrast SC2;;;");
+            }
+              
+            if (Light4SightNG.IGChannel.SignalAktiv == true)
+            {
+                line2 = (line2 + Light4SightNG.IGChannel.SignalAktiv.ToString() + ";");
+                line3 = (line3 + Light4SightNG.IGChannel.Signalform + ";");
+                line4 = (line4 + Light4SightNG.IGChannel.MittlereHelligkeit_cdm2.ToString() + ";");
+                line5 = (line5 + Light4SightNG.IGChannel.Frequenz.ToString() + ";");
+                line6 = (line6 + Light4SightNG.IGChannel.Phasenverschiebung.ToString() + ";");
+                line7 = (line7 + Light4SightNG.IGChannel.KonSC1_100.ToString() + ";");
+                line8 = (line8 + Light4SightNG.IGChannel.KonSC2_100.ToString() + ";");
+                line9 = (line9 + Light4SightNG.IGChannel.SC1DeltaK_100.ToString() + ";");
+                line10 = (line10 + Light4SightNG.IGChannel.SC2DeltaK_100.ToString() + ";");
+            }
+            else
+            {
+                line2 = (line2 + ";");
+                line3 = (line3 + ";");
+                line4 = (line4 + ";");
+                line5 = (line5 + ";");
+                line6 = (line6 + ";");
+                line7 = (line7 + ";");
+                line8 = (line8 + ";");
+                line9 = (line9 + ";");
+                line10 = (line10 + ";");
+            }
+
+
+            if (Light4SightNG.IBChannel.SignalAktiv == true)
+            {
+                line2 = (line2 + Light4SightNG.IBChannel.SignalAktiv.ToString() + ";");
+                line3 = (line3 + Light4SightNG.IBChannel.Signalform + ";");
+                line4 = (line4 + Light4SightNG.IBChannel.MittlereHelligkeit_cdm2.ToString() + ";");
+                line5 = (line5 + Light4SightNG.IBChannel.Frequenz.ToString() + ";");
+                line6 = (line6 + Light4SightNG.IBChannel.Phasenverschiebung.ToString() + ";");
+                line7 = (line7 + Light4SightNG.IBChannel.KonSC1_100.ToString() + ";");
+                line8 = (line8 + Light4SightNG.IBChannel.KonSC2_100.ToString() + ";");
+                line9 = (line9 + Light4SightNG.IBChannel.SC1DeltaK_100.ToString() + ";");
+                line10 = (line10 + Light4SightNG.IBChannel.SC2DeltaK_100.ToString() + ";");
+            }
+            else
+            {
+                line2 = (line2 + ";");
+                line3 = (line3 + ";");
+                line4 = (line4 + ";");
+                line5 = (line5 + ";");
+                line6 = (line6 + ";");
+                line7 = (line7 + ";");
+                line8 = (line8 + ";");
+                line9 = (line9 + ";");
+                line10 = (line10 + ";");
+            }
+
+            if (Light4SightNG.ICChannel.SignalAktiv == true)
+            {
+                line2 = (line2 + Light4SightNG.ICChannel.SignalAktiv.ToString() + ";;");
+                line3 = (line3 + Light4SightNG.ICChannel.Signalform + ";;");
+                line4 = (line4 + Light4SightNG.ICChannel.MittlereHelligkeit_cdm2.ToString() + ";;");
+                line5 = (line5 + Light4SightNG.ICChannel.Frequenz.ToString() + ";;");
+                line6 = (line6 + Light4SightNG.ICChannel.Phasenverschiebung.ToString() + ";;");
+                line7 = (line7 + Light4SightNG.ICChannel.KonSC1_100.ToString() + ";;");
+                line8 = (line8 + Light4SightNG.ICChannel.KonSC2_100.ToString() + ";;");
+                line9 = (line9 + Light4SightNG.ICChannel.SC1DeltaK_100.ToString() + ";;");
+                line10 = (line10 + Light4SightNG.ICChannel.SC2DeltaK_100.ToString() + ";;");
+            }
+            else
+            {
+                line2 = (line2 + ";;;");
+                line3 = (line3 + ";;;");
+                line4 = (line4 + ";;;");
+                line5 = (line5 + ";;;");
+                line6 = (line6 + ";;;");
+                line7 = (line7 + ";;;");
+                line8 = (line8 + ";;;");
+                line9 = (line9 + ";;;");
+                line10 = (line10 + ";;;");
+            }
+
+            if (Light4SightNG.ORChannel.SignalAktiv == true)
+            {
+                line2 = (line2 + Light4SightNG.ORChannel.SignalAktiv.ToString() + ";");
+                line3 = (line3 + Light4SightNG.ORChannel.Signalform + ";");
+                line4 = (line4 + Light4SightNG.ORChannel.MittlereHelligkeit_cdm2.ToString() + ";");
+                line5 = (line5 + Light4SightNG.ORChannel.Frequenz.ToString() + ";");
+                line6 = (line6 + Light4SightNG.ORChannel.Phasenverschiebung.ToString() + ";");
+                line7 = (line7 + Light4SightNG.ORChannel.KonSC1_100.ToString() + ";");
+                line8 = (line8 + Light4SightNG.ORChannel.KonSC2_100.ToString() + ";");
+                line9 = (line9 + Light4SightNG.ORChannel.SC1DeltaK_100.ToString() + ";");
+                line10 = (line10 + Light4SightNG.ORChannel.SC2DeltaK_100.ToString() + ";");
+            }
+            else
+            {
+                line2 = (line2 + ";");
+                line3 = (line3 + ";");
+                line4 = (line4 + ";");
+                line5 = (line5 + ";");
+                line6 = (line6 + ";");
+                line7 = (line7 + ";");
+                line8 = (line8 + ";");
+                line9 = (line9 + ";");
+                line10 = (line10 + ";");
+            }
+              
+            if (Light4SightNG.OGChannel.SignalAktiv == true)
+            {
+                line2 = (line2 + Light4SightNG.OGChannel.SignalAktiv.ToString() + ";");
+                line3 = (line3 + Light4SightNG.OGChannel.Signalform + ";");
+                line4 = (line4 + Light4SightNG.OGChannel.MittlereHelligkeit_cdm2.ToString() + ";");
+                line5 = (line5 + Light4SightNG.OGChannel.Frequenz.ToString() + ";");
+                line6 = (line6 + Light4SightNG.OGChannel.Phasenverschiebung.ToString() + ";");
+                line7 = (line7 + Light4SightNG.OGChannel.KonSC1_100.ToString() + ";");
+                line8 = (line8 + Light4SightNG.OGChannel.KonSC2_100.ToString() + ";");
+                line9 = (line9 + Light4SightNG.OGChannel.SC1DeltaK_100.ToString() + ";");
+                line10 = (line10 + Light4SightNG.OGChannel.SC2DeltaK_100.ToString() + ";");
+            }
+            else
+            {
+                line2 = (line2 + ";");
+                line3 = (line3 + ";");
+                line4 = (line4 + ";");
+                line5 = (line5 + ";");
+                line6 = (line6 + ";");
+                line7 = (line7 + ";");
+                line8 = (line8 + ";");
+                line9 = (line9 + ";");
+                line10 = (line10 + ";");
+            }
+
+            if (Light4SightNG.OBChannel.SignalAktiv == true)
+            {
+                line2 = (line2 + Light4SightNG.OBChannel.SignalAktiv.ToString() + ";");
+                line3 = (line3 + Light4SightNG.OBChannel.Signalform + ";");
+                line4 = (line4 + Light4SightNG.OBChannel.MittlereHelligkeit_cdm2.ToString() + ";");
+                line5 = (line5 + Light4SightNG.OBChannel.Frequenz.ToString() + ";");
+                line6 = (line6 + Light4SightNG.OBChannel.Phasenverschiebung.ToString() + ";");
+                line7 = (line7 + Light4SightNG.OBChannel.KonSC1_100.ToString() + ";");
+                line8 = (line8 + Light4SightNG.OBChannel.KonSC2_100.ToString() + ";");
+                line9 = (line9 + Light4SightNG.OBChannel.SC1DeltaK_100.ToString() + ";");
+                line10 = (line10 + Light4SightNG.OBChannel.SC2DeltaK_100.ToString() + ";");
+            }
+            else
+            {
+                line2 = (line2 + ";");
+                line3 = (line3 + ";");
+                line4 = (line4 + ";");
+                line5 = (line5 + ";");
+                line6 = (line6 + ";");
+                line7 = (line7 + ";");
+                line8 = (line8 + ";");
+                line9 = (line9 + ";");
+                line10 = (line10 + ";");
+            }
+
+            if (Light4SightNG.OCChannel.SignalAktiv == true)
+            {
+                line2 = (line2 + Light4SightNG.OCChannel.SignalAktiv.ToString() + ";");
+                line3 = (line3 + Light4SightNG.OCChannel.Signalform + ";");
+                line4 = (line4 + Light4SightNG.OCChannel.MittlereHelligkeit_cdm2.ToString() + ";");
+                line5 = (line5 + Light4SightNG.OCChannel.Frequenz.ToString() + ";");
+                line6 = (line6 + Light4SightNG.OCChannel.Phasenverschiebung.ToString() + ";");
+                line7 = (line7 + Light4SightNG.OCChannel.KonSC1_100.ToString() + ";");
+                line8 = (line8 + Light4SightNG.OCChannel.KonSC2_100.ToString() + ";");
+                line9 = (line9 + Light4SightNG.OCChannel.SC1DeltaK_100.ToString() + ";");
+                line10 = (line10 + Light4SightNG.OCChannel.SC2DeltaK_100.ToString() + ";");
+            }
+            else
+            {
+                line2 = (line2 + ";");
+                line3 = (line3 + ";");
+                line4 = (line4 + ";");
+                line5 = (line5 + ";");
+                line6 = (line6 + ";");
+                line7 = (line7 + ";");
+                line8 = (line8 + ";");
+                line9 = (line9 + ";");
+                line10 = (line10 + ";");
+            }
+
+            Logmessage(line2, true);
+            Logmessage(line3,true);
+            Logmessage(line4,true);
+            Logmessage(line5, true);
+            Logmessage(line6, true);
+            Logmessage(line7, true);
+            Logmessage(line8, true);
+            Logmessage(line9, true);
+            Logmessage(line10, true);
+            Logmessage("", true);
+        }
+
+        private void Logmessage(string text, bool header)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm is Light4SightNG)
+                {
+                    (frm as Light4SightNG).LogFile(text, header);
+                }
+            }
+        }
+
+    }
+}
