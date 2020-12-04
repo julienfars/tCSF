@@ -1,0 +1,3 @@
+ProcessStartInfo p = new ProcessStartInfo();
+p.FileName = @"launch.bat";
+Process.Start(p);
