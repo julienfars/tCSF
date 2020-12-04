@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MesseFSKurven</name>
+    </assembly>
+    <members>
+        <member name="T:Light4SightNG.Teststrategie">
+            <summary>
+            Diese abstrakte Klasse dient als Vorlage für eine Teststrategie und implementiert alle wesentlichen Eigenschaften und Methoden.
+            </summary>
+        </member>
+        <member name="M:Light4SightNG.Teststrategie.StarteStrategie">
+            <summary>
+            Diese Methode wird aufgerufen um die Teststrategie zu starten.
+            </summary>
+        </member>
+        <member name="M:Light4SightNG.Teststrategie.ZeigeNeueSignalstaerke">
+            <summary>
+            Diese Methode muss implementiert werden um die Signalstärke zu setzen und die Signalwiedergabe zu starten.
+            </summary>
+        </member>
+        <member name="M:Light4SightNG.Teststrategie.TesteAbbruch">
+            <summary>
+            Diese Methode muss implementiert werden um zu testen, ob ein Abbruchkriterien erfüllt ist.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Light4SightNG.Teststrategie.SignalWiedergeben">
+            <summary>
+            Startet das Signal in AudioControl. Dort wird eine Endlosschleife eingeleitet
+            bis AudioControl.StopSignal() von einem exterenen Prozess aufgerufen wird.
+            </summary>
+        </member>
+        <member name="M:Light4SightNG.Teststrategie.Gesehen_KeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Stimulus wurde gesehen: Die Wiedergabe wird gestoppt, die Antwort ins Log geschrieben 
+            und ZeigeNeueSignalstaerke zur Berechnung des neuen Stimulus, sowie zur Anzeige desselben gestartet.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Light4SightNG.Teststrategie.Nichtgesehen_KeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Stimulus wurde nicht gesehen: die Wiedergabe wird gestoppt, die Antwort ins Log geschrieben 
+            und ZeigeNeueSignalstaerke zur Berechnung des neuen Stimulus, sowie zur Anzeige desselben gestartet.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="F:Light4SightNG.MesseSchwellen.components">
+            <summary>
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Light4SightNG.MesseSchwellen.Dispose(System.Boolean)">
+            <summary>
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Light4SightNG.MesseSchwellen.InitializeComponent">
+            <summary>
+            Erforderliche Methode für die Designerunterstützung.
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="F:Light4SightNG.ZeigeErgebnis.components">
+            <summary>
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Light4SightNG.ZeigeErgebnis.Dispose(System.Boolean)">
+            <summary>
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Light4SightNG.ZeigeErgebnis.InitializeComponent">
+            <summary>
+            Erforderliche Methode für die Designerunterstützung.
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="F:Light4SightNG.KontrolliereMessungen.components">
+            <summary>
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Light4SightNG.KontrolliereMessungen.Dispose(System.Boolean)">
+            <summary>
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Light4SightNG.KontrolliereMessungen.InitializeComponent">
+            <summary>
+            Erforderliche Methode für die Designerunterstützung.
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="F:Light4SightNG.Steuerung.components">
+            <summary>
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Light4SightNG.Steuerung.Dispose(System.Boolean)">
+            <summary>
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Light4SightNG.Steuerung.InitializeComponent">
+            <summary>
+            Erforderliche Methode für die Designerunterstützung.
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="T:Light4SightNG.SignalGeneration">
+            <summary>
+            Diese Klasse berechnet die wave-Daten aus einer abstrakteren Beschreibung des Signals und schreibt sie in den wave containter der Klasse AudioControllClass.
+            </summary>
+        </member>
+        <member name="T:Light4SightNG.Properties.Resources">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:Light4SightNG.Properties.Resources.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:Light4SightNG.Properties.Resources.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="M:Light4SightNG.Program.Main">
+            <summary>
+            Der Haupteinstiegspunkt für die Anwendung.
+            </summary>
+        </member>
+        <member name="F:Light4SightNG.ChannelDescription.dTempK">
+            <summary>
+            Private Eigenschaften des Objekts
+            </summary>
+        </member>
+        <member name="F:Light4SightNG.ChannelDescription.dTempMH">
+            <summary>
+            Private Eigenschaften des Objekts
+            </summary>
+        </member>
+        <member name="P:Light4SightNG.ChannelDescription.Frequenz">
+            <summary>
+            Methode Frequenz überprüft ob der übergebene Wert innerhalb des zulässigen Frequenzbereichs von 1-100Hz liegt
+            [set,get]
+            </summary>
+            <value>int [1-100]</value>
+            <return>int [1-100]Hz, 0 bei Fehler</return>
+        </member>
+    </members>
+</doc>
