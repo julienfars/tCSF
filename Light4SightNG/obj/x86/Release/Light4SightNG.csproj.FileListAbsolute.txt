@@ -1,0 +1,60 @@
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Release\MesseFSKurven.exe.config
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Release\MesseFSKurven.exe
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Release\MesseFSKurven.pdb
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Release\WinMM.Net.dll
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Release\WinMM.Net.pdb
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Release\Interop.IWshRuntimeLibrary.dll
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.csprojResolveAssemblyReference.cache
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Interop.IWshRuntimeLibrary.dll
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.csproj.ResolveComReference.cache
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.zeigeErgebnis.resources
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.MesseSchwellen.resources
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.Steuerung.resources
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.Light4SightNG.resources
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.Properties.Resources.resources
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.csproj.GenerateResource.Cache
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\MesseFSKurven.exe
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\MesseFSKurven.pdb
+C:\_Data\MesseFSKurven\MesseFSKurven.exe.config
+C:\_Data\MesseFSKurven\MesseFSKurven.exe
+C:\_Data\MesseFSKurven\MesseFSKurven.pdb
+C:\_Data\Sonstiges\Entwicklung\MesseFSKurven\MesseFSKurven.exe.config
+C:\_Data\Sonstiges\Entwicklung\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Interop.IWshRuntimeLibrary.dll
+C:\_Data\Sonstiges\Entwicklung\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.csproj.ResolveComReference.cache
+C:\_Data\Sonstiges\Entwicklung\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\MesseFSKurven.exe
+C:\_Data\Sonstiges\Entwicklung\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\MesseFSKurven.pdb
+C:\_Data\Sonstiges\MesseFSKurven\MesseFSKurven.exe.config
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Interop.IWshRuntimeLibrary.dll
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.csproj.ResolveComReference.cache
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\MesseFSKurven.exe
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\MesseFSKurven.pdb
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Interop.IWshRuntimeLibrary.dll
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.csproj.ResolveComReference.cache
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\MesseFSKurven.exe
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\MesseFSKurven.pdb
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.csprojResolveAssemblyReference.cache
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.zeigeErgebnis.resources
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.MesseSchwellen.resources
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.Steuerung.resources
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.Light4SightNG.resources
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.Properties.Resources.resources
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Release\Light4SightNG.csproj.GenerateResource.Cache
+C:\tCSF\MesseFSKurven.exe.config
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Release\Interop.IWshRuntimeLibrary.dll
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Release\Light4SightNG.csproj.ResolveComReference.cache
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Release\MesseFSKurven.exe
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Release\MesseFSKurven.pdb
+C:\tCSF\MesseFSKurven.XML
+C:\tCSF\MesseFSKurven.exe
+C:\tCSF\MesseFSKurven.pdb
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Release\Light4SightNG.csprojResolveAssemblyReference.cache
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Release\Light4SightNG.zeigeErgebnis.resources
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Release\Light4SightNG.MesseSchwellen.resources
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Release\Light4SightNG.Steuerung.resources
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Release\Light4SightNG.KontrolliereMessungen.resources
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Release\Light4SightNG.Properties.Resources.resources
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Release\Light4SightNG.csproj.GenerateResource.Cache
+C:\_Data\tCSF\MesseFSKurven.exe.config
+C:\_Data\tCSF\MesseFSKurven.XML
+C:\_Data\tCSF\MesseFSKurven.exe
+C:\_Data\tCSF\MesseFSKurven.pdb

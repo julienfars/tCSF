@@ -1,0 +1,36 @@
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Debug\MesseFSKurven.exe.config
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Debug\MesseFSKurven.exe
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Debug\MesseFSKurven.pdb
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Debug\MesseFSKurven.xml
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Debug\WinMM.Net.dll
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Debug\WinMM.Net.pdb
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\bin\x86\Debug\Interop.IWshRuntimeLibrary.dll
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Debug\Light4SightNG.csprojResolveAssemblyReference.cache
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Debug\Interop.IWshRuntimeLibrary.dll
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Debug\Light4SightNG.csproj.ResolveComReference.cache
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Debug\Light4SightNG.zeigeErgebnis.resources
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Debug\Light4SightNG.MesseSchwellen.resources
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Debug\Light4SightNG.Steuerung.resources
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Debug\Light4SightNG.Light4SightNG.resources
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Debug\Light4SightNG.Properties.Resources.resources
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Debug\Light4SightNG.csproj.GenerateResource.Cache
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Debug\MesseFSKurven.exe
+C:\_Data\Sonstiges\Entwicklung\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG\obj\x86\Debug\MesseFSKurven.pdb
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\bin\x86\Debug\MesseFSKurven.exe.config
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Debug\Interop.IWshRuntimeLibrary.dll
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Debug\Light4SightNG.csproj.ResolveComReference.cache
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Debug\MesseFSKurven.exe
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Debug\MesseFSKurven.pdb
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Debug\Light4SightNG.csprojResolveAssemblyReference.cache
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Debug\Light4SightNG.zeigeErgebnis.resources
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Debug\Light4SightNG.MesseSchwellen.resources
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Debug\Light4SightNG.Steuerung.resources
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Debug\Light4SightNG.Properties.Resources.resources
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Debug\Light4SightNG.csproj.GenerateResource.Cache
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\bin\x86\Debug\MesseFSKurven.exe
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\bin\x86\Debug\MesseFSKurven.pdb
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\bin\x86\Debug\MesseFSKurven.xml
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\bin\x86\Debug\WinMM.Net.dll
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\bin\x86\Debug\WinMM.Net.pdb
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\bin\x86\Debug\Interop.IWshRuntimeLibrary.dll
+C:\_Data\Sonstiges\Entwicklung\tCSF\Light4SightNG\obj\x86\Debug\Light4SightNG.KontrolliereMessungen.resources

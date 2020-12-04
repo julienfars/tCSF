@@ -1,0 +1,372 @@
+F:\### ARBEIT\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+F:\### ARBEIT\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+F:\### ARBEIT\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+F:\### ARBEIT\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+F:\### ARBEIT\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\bin\Debug\Light4SightNG.exe
+F:\### ARBEIT\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\bin\Debug\Light4SightNG.pdb
+F:\### ARBEIT\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\Light4SightNG.exe
+F:\### ARBEIT\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\Light4SightNG.pdb
+Z:\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\Light4SightNG.exe
+Z:\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\Light4SightNG.pdb
+Z:\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+Z:\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+Z:\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+Z:\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+Z:\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\bin\Debug\Light4SightNG.exe
+Z:\## Erlangen\## Light4SightNG\Light4SightNG\Light4SightNG\bin\Debug\Light4SightNG.pdb
+F:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.exe
+F:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.pdb
+F:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\Light4SightNG.exe
+F:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\Light4SightNG.pdb
+F:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\WinMM.Net.dll
+F:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\WinMM.Net.pdb
+F:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+F:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+F:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+F:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+L:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+L:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+L:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+L:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+L:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\Light4SightNG.exe
+L:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\Light4SightNG.pdb
+L:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\WinMM.Net.dll
+L:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\WinMM.Net.pdb
+L:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.exe
+L:\## Holland\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.pdb
+F:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.exe
+F:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.pdb
+F:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+F:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+F:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+F:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+F:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\Light4SightNG.exe
+F:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\Light4SightNG.pdb
+F:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\WinMM.Net.dll
+F:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 16.09.2001 0806\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG 26.09.2011 1451\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 26.09.2011 1451\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 26.09.2011 1451\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 26.09.2011 1451\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 26.09.2011 1451\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG 26.09.2011 1451\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG 26.09.2011 1451\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG 26.09.2011 1451\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG 26.09.2011 1451\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG 26.09.2011 1451\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+X:\DEV\Light4SightNG 26.09.2011 2131\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG 26.09.2011 2131\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG 26.09.2011 2131\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG 26.09.2011 2131\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+X:\DEV\Light4SightNG 26.09.2011 2131\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 26.09.2011 2131\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 26.09.2011 2131\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG 26.09.2011 2131\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG 26.09.2011 2131\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 26.09.2011 2131\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 28.09.2011 2330\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 28.09.2011 2330\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 28.09.2011 2330\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG 28.09.2011 2330\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG 28.09.2011 2330\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG 28.09.2011 2330\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+X:\DEV\Light4SightNG 28.09.2011 2330\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 28.09.2011 2330\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 28.09.2011 2330\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG 28.09.2011 2330\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG 29.09.2011 2137\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 29.09.2011 2137\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 29.09.2011 2137\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 29.09.2011 2137\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 29.09.2011 2137\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG 29.09.2011 2137\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG 29.09.2011 2137\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG 29.09.2011 2137\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG 29.09.2011 2137\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG 29.09.2011 2137\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+L:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 30.09.2011 1217\Light4SightNG\obj\Debug\Light4SightNG.exe
+L:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 30.09.2011 1217\Light4SightNG\obj\Debug\Light4SightNG.pdb
+L:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 30.09.2011 1217\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+L:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 30.09.2011 1217\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+L:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 30.09.2011 1217\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+L:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 30.09.2011 1217\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+L:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 30.09.2011 1217\Light4SightNG\bin\Debug\Light4SightNG.exe
+L:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 30.09.2011 1217\Light4SightNG\bin\Debug\Light4SightNG.pdb
+L:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 30.09.2011 1217\Light4SightNG\bin\Debug\WinMM.Net.dll
+L:\### ERLANGEN ###\## Light4SightNG 0.2\Light4SightNG 30.09.2011 1217\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG 08.10.2011 2008\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 08.10.2011 2008\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 08.10.2011 2008\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 08.10.2011 2008\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 08.10.2011 2008\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG 08.10.2011 2008\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG 08.10.2011 2008\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG 08.10.2011 2008\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG 08.10.2011 2008\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG 08.10.2011 2008\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+X:\DEV\Light4SightNG 10.10.2011 2144\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 10.10.2011 2144\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 10.10.2011 2144\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 10.10.2011 2144\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 10.10.2011 2144\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG 10.10.2011 2144\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG 10.10.2011 2144\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG 10.10.2011 2144\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG 10.10.2011 2144\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG 10.10.2011 2144\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+X:\DEV\Light4SightNG 12.10.2011 xxxx\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 12.10.2011 xxxx\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 12.10.2011 xxxx\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG 12.10.2011 xxxx\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG 12.10.2011 xxxx\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG 12.10.2011 xxxx\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG 12.10.2011 xxxx\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG 12.10.2011 xxxx\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG 12.10.2011 xxxx\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG 12.10.2011 xxxx\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+X:\DEV\Light4SightNG BETA 12.10.2011 1446\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 12.10.2011 1446\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 12.10.2011 1446\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 12.10.2011 1446\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 12.10.2011 1446\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG BETA 12.10.2011 1446\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG BETA 12.10.2011 1446\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG BETA 12.10.2011 1446\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG BETA 12.10.2011 1446\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG BETA 12.10.2011 1446\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\obj\Debug\GenerateResource.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\obj\Debug\GenerateResource.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\obj\Debug\GenerateResource-ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.01a\Light4SightNG\obj\Debug\GenerateResource-ResGen.write.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\Light4SightNG.exe
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\Light4SightNG.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\bin\Debug\Light4SightNG.exe
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\bin\Debug\Light4SightNG.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\bin\Debug\WinMM.Net.dll
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\bin\Debug\WinMM.Net.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\GenerateResource-ResGen.read.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\GenerateResource.read.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\ResGen.read.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\GenerateResource-ResGen.write.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\GenerateResource.write.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.02a\Light4SightNG BETA 0.5.02a\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+X:\DEV\Light4SightNG BETA 0.5.02a\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.5.02a\Light4SightNG BETA 0.5.02a\Light4SightNG\obj\Debug\Light4SightNG.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\obj\Debug\Light4SightNG.exe
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\obj\Debug\Light4SightNG.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\bin\Debug\Light4SightNG.exe
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\bin\Debug\Light4SightNG.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\bin\Debug\WinMM.Net.dll
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\bin\Debug\WinMM.Net.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\obj\Debug\GenerateResource-ResGen.read.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\obj\Debug\GenerateResource.read.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\obj\Debug\ResGen.read.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\obj\Debug\GenerateResource-ResGen.write.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\obj\Debug\GenerateResource.write.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.03a\Light4SightNG\obj\Debug\ResGen.write.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.04a\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.04a\Light4SightNG\obj\Debug\Light4SightNG.exe
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.04a\Light4SightNG\obj\Debug\Light4SightNG.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\obj\Debug\Light4SightNG.exe
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\obj\Debug\Light4SightNG.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\bin\Debug\Light4SightNG.exe
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\bin\Debug\Light4SightNG.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\bin\Debug\WinMM.Net.dll
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\bin\Debug\WinMM.Net.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\obj\Debug\GenerateResource-ResGen.read.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\obj\Debug\GenerateResource.read.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\obj\Debug\ResGen.read.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\obj\Debug\GenerateResource-ResGen.write.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\obj\Debug\GenerateResource.write.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a inProgress\Light4SightNG\obj\Debug\ResGen.write.1.tlog
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\Light4SightNG.exe
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\Light4SightNG.pdb
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a\Light4SightNG\c\Light4SightNG.exe.config
+F:\##_dev\Erlangen\Light4SightNG BETA 0.5.05a\Light4SightNG\Light4SightNG.exe.config
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\GenerateResource-ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\GenerateResource.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\GenerateResource-ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\GenerateResource.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.05a\Light4SightNG BETA 0.5.05a\Light4SightNG\obj\Debug\ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.06a\Light4SightNG BETA 0.5.06a\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+X:\DEV\Light4SightNG BETA 0.5.06a\Light4SightNG BETA 0.5.06a\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.5.06a\Light4SightNG BETA 0.5.06a\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\obj\Debug\GenerateResource-ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\obj\Debug\GenerateResource.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\obj\Debug\ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\obj\Debug\GenerateResource-ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\obj\Debug\GenerateResource.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.5.08a\Light4SightNG BETA 0.5.08a\Light4SightNG\obj\Debug\ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\bin\Debug\Light4SightNG.XML
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\obj\Debug\GenerateResource-ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\obj\Debug\GenerateResource.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\obj\Debug\ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\obj\Debug\GenerateResource-ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\obj\Debug\GenerateResource.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.01a\Light4SightNG BETA 0.6.01a\Light4SightNG\obj\Debug\ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\bin\Debug\Light4SightNG.exe.config
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\bin\Debug\Light4SightNG.XML
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\bin\Debug\Light4SightNG.exe
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\bin\Debug\Light4SightNG.pdb
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\GenerateResource-ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\GenerateResource.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\GenerateResource-ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\GenerateResource.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\GenerateResource.read.27.tlog
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\Interop.IWshRuntimeLibrary.dll
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\obj\Debug\Light4SightNG.csproj.ResolveComReference.cache
+X:\DEV\Light4SightNG BETA 0.6.02a\Light4SightNG BETA 0.6.02a\Light4SightNG\bin\Debug\Interop.IWshRuntimeLibrary.dll
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Interop.IWshRuntimeLibrary.dll
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.csproj.ResolveComReference.cache
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\GenerateResource-ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\GenerateResource.read.1.tlog
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\GenerateResource.read.27.tlog
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\GenerateResource-ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\GenerateResource.write.1.tlog
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\Interop.IWshRuntimeLibrary.dll
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.exe.config
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.xml
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.exe
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.pdb
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\DetermineCFF.exe
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\DetermineCFF.pdb
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Steuerung.resources
+X:\DEV\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.MesseSchwellen.resources
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.exe.config
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.xml
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.csproj.ResolveComReference.cache
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\DetermineCFF.exe
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\DetermineCFF.pdb
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.csprojResolveAssemblyReference.cache
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.MesseSchwellen.resources
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Steuerung.resources
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.exe
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.pdb
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\SlimDX.dll
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\WinMM.Net.dll
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\SlimDX.pdb
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\SlimDX.xml
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\WinMM.Net.pdb
+C:\Users\huchzman\Documents\Visual Studio 2010\Projects\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\Interop.IWshRuntimeLibrary.dll
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.exe.config
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.xml
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Interop.IWshRuntimeLibrary.dll
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.csproj.ResolveComReference.cache
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\DetermineCFF.exe
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\DetermineCFF.pdb
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.exe
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\DetermineCFF.pdb
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\WinMM.Net.dll
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\SlimDX.pdb
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\SlimDX.xml
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\WinMM.Net.pdb
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\Interop.IWshRuntimeLibrary.dll
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\ResolveAssemblyReference.cache
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.MesseSchwellen.resources
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Steuerung.resources
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\GenerateResource-ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\GenerateResource.read.1.tlog
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\GenerateResource.read.27.tlog
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\ResGen.read.1.tlog
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\GenerateResource-ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\GenerateResource.write.1.tlog
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\ResGen.write.1.tlog
+X:\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.zeigeErgebnis.resources
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\MesseFSKurven.exe.config
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\MesseFSKurven.xml
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\MesseFSKurven.exe
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\MesseFSKurven.pdb
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\SlimDX.dll
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\WinMM.Net.dll
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\SlimDX.pdb
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\SlimDX.xml
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\WinMM.Net.pdb
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\bin\Debug\Interop.IWshRuntimeLibrary.dll
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.csprojResolveAssemblyReference.cache
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.csproj.ResolveComReference.cache
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.zeigeErgebnis.resources
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.MesseSchwellen.resources
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Steuerung.resources
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Light4SightNG.resources
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.Properties.Resources.resources
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\Light4SightNG.csproj.GenerateResource.Cache
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\MesseFSKurven.exe
+C:\_Data\DEV\Light4SightNG BETA FSCurves\Light4SightNG BETA CFF\Light4SightNG BETA CFF\Light4SightNG\obj\Debug\MesseFSKurven.pdb
