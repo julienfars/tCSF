@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading;
+using System.Collections.Generic;
+
 namespace Light4SightNG
 {
     class ConstantStimuli : Teststrategie
@@ -9,6 +11,11 @@ namespace Light4SightNG
 
         public int NTrials { get; set; }
 
+        public List<int> contrastPresentations;
+        private readonly List<int> contrasts = new List<int>() { 0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 };
+
+        Random shuffle;
+        int nextContrast;
 
         public ConstantStimuli(Steuerung parent) : base(parent)
         {
@@ -17,35 +24,32 @@ namespace Light4SightNG
 
             NTrials = parent.NTrials;
 
-            signalStrength = maxSignalStrength;
-            Gesehen = true;
+            contrastPresentations = new List<int>();
+            foreach (int i in contrasts)
+                for (int j = 0; j < NTrials; j++) contrastPresentations.Add(i);
 
-            Threshold();
+            shuffle = new Random();
 
-            signalStrength = 0;
-            Gesehen = false;
-
-            //Threshold() called once more first run of ZeigeNeueSignalstaerke()
         }
 
         protected override void ZeigeNeueSignalstaerke()
         {
             if (!TesteAbbruch())
             {
-                Threshold();
-                this.ChangeContrast(signalStrength);
+                nextContrast = shuffle.Next(contrastPresentations.Count);
+                this.ChangeContrast(contrastPresentations[nextContrast]);
+                contrastPresentations.RemoveAt(nextContrast);
                 this.PlaySignal();
             }
             else
             {
-                Threshold();
                 this.OnAbbruch(new AbbruchEventArgs(""));
             }
         }
 
         protected override bool TesteAbbruch()
         {
-            return (trial >= NTrials);
+            return (contrastPresentations.Count == 0);
         }
 
     }
