@@ -170,6 +170,7 @@
     <Compile Include="SignalGeneration.cs" />
     <Compile Include="Teststrategie.cs" />
     <Compile Include="BestPEST.cs" />
+    <Compile Include="ConstantStimuli.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
