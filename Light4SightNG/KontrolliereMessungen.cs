@@ -32,7 +32,7 @@ namespace Light4SightNG
         public int freq = -1;
 
         StdStrategie stdStrategie;
-        BestPEST Strategie;
+        Teststrategie Strategie;
 
         List<ChannelDescription> channels = new List<ChannelDescription>();
 
@@ -638,12 +638,12 @@ namespace Light4SightNG
                     (Math.Abs(IBChannel.SC1DeltaK_100) < float.Epsilon) &&
                     (ICChannel.SC1DeltaK_100 < float.Epsilon))
                 {
-                    if (UseBestPEST) Strategie = new BestPEST(mainProgram);
+                    if (UseBestPEST) Strategie = new ConstantStimuli(mainProgram);
                     else stdStrategie = new StdStrategie(mainProgram, "außen", testeCFF);
                 }
                 else
                 {
-                    if (UseBestPEST) Strategie = new BestPEST(mainProgram);
+                    if (UseBestPEST) Strategie = new ConstantStimuli(mainProgram);
                     else stdStrategie = new StdStrategie(mainProgram, "innen", testeCFF);
                 }
                 if (UseBestPEST) Strategie.Abbruch += new EventHandler<AbbruchEventArgs>(stdStrategie_abbruch);
