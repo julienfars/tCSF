@@ -22,7 +22,6 @@ namespace Light4SightNG
         public bool UseBestPEST;
         public int NTrials;
 
-        //Objekt für die Audioschnittstelle. Dient der Steuerung der Wiedergabe(Start,Stop,Puffer)
         public AudioControl AudioControl = new AudioControl();
 
         public MainForm()
@@ -46,21 +45,24 @@ namespace Light4SightNG
             comboBox2.Items.AddRange(Directory.GetFiles(@".\presets", "*.pre"));
             comboBox3.Items.AddRange(Directory.GetFiles(@".\presets", "*.pre"));
             comboBox4.Items.AddRange(Directory.GetFiles(@".\presets", "*.pre"));
+
             selectAlgorithm.SelectedIndex = 0;
             NumberOfTrials.Enabled = false;
             SignalGeneration.InitializeValues();
+
             envFreq.SelectedIndex = 0;
             pEnv.Checked = false;
             SignalGeneration.Envelope = "0";
             SignalGeneration.PauseEnvelope = false;
-            //comboBox1.SelectedIndex = 1;
-            //comboBox2.SelectedIndex = 2;
-            //comboBox3.SelectedIndex = 3;
-            //comboBox4.SelectedIndex = 4;
+
             if (Directory.GetFiles(@".\Untersuchungen", "*.txt").Length > 0)
-            { result.Enabled = true; }
+            {
+                result.Enabled = true;
+            }
             else
-            { result.Enabled = false; }
+            {
+                result.Enabled = false;
+            }
         }
 
         void mRCFF_Click(object sender, EventArgs e)
@@ -117,7 +119,10 @@ namespace Light4SightNG
 
         void start_Click(object sender, EventArgs e)
         {
-            if (!(Rod.Checked || LCone.Checked || MCone.Checked || SCone.Checked)) { MessageBox.Show("Bitte mindestens einen Photorezeptor auswählen"); }
+            if (!(Rod.Checked || LCone.Checked || MCone.Checked || SCone.Checked))
+            {
+                MessageBox.Show("Bitte mindestens einen Photorezeptor auswählen");
+            }
             else
             {
                 MeasureThresholdsForm messung = new MeasureThresholdsForm(tbProbandenNummer.Text, cbAugenseite.Text, Rod.Checked, RCFF.Text, LCone.Checked, LCFF.Text, MCone.Checked, MCFF.Text, SCone.Checked, SCFF.Text, this);
@@ -325,25 +330,37 @@ namespace Light4SightNG
         void ergebnisseVorhanden_Changed(object sender, FileSystemEventArgs e)
         {
             if (Directory.GetFiles(@".\Untersuchungen", "*.txt").Length > 0)
-            { result.Enabled = true; }
+            {
+                result.Enabled = true;
+            }
             else
-            { result.Enabled = false; }
+            {
+                result.Enabled = false;
+            }
         }
 
         void ergebnisseVorhanden_Created(object sender, FileSystemEventArgs e)
         {
             if (Directory.GetFiles(@".\Untersuchungen", "*.txt").Length > 0)
-            { result.Enabled = true; }
+            {
+                result.Enabled = true;
+            }
             else
-            { result.Enabled = false; }
+            {
+                result.Enabled = false;
+            }
         }
 
         void ergebnisseVorhanden_Deleted(object sender, FileSystemEventArgs e)
         {
             if (Directory.GetFiles(@".\Untersuchungen", "*.txt").Length > 0)
-            { result.Enabled = true; }
+            {
+                result.Enabled = true;
+            }
             else
-            { result.Enabled = false; }
+            {
+                result.Enabled = false;
+            }
         }
 
         void myProcess_Exited(object sender, System.EventArgs e) { }
@@ -432,7 +449,7 @@ namespace Light4SightNG
         {
             switch (selectAlgorithm.Text)
             {
-                case "BestPEST":
+                case "Constant-Stimuli":
                     UseBestPEST = true;
                     NumberOfTrials.Enabled = true;
                     break;

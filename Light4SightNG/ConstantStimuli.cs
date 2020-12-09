@@ -34,7 +34,7 @@ namespace Light4SightNG
 
         protected override void PresentNextStimulus()
         {
-            if (!TesteAbbruch())
+            if (!AbortCriterionReached())
             {
                 nextContrast = shuffle.Next(contrastPresentations.Count);
                 this.ChangeContrast(contrastPresentations[nextContrast]);
@@ -47,7 +47,7 @@ namespace Light4SightNG
             }
         }
 
-        protected override bool TesteAbbruch()
+        protected override bool AbortCriterionReached()
         {
             return (contrastPresentations.Count == 0);
         }

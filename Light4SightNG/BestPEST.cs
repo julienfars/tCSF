@@ -49,7 +49,7 @@ namespace Light4SightNG
 
         protected override void PresentNextStimulus()
         {
-            if (!TesteAbbruch())
+            if (!AbortCriterionReached())
             {
                 trial++;
                 Threshold();
@@ -63,7 +63,7 @@ namespace Light4SightNG
             }
         }
 
-        protected override bool TesteAbbruch()
+        protected override bool AbortCriterionReached()
         {
             return (trial >= NTrials);
         }

@@ -89,7 +89,11 @@ namespace Light4SightNG
         #endregion
 
         #region Messung starten/beenden
-        protected virtual void OnAbbruch(AbbruchEventArgs e)
+        /// <summary>
+        /// Handles the abort of the current strategy.
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void AbortStrategyEventHandler(AbbruchEventArgs e)
         {
             MeasurementForm.cff = finalCFF;
             this.abbruch(this, e);
@@ -99,43 +103,11 @@ namespace Light4SightNG
         {
             if (!testeCFF) InitValuesContrast(); else InitValuesCFF();
 
-            #region Kontrastwerte der aktiven Kanäle einlesen
-            if (MeasurementForm.IRChannel.IsActive)
-            {
-                Kontrast_100[0] = MeasurementForm.IRChannel.StartContrastDownStaircase;
-            }
-            if (MeasurementForm.IGChannel.IsActive)
-            {
-                Kontrast_100[1] = MeasurementForm.IGChannel.StartContrastDownStaircase;
-            }
-            if (MeasurementForm.IBChannel.IsActive)
-            {
-                Kontrast_100[2] = MeasurementForm.IBChannel.StartContrastDownStaircase;
-            }
-            if (MeasurementForm.ICChannel.IsActive)
-            {
-                Kontrast_100[3] = MeasurementForm.ICChannel.StartContrastDownStaircase;
-            }
-            if (MeasurementForm.ORChannel.IsActive)
-            {
-                Kontrast_100[4] = MeasurementForm.ORChannel.StartContrastDownStaircase;
-            }
-            if (MeasurementForm.OGChannel.IsActive)
-            {
-                Kontrast_100[5] = MeasurementForm.OGChannel.StartContrastDownStaircase;
-            }
-            if (MeasurementForm.OBChannel.IsActive)
-            {
-                Kontrast_100[6] = MeasurementForm.OBChannel.StartContrastDownStaircase;
-            }
-            if (MeasurementForm.OCChannel.IsActive)
-            {
-                Kontrast_100[7] = MeasurementForm.OCChannel.StartContrastDownStaircase;
-            }
-            #endregion
+            for (int i = 0; i < 8; i++)
+                if (MeasurementForm.Channels[i].IsActive)
+                    Kontrast_100[i] = MeasurementForm.Channels[i].StartContrastDownStaircase;
 
             if (LED_Gruppe == "innen")
-            #region unterscheidung welche led_gruppe und entsprechnde index zuweisung
             {
                 rot = 0;
                 gruen = 1;
@@ -149,7 +121,6 @@ namespace Light4SightNG
                 blau = 6;
                 cyan = 7;
             }
-            #endregion
             Randomisierung();
         }
         #endregion
@@ -159,7 +130,7 @@ namespace Light4SightNG
         {
             if (SC1_7 && SC2_7)
             {
-                this.OnAbbruch(new AbbruchEventArgs(""));
+                this.AbortStrategyEventHandler(new AbbruchEventArgs(""));
             }
 
             if (Globals.Staircase == "up" && !SC2_7)
@@ -178,7 +149,7 @@ namespace Light4SightNG
             {
                 if (SC1_7 && SC2_7)
                 {
-                    this.OnAbbruch(new AbbruchEventArgs(""));
+                    this.AbortStrategyEventHandler(new AbbruchEventArgs(""));
                 }
 
                 double tmpRand = dRand.NextDouble();
@@ -307,14 +278,14 @@ namespace Light4SightNG
 
                 if (SC1_7 == true && SC2_7 == true)
                 {
-                    this.OnAbbruch(new AbbruchEventArgs(""));
+                    this.AbortStrategyEventHandler(new AbbruchEventArgs(""));
                 }
 
                 if (SC1_7 == false)
                 {
                     if (iDurchlaufSC1 == 1) SC1_gesehen_alt = true;
                     else SC1_gesehen_alt = SC1_gesehen;
-                    SignalWiedergeben();
+                    Start();
                     iDurchlaufSC1++;
                 }
                 else Randomisierung();
@@ -322,7 +293,7 @@ namespace Light4SightNG
             }
             else
             {
-                this.OnAbbruch(new AbbruchEventArgs(""));
+                this.AbortStrategyEventHandler(new AbbruchEventArgs(""));
             }
         }
 
@@ -436,14 +407,14 @@ namespace Light4SightNG
 
                 if (SC1_7 == true && SC2_7 == true)
                 {
-                    this.OnAbbruch(new AbbruchEventArgs(""));
+                    this.AbortStrategyEventHandler(new AbbruchEventArgs(""));
                 }
 
                 if (SC2_7 == false)
                 {
                     if (iDurchlaufSC2 == 1) SC2_gesehen_alt = false;
                     else SC2_gesehen_alt = SC2_gesehen;
-                    SignalWiedergeben();
+                    Start();
                     iDurchlaufSC2++;
                 }
                 else Randomisierung();
@@ -451,7 +422,7 @@ namespace Light4SightNG
             }
             else
             {
-                this.OnAbbruch(new AbbruchEventArgs(""));
+                this.AbortStrategyEventHandler(new AbbruchEventArgs(""));
             }
         }
 
@@ -555,26 +526,26 @@ namespace Light4SightNG
 
         void _setNewFrequency()
         {
-            MeasurementForm.IRChannel.Frequency = Frequenz;
-            MeasurementForm.IGChannel.Frequency = Frequenz;
-            MeasurementForm.IBChannel.Frequency = Frequenz;
-            MeasurementForm.ICChannel.Frequency = Frequenz;
-            MeasurementForm.ORChannel.Frequency = Frequenz;
-            MeasurementForm.OGChannel.Frequency = Frequenz;
-            MeasurementForm.OBChannel.Frequency = Frequenz;
-            MeasurementForm.OCChannel.Frequency = Frequenz;
+            foreach (ChannelDescription c in MeasurementForm.Channels)
+                c.Frequency = Frequenz;
         }
         #endregion
 
         #region Signalsteuerung
-        void SignalWiedergeben()
+        /// <summary>
+        /// Creates wave description and starts the audio signal.
+        /// </summary>
+        void Start()
         {
             AudioControl.InitWaveContainer();
-            SignalGeneration.Untersuchungssignal();
+            SignalGeneration.CreateSignalWave();
             AudioControl.PlaySignal();
         }
 
-        public void SignalStoppen()
+        /// <summary>
+        /// Stops the audio signal.
+        /// </summary>
+        public void Stop()
         {
             AudioControl.StopSignal();
         }
@@ -585,7 +556,7 @@ namespace Light4SightNG
         {
             if (e.KeyCode == Keys.Y)
             {
-                SignalStoppen();
+                Stop();
                 Thread.Sleep(10);
                 if (SC1_aktiv == true)
                 {
@@ -608,7 +579,7 @@ namespace Light4SightNG
             if (e.KeyCode == Keys.M)
             {
                 Thread.Sleep(10);
-                SignalStoppen();
+                Stop();
                 if (SC1_aktiv == true)
                 {
                     SC1_gesehen = false;

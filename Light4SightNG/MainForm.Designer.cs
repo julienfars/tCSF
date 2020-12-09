@@ -398,7 +398,7 @@
             this.selectAlgorithm.FormattingEnabled = true;
             this.selectAlgorithm.Items.AddRange(new object[] {
             "Randomly-Interleaved-Staircases",
-            "BestPEST",
+            "Constant-Stimuli",
             "Up-Staircase",
             "Down-Staircase"});
             this.selectAlgorithm.Location = new System.Drawing.Point(520, 171);

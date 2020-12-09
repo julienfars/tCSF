@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Light4SightNG
 {
+
     public partial class MeasurementForm : Form
     {
-        //Kanalobjekkte erzeugen
-        // public static ChannelDescription[] Channels = new ChannelDescription[8];
+        public static ChannelDescription[] Channels = new ChannelDescription[8];
         public static ChannelDescription IRChannel = new ChannelDescription();
         public static ChannelDescription IGChannel = new ChannelDescription();
         public static ChannelDescription IBChannel = new ChannelDescription();
@@ -47,7 +47,14 @@ namespace Light4SightNG
         public MeasurementForm(MainForm gpObject)
         {
             // Create ChannelDescriptions
-            // for (int i = 0; i < 8; i++) Channels[i] = new ChannelDescription();
+            Channels[0] = IRChannel;
+            Channels[1] = IGChannel;
+            Channels[2] = IBChannel;
+            Channels[3] = ICChannel;
+            Channels[4] = ORChannel;
+            Channels[5] = OGChannel;
+            Channels[6] = OBChannel;
+            Channels[7] = OCChannel;
 
             this.mainProgram = gpObject;
             UseBestPEST = mainProgram.UseBestPEST;
@@ -102,14 +109,7 @@ namespace Light4SightNG
                 btnUntersuchungStartenActive(false);
             }
 
-            channels.Add(IRChannel);
-            channels.Add(IGChannel);
-            channels.Add(IBChannel);
-            channels.Add(ICChannel);
-            channels.Add(ORChannel);
-            channels.Add(OGChannel);
-            channels.Add(OBChannel);
-            channels.Add(OCChannel);
+            foreach(ChannelDescription c in channels) channels.Add(c);
 
             this.btnUntersuchungAbbrechenActive(false);
             this.btnUntersuchungStartenActive(true);
@@ -127,7 +127,7 @@ namespace Light4SightNG
             this.btnLoadPreset_Click(this, null, Presets);
             this.btnUntersuchungStarten_Click(this, null);
             this.prepareLogFile();
-            if (UseBestPEST) Strategie.StarteStrategie();
+            if (UseBestPEST) Strategie.Start();
             else stdStrategie.StartStdStrategie();
             this.ShowDialog();
         }
@@ -152,225 +152,37 @@ namespace Light4SightNG
 
         void prepareLogFile()
         {
-            string line2, line3, line4, line5, line6, line7, line8, line9, line10;
+            string[] lines = { "Signal aktiv;", "Signalform;;", "Helligkeit;;",
+                    "Frequenz;;", "Phase;;", "Kontrast SC1;;","Kontrast SC2;;",
+                "Delta Kontrast SC1;;", "Delta Kontrast SC2;;" };
+
             LogFile(";;Centerfield;;;;;Surroundfield;;", true);
             LogFile(";;R;G;B;C;;R;G;B;C;", true);
 
             LogFile("Frequenz Envelope;;" + SignalGeneration.Envelope, true);
             LogFile("Pausiere Envelope;;" + Convert.ToString(SignalGeneration.PauseEnvelope), true);
 
-            if (MeasurementForm.IRChannel.IsActive == true)
+            foreach (ChannelDescription c in Channels)
             {
-                line2 = ("Signal aktiv;;" + MeasurementForm.IRChannel.IsActive.ToString() + ";");
-                line3 = ("Signalform;;" + MeasurementForm.IRChannel.SignalType + ";");
-                line4 = ("Helligkeit;;" + MeasurementForm.IRChannel.CandelaPerSquareMeter.ToString() + ";");
-                line5 = ("Frequenz;;" + MeasurementForm.IRChannel.Frequency.ToString() + ";");
-                line6 = ("Phase;;" + MeasurementForm.IRChannel.GetPhase().ToString() + ";");
-                line7 = ("Kontrast SC1;;" + MeasurementForm.IRChannel.StartContrastDownStaircase.ToString() + ";");
-                line8 = ("Kontrast SC2;;" + MeasurementForm.IRChannel.StartContrastUpStaircase.ToString() + ";");
-                line9 = ("Delta Kontrast SC1;;" + MeasurementForm.IRChannel.StepsizeDownStaircase.ToString() + ";");
-                line10 = ("Delta Kontrast SC2;;" + MeasurementForm.IRChannel.StepsizeUpStaircase.ToString() + ";");
-            }
-            else
-            {
-                line2 = ("Signal aktiv;;");
-                line3 = ("Signalform;;;");
-                line4 = ("Helligkeit;;;");
-                line5 = ("Frequenz;;;");
-                line6 = ("Phase;;;");
-                line7 = ("Kontrast SC1;;;");
-                line8 = ("Kontrast SC2;;;");
-                line9 = ("Delta Kontrast SC1;;;");
-                line10 = ("Delta Kontrast SC2;;;");
-            }
+                if (c.IsActive)
+                {
+                    lines[0] += c.IsActive.ToString();
+                    lines[1] += c.SignalType;
+                    lines[2] += c.CandelaPerSquareMeter.ToString();
+                    lines[3] += c.Frequency.ToString();
+                    lines[4] += c.GetPhase().ToString();
+                    lines[5] += c.StartContrastDownStaircase.ToString();
+                    lines[6] += c.StartContrastUpStaircase.ToString();
+                    lines[7] += c.StepsizeDownStaircase.ToString();
+                    lines[8] += c.StepsizeUpStaircase.ToString();
+                }
+                for (int i = 0; i < 9; i++) lines[i] += ";";
 
-            if (MeasurementForm.IGChannel.IsActive == true)
-            {
-                line2 = (line2 + MeasurementForm.IGChannel.IsActive.ToString() + ";");
-                line3 = (line3 + MeasurementForm.IGChannel.SignalType + ";");
-                line4 = (line4 + MeasurementForm.IGChannel.CandelaPerSquareMeter.ToString() + ";");
-                line5 = (line5 + MeasurementForm.IGChannel.Frequency.ToString() + ";");
-                line6 = (line6 + MeasurementForm.IGChannel.GetPhase().ToString() + ";");
-                line7 = (line7 + MeasurementForm.IGChannel.StartContrastDownStaircase.ToString() + ";");
-                line8 = (line8 + MeasurementForm.IGChannel.StartContrastUpStaircase.ToString() + ";");
-                line9 = (line9 + MeasurementForm.IGChannel.StepsizeDownStaircase.ToString() + ";");
-                line10 = (line10 + MeasurementForm.IGChannel.StepsizeUpStaircase.ToString() + ";");
+                if (c == OCChannel)
+                    for (int i = 0; i < 9; i++) lines[i] += ";;";
             }
-            else
-            {
-                line2 = (line2 + ";");
-                line3 = (line3 + ";");
-                line4 = (line4 + ";");
-                line5 = (line5 + ";");
-                line6 = (line6 + ";");
-                line7 = (line7 + ";");
-                line8 = (line8 + ";");
-                line9 = (line9 + ";");
-                line10 = (line10 + ";");
-            }
-
-
-            if (MeasurementForm.IBChannel.IsActive == true)
-            {
-                line2 = (line2 + MeasurementForm.IBChannel.IsActive.ToString() + ";");
-                line3 = (line3 + MeasurementForm.IBChannel.SignalType + ";");
-                line4 = (line4 + MeasurementForm.IBChannel.CandelaPerSquareMeter.ToString() + ";");
-                line5 = (line5 + MeasurementForm.IBChannel.Frequency.ToString() + ";");
-                line6 = (line6 + MeasurementForm.IBChannel.GetPhase().ToString() + ";");
-                line7 = (line7 + MeasurementForm.IBChannel.StartContrastDownStaircase.ToString() + ";");
-                line8 = (line8 + MeasurementForm.IBChannel.StartContrastUpStaircase.ToString() + ";");
-                line9 = (line9 + MeasurementForm.IBChannel.StepsizeDownStaircase.ToString() + ";");
-                line10 = (line10 + MeasurementForm.IBChannel.StepsizeUpStaircase.ToString() + ";");
-            }
-            else
-            {
-                line2 = (line2 + ";");
-                line3 = (line3 + ";");
-                line4 = (line4 + ";");
-                line5 = (line5 + ";");
-                line6 = (line6 + ";");
-                line7 = (line7 + ";");
-                line8 = (line8 + ";");
-                line9 = (line9 + ";");
-                line10 = (line10 + ";");
-            }
-
-            if (MeasurementForm.ICChannel.IsActive == true)
-            {
-                line2 = (line2 + MeasurementForm.ICChannel.IsActive.ToString() + ";;");
-                line3 = (line3 + MeasurementForm.ICChannel.SignalType + ";;");
-                line4 = (line4 + MeasurementForm.ICChannel.CandelaPerSquareMeter.ToString() + ";;");
-                line5 = (line5 + MeasurementForm.ICChannel.Frequency.ToString() + ";;");
-                line6 = (line6 + MeasurementForm.ICChannel.GetPhase().ToString() + ";;");
-                line7 = (line7 + MeasurementForm.ICChannel.StartContrastDownStaircase.ToString() + ";;");
-                line8 = (line8 + MeasurementForm.ICChannel.StartContrastUpStaircase.ToString() + ";;");
-                line9 = (line9 + MeasurementForm.ICChannel.StepsizeDownStaircase.ToString() + ";;");
-                line10 = (line10 + MeasurementForm.ICChannel.StepsizeUpStaircase.ToString() + ";;");
-            }
-            else
-            {
-                line2 = (line2 + ";;;");
-                line3 = (line3 + ";;;");
-                line4 = (line4 + ";;;");
-                line5 = (line5 + ";;;");
-                line6 = (line6 + ";;;");
-                line7 = (line7 + ";;;");
-                line8 = (line8 + ";;;");
-                line9 = (line9 + ";;;");
-                line10 = (line10 + ";;;");
-            }
-
-            if (MeasurementForm.ORChannel.IsActive == true)
-            {
-                line2 = (line2 + MeasurementForm.ORChannel.IsActive.ToString() + ";");
-                line3 = (line3 + MeasurementForm.ORChannel.SignalType + ";");
-                line4 = (line4 + MeasurementForm.ORChannel.CandelaPerSquareMeter.ToString() + ";");
-                line5 = (line5 + MeasurementForm.ORChannel.Frequency.ToString() + ";");
-                line6 = (line6 + MeasurementForm.ORChannel.GetPhase().ToString() + ";");
-                line7 = (line7 + MeasurementForm.ORChannel.StartContrastDownStaircase.ToString() + ";");
-                line8 = (line8 + MeasurementForm.ORChannel.StartContrastUpStaircase.ToString() + ";");
-                line9 = (line9 + MeasurementForm.ORChannel.StepsizeDownStaircase.ToString() + ";");
-                line10 = (line10 + MeasurementForm.ORChannel.StepsizeUpStaircase.ToString() + ";");
-            }
-            else
-            {
-                line2 = (line2 + ";");
-                line3 = (line3 + ";");
-                line4 = (line4 + ";");
-                line5 = (line5 + ";");
-                line6 = (line6 + ";");
-                line7 = (line7 + ";");
-                line8 = (line8 + ";");
-                line9 = (line9 + ";");
-                line10 = (line10 + ";");
-            }
-
-            if (MeasurementForm.OGChannel.IsActive == true)
-            {
-                line2 = (line2 + MeasurementForm.OGChannel.IsActive.ToString() + ";");
-                line3 = (line3 + MeasurementForm.OGChannel.SignalType + ";");
-                line4 = (line4 + MeasurementForm.OGChannel.CandelaPerSquareMeter.ToString() + ";");
-                line5 = (line5 + MeasurementForm.OGChannel.Frequency.ToString() + ";");
-                line6 = (line6 + MeasurementForm.OGChannel.GetPhase().ToString() + ";");
-                line7 = (line7 + MeasurementForm.OGChannel.StartContrastDownStaircase.ToString() + ";");
-                line8 = (line8 + MeasurementForm.OGChannel.StartContrastUpStaircase.ToString() + ";");
-                line9 = (line9 + MeasurementForm.OGChannel.StepsizeDownStaircase.ToString() + ";");
-                line10 = (line10 + MeasurementForm.OGChannel.StepsizeUpStaircase.ToString() + ";");
-            }
-            else
-            {
-                line2 = (line2 + ";");
-                line3 = (line3 + ";");
-                line4 = (line4 + ";");
-                line5 = (line5 + ";");
-                line6 = (line6 + ";");
-                line7 = (line7 + ";");
-                line8 = (line8 + ";");
-                line9 = (line9 + ";");
-                line10 = (line10 + ";");
-            }
-
-            if (MeasurementForm.OBChannel.IsActive == true)
-            {
-                line2 = (line2 + MeasurementForm.OBChannel.IsActive.ToString() + ";");
-                line3 = (line3 + MeasurementForm.OBChannel.SignalType + ";");
-                line4 = (line4 + MeasurementForm.OBChannel.CandelaPerSquareMeter.ToString() + ";");
-                line5 = (line5 + MeasurementForm.OBChannel.Frequency.ToString() + ";");
-                line6 = (line6 + MeasurementForm.OBChannel.GetPhase().ToString() + ";");
-                line7 = (line7 + MeasurementForm.OBChannel.StartContrastDownStaircase.ToString() + ";");
-                line8 = (line8 + MeasurementForm.OBChannel.StartContrastUpStaircase.ToString() + ";");
-                line9 = (line9 + MeasurementForm.OBChannel.StepsizeDownStaircase.ToString() + ";");
-                line10 = (line10 + MeasurementForm.OBChannel.StepsizeUpStaircase.ToString() + ";");
-            }
-            else
-            {
-                line2 = (line2 + ";");
-                line3 = (line3 + ";");
-                line4 = (line4 + ";");
-                line5 = (line5 + ";");
-                line6 = (line6 + ";");
-                line7 = (line7 + ";");
-                line8 = (line8 + ";");
-                line9 = (line9 + ";");
-                line10 = (line10 + ";");
-            }
-
-            if (MeasurementForm.OCChannel.IsActive == true)
-            {
-                line2 = (line2 + MeasurementForm.OCChannel.IsActive.ToString() + ";");
-                line3 = (line3 + MeasurementForm.OCChannel.SignalType + ";");
-                line4 = (line4 + MeasurementForm.OCChannel.CandelaPerSquareMeter.ToString() + ";");
-                line5 = (line5 + MeasurementForm.OCChannel.Frequency.ToString() + ";");
-                line6 = (line6 + MeasurementForm.OCChannel.GetPhase().ToString() + ";");
-                line7 = (line7 + MeasurementForm.OCChannel.StartContrastDownStaircase.ToString() + ";");
-                line8 = (line8 + MeasurementForm.OCChannel.StartContrastUpStaircase.ToString() + ";");
-                line9 = (line9 + MeasurementForm.OCChannel.StepsizeDownStaircase.ToString() + ";");
-                line10 = (line10 + MeasurementForm.OCChannel.StepsizeUpStaircase.ToString() + ";");
-            }
-            else
-            {
-                line2 = (line2 + ";");
-                line3 = (line3 + ";");
-                line4 = (line4 + ";");
-                line5 = (line5 + ";");
-                line6 = (line6 + ";");
-                line7 = (line7 + ";");
-                line8 = (line8 + ";");
-                line9 = (line9 + ";");
-                line10 = (line10 + ";");
-            }
-
-            LogFile(line2, true);
-            LogFile(line3, true);
-            LogFile(line4, true);
-            LogFile(line5, true);
-            LogFile(line6, true);
-            LogFile(line7, true);
-            LogFile(line8, true);
-            LogFile(line9, true);
-            LogFile(line10, true);
-            LogFile("", true);
         }
+
 
         void closeAllPanels()
         {
@@ -676,7 +488,7 @@ namespace Light4SightNG
             this.KeyPreview = false;
             if (stdStrategie != null)
             {
-                stdStrategie.SignalStoppen();
+                stdStrategie.Stop();
                 Thread.Sleep(100);
                 stdStrategie = null;
             }

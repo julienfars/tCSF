@@ -104,7 +104,6 @@
     <Compile Include="AudioControl.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="ChannelDescription.cs" />
-    <Compile Include="TesteChannels.cs" />
     <Compile Include="StdStrategie.cs" />
     <Compile Include="ShowResultsForm.cs">
       <SubType>Form</SubType>
@@ -168,7 +167,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="SignalGeneration.cs" />
-    <Compile Include="TestStrategy.cs" />
     <Compile Include="BestPEST.cs" />
     <Compile Include="ConstantStimuli.cs" />
   </ItemGroup>
