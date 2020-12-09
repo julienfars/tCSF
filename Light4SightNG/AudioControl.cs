@@ -14,7 +14,7 @@ using System.IO;
 
 namespace Light4SightNG
 {
-    public class AudioControlClass : IDisposable
+    public class AudioControl : IDisposable
     {
         long cbWaveSize;
         static readonly XAudio2 AudioDevice = new XAudio2();
@@ -73,16 +73,16 @@ namespace Light4SightNG
             return lo;
         }
 
-        public AudioControlClass()
+        public AudioControl()
         {
             SignalFormat = new SlimDX.Multimedia.WaveFormat();
-            SignalFormat.AverageBytesPerSecond = AudioControlClass.BytesProSekunde;
-            SignalFormat.BlockAlignment = AudioControlClass.Blockausrichtung;
-            SignalFormat.Channels = AudioControlClass.AnzahlKanaele;
-            SignalFormat.SamplesPerSecond = AudioControlClass.AbtastFrequenz;
-            SignalFormat.BitsPerSample = AudioControlClass.SampleContainerGroesse;
+            SignalFormat.AverageBytesPerSecond = AudioControl.BytesProSekunde;
+            SignalFormat.BlockAlignment = AudioControl.Blockausrichtung;
+            SignalFormat.Channels = AudioControl.AnzahlKanaele;
+            SignalFormat.SamplesPerSecond = AudioControl.AbtastFrequenz;
+            SignalFormat.BitsPerSample = AudioControl.SampleContainerGroesse;
             SignalFormat.FormatTag = SlimDX.Multimedia.WaveFormatTag.Pcm;
-            cbWaveSize = AudioControlClass.SampleLaenge * SignalFormat.Channels * SignalFormat.SamplesPerSecond * SignalFormat.BitsPerSample / 8;
+            cbWaveSize = AudioControl.SampleLaenge * SignalFormat.Channels * SignalFormat.SamplesPerSecond * SignalFormat.BitsPerSample / 8;
         }
 
         public bool InitWaveContainer()
@@ -185,7 +185,7 @@ namespace Light4SightNG
             for (int i = 0; i < signalCopy.Length; i++)
             {
                 signalCopy[i] *= Math.Sin(dWinkel);
-                dWinkel += 2 * Math.PI * AudioControlClass.TraegerFrequenz / AudioControlClass.AbtastFrequenz;
+                dWinkel += 2 * Math.PI * AudioControl.TraegerFrequenz / AudioControl.AbtastFrequenz;
                 if (dWinkel > 2 * Math.PI)
                     dWinkel -= 2 * Math.PI;
                 WriteToWaveContainer(signalCopy[i], channel, i);
@@ -194,11 +194,11 @@ namespace Light4SightNG
 
         public void WriteToWaveContainer(double dValue, int iChannel, int iPosition)
         {
-            WaveDaten[(((iPosition * 8) + iChannel) * 2)] = AudioControlClass.Lowbyte((Int16)dValue);
-            WaveDaten[(((iPosition * 8) + iChannel) * 2) + 1] = AudioControlClass.Highbyte((Int16)dValue);
+            WaveDaten[(((iPosition * 8) + iChannel) * 2)] = AudioControl.Lowbyte((Int16)dValue);
+            WaveDaten[(((iPosition * 8) + iChannel) * 2) + 1] = AudioControl.Highbyte((Int16)dValue);
         }
 
-        ~AudioControlClass()
+        ~AudioControl()
         {
             this.StopSignal();
             this.Dispose();

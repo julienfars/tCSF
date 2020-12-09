@@ -1,6 +1,6 @@
 ﻿namespace Light4SightNG
 {
-    partial class MesseSchwellen
+    partial class MeasureThresholdsForm
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MesseSchwellen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MeasureThresholdsForm));
             this.button1 = new System.Windows.Forms.Button();
             this.fortschritt = new System.Windows.Forms.ProgressBar();
             this.start = new System.Windows.Forms.Button();

@@ -1,6 +1,6 @@
 ﻿namespace Light4SightNG
 {
-    partial class KontrolliereMessungen
+    partial class MeasurementForm
     {
         /// <summary>
         /// Erforderliche Designervariable.

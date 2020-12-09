@@ -1,6 +1,6 @@
 ﻿namespace Light4SightNG
 {
-    partial class ZeigeErgebnis
+    partial class ShowResultsForm
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZeigeErgebnis));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowResultsForm));
             this.ergebnisBMP = new System.Windows.Forms.PictureBox();
             this.fertig = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();

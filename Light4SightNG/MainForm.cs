@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Light4SightNG
 {
-    public partial class Steuerung : Form
+    public partial class MainForm : Form
     {
         public static String RodPath = @"presets/rod.pre";
         public static String LConePath = @"presets/lcone.pre";
@@ -23,9 +23,9 @@ namespace Light4SightNG
         public int NTrials;
 
         //Objekt für die Audioschnittstelle. Dient der Steuerung der Wiedergabe(Start,Stop,Puffer)
-        public AudioControlClass AudioControl = new AudioControlClass();
+        public AudioControl AudioControl = new AudioControl();
 
-        public Steuerung()
+        public MainForm()
         {
 
             InitializeComponent();
@@ -66,12 +66,12 @@ namespace Light4SightNG
         void mRCFF_Click(object sender, EventArgs e)
         {
             String bkCFF = RCFF.Text;
-            KontrolliereMessungen.cff = -1;
-            KontrolliereMessungen determineCFF = new KontrolliereMessungen(this);
+            MeasurementForm.cff = -1;
+            MeasurementForm determineCFF = new MeasurementForm(this);
             determineCFF.testeCFF = true;
             determineCFF.SetDesktopLocation(this.Location.X + this.Size.Width, this.Location.Y);
             determineCFF.ShowDialog(tbProbandenNummer.Text, cbAugenseite.Text, RodPath);
-            RCFF.Text = Convert.ToString(KontrolliereMessungen.cff);
+            RCFF.Text = Convert.ToString(MeasurementForm.cff);
             if (RCFF.Text == "-1") { MessageBox.Show("Messung der CFF nicht erfolgreich."); RCFF.Text = bkCFF; }
             determineCFF.Dispose();
         }
@@ -79,12 +79,12 @@ namespace Light4SightNG
         void mLCFF_Click(object sender, EventArgs e)
         {
             String bkCFF = LCFF.Text;
-            KontrolliereMessungen.cff = -1;
-            KontrolliereMessungen determineCFF = new KontrolliereMessungen(this);
+            MeasurementForm.cff = -1;
+            MeasurementForm determineCFF = new MeasurementForm(this);
             determineCFF.testeCFF = true;
             determineCFF.SetDesktopLocation(this.Location.X + this.Size.Width, this.Location.Y);
             determineCFF.ShowDialog(tbProbandenNummer.Text, cbAugenseite.Text, LConePath);
-            LCFF.Text = Convert.ToString(KontrolliereMessungen.cff);
+            LCFF.Text = Convert.ToString(MeasurementForm.cff);
             if (LCFF.Text == "-1") { MessageBox.Show("Messung der CFF nicht erfolgreich."); LCFF.Text = bkCFF; }
             determineCFF.Dispose();
         }
@@ -92,12 +92,12 @@ namespace Light4SightNG
         void mMCFF_Click(object sender, EventArgs e)
         {
             String bkCFF = MCFF.Text;
-            KontrolliereMessungen.cff = -1;
-            KontrolliereMessungen determineCFF = new KontrolliereMessungen(this);
+            MeasurementForm.cff = -1;
+            MeasurementForm determineCFF = new MeasurementForm(this);
             determineCFF.testeCFF = true;
             determineCFF.SetDesktopLocation(this.Location.X + this.Size.Width, this.Location.Y);
             determineCFF.ShowDialog(tbProbandenNummer.Text, cbAugenseite.Text, MConePath);
-            MCFF.Text = Convert.ToString(KontrolliereMessungen.cff);
+            MCFF.Text = Convert.ToString(MeasurementForm.cff);
             if (MCFF.Text == "-1") { MessageBox.Show("Messung der CFF nicht erfolgreich."); MCFF.Text = bkCFF; }
             determineCFF.Dispose();
         }
@@ -105,12 +105,12 @@ namespace Light4SightNG
         void mSCFF_Click(object sender, EventArgs e)
         {
             String bkCFF = SCFF.Text;
-            KontrolliereMessungen.cff = -1;
-            KontrolliereMessungen determineCFF = new KontrolliereMessungen(this);
+            MeasurementForm.cff = -1;
+            MeasurementForm determineCFF = new MeasurementForm(this);
             determineCFF.testeCFF = true;
             determineCFF.SetDesktopLocation(this.Location.X + this.Size.Width, this.Location.Y);
             determineCFF.ShowDialog(tbProbandenNummer.Text, cbAugenseite.Text, SConePath);
-            SCFF.Text = Convert.ToString(KontrolliereMessungen.cff);
+            SCFF.Text = Convert.ToString(MeasurementForm.cff);
             if (SCFF.Text == "-1") { MessageBox.Show("Messung der CFF nicht erfolgreich."); SCFF.Text = bkCFF; }
             determineCFF.Dispose();
         }
@@ -120,7 +120,7 @@ namespace Light4SightNG
             if (!(Rod.Checked || LCone.Checked || MCone.Checked || SCone.Checked)) { MessageBox.Show("Bitte mindestens einen Photorezeptor auswählen"); }
             else
             {
-                MesseSchwellen messung = new MesseSchwellen(tbProbandenNummer.Text, cbAugenseite.Text, Rod.Checked, RCFF.Text, LCone.Checked, LCFF.Text, MCone.Checked, MCFF.Text, SCone.Checked, SCFF.Text, this);
+                MeasureThresholdsForm messung = new MeasureThresholdsForm(tbProbandenNummer.Text, cbAugenseite.Text, Rod.Checked, RCFF.Text, LCone.Checked, LCFF.Text, MCone.Checked, MCFF.Text, SCone.Checked, SCFF.Text, this);
                 messung.ShowDialog();
                 messung.Dispose();
             }
@@ -244,53 +244,53 @@ namespace Light4SightNG
         void button1_Click(object sender, EventArgs e)
         {
             String bkCFF = "";
-            KontrolliereMessungen determineCFF;
+            MeasurementForm determineCFF;
 
             if (Rod.Checked)
             {
                 bkCFF = RCFF.Text;
-                KontrolliereMessungen.cff = -1;
-                determineCFF = new KontrolliereMessungen(this);
+                MeasurementForm.cff = -1;
+                determineCFF = new MeasurementForm(this);
                 determineCFF.testeCFF = true;
                 determineCFF.SetDesktopLocation(this.Location.X + this.Size.Width, this.Location.Y);
                 determineCFF.ShowDialog(tbProbandenNummer.Text, cbAugenseite.Text, RodPath);
-                RCFF.Text = Convert.ToString(KontrolliereMessungen.cff);
+                RCFF.Text = Convert.ToString(MeasurementForm.cff);
                 determineCFF.Dispose();
             }
 
             if (LCone.Checked)
             {
                 bkCFF = LCFF.Text;
-                KontrolliereMessungen.cff = -1;
-                determineCFF = new KontrolliereMessungen(this);
+                MeasurementForm.cff = -1;
+                determineCFF = new MeasurementForm(this);
                 determineCFF.testeCFF = true;
                 determineCFF.SetDesktopLocation(this.Location.X + this.Size.Width, this.Location.Y);
                 determineCFF.ShowDialog(tbProbandenNummer.Text, cbAugenseite.Text, LConePath);
-                LCFF.Text = Convert.ToString(KontrolliereMessungen.cff);
+                LCFF.Text = Convert.ToString(MeasurementForm.cff);
                 determineCFF.Dispose();
             }
 
             if (MCone.Checked)
             {
                 bkCFF = MCFF.Text;
-                KontrolliereMessungen.cff = -1;
-                determineCFF = new KontrolliereMessungen(this);
+                MeasurementForm.cff = -1;
+                determineCFF = new MeasurementForm(this);
                 determineCFF.testeCFF = true;
                 determineCFF.SetDesktopLocation(this.Location.X + this.Size.Width, this.Location.Y);
                 determineCFF.ShowDialog(tbProbandenNummer.Text, cbAugenseite.Text, MConePath);
-                MCFF.Text = Convert.ToString(KontrolliereMessungen.cff);
+                MCFF.Text = Convert.ToString(MeasurementForm.cff);
                 determineCFF.Dispose();
             }
 
             if (SCone.Checked)
             {
                 bkCFF = SCFF.Text;
-                KontrolliereMessungen.cff = -1;
-                determineCFF = new KontrolliereMessungen(this);
+                MeasurementForm.cff = -1;
+                determineCFF = new MeasurementForm(this);
                 determineCFF.testeCFF = true;
                 determineCFF.SetDesktopLocation(this.Location.X + this.Size.Width, this.Location.Y);
                 determineCFF.ShowDialog(tbProbandenNummer.Text, cbAugenseite.Text, SConePath);
-                SCFF.Text = Convert.ToString(KontrolliereMessungen.cff);
+                SCFF.Text = Convert.ToString(MeasurementForm.cff);
                 determineCFF.Dispose();
             }
 
@@ -316,9 +316,9 @@ namespace Light4SightNG
             myProcess.Exited += new EventHandler(myProcess_Exited);
             myProcess.Start();
             myProcess.WaitForExit();
-            ZeigeErgebnis Erg = new ZeigeErgebnis();
-            Erg.ladeBild(@".\Untersuchungen\plot.bmp");
-            Erg.ladeText(@".\Untersuchungen\daten.csv");
+            ShowResultsForm Erg = new ShowResultsForm();
+            Erg.LoadImage(@".\Untersuchungen\plot.bmp");
+            Erg.LoadText(@".\Untersuchungen\daten.csv");
             Erg.ShowDialog();
         }
 

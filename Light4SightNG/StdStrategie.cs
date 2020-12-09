@@ -45,19 +45,19 @@ namespace Light4SightNG
 
         Random dRand = new Random();
 
-        AudioControlClass AudioControl;
+        AudioControl AudioControl;
 
         public event EventHandler<AbbruchEventArgs> abbruch;
 
         #region Initialisierung
-        public StdStrategie(Steuerung strg, string LEDgruppe, bool CFFtest)
+        public StdStrategie(MainForm strg, string LEDgruppe, bool CFFtest)
         {
             this.AudioControl = strg.AudioControl;
             LED_Gruppe = LEDgruppe;
             testeCFF = CFFtest;
         }
 
-        public StdStrategie(Steuerung strg)
+        public StdStrategie(MainForm strg)
         {
             this.AudioControl = strg.AudioControl;
         }
@@ -91,7 +91,7 @@ namespace Light4SightNG
         #region Messung starten/beenden
         protected virtual void OnAbbruch(AbbruchEventArgs e)
         {
-            KontrolliereMessungen.cff = finalCFF;
+            MeasurementForm.cff = finalCFF;
             this.abbruch(this, e);
         }
 
@@ -100,37 +100,37 @@ namespace Light4SightNG
             if (!testeCFF) InitValuesContrast(); else InitValuesCFF();
 
             #region Kontrastwerte der aktiven Kanäle einlesen
-            if (KontrolliereMessungen.IRChannel.SignalAktiv)
+            if (MeasurementForm.IRChannel.IsActive)
             {
-                Kontrast_100[0] = KontrolliereMessungen.IRChannel.KonSC1_100;
+                Kontrast_100[0] = MeasurementForm.IRChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.IGChannel.SignalAktiv)
+            if (MeasurementForm.IGChannel.IsActive)
             {
-                Kontrast_100[1] = KontrolliereMessungen.IGChannel.KonSC1_100;
+                Kontrast_100[1] = MeasurementForm.IGChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.IBChannel.SignalAktiv)
+            if (MeasurementForm.IBChannel.IsActive)
             {
-                Kontrast_100[2] = KontrolliereMessungen.IBChannel.KonSC1_100;
+                Kontrast_100[2] = MeasurementForm.IBChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.ICChannel.SignalAktiv)
+            if (MeasurementForm.ICChannel.IsActive)
             {
-                Kontrast_100[3] = KontrolliereMessungen.ICChannel.KonSC1_100;
+                Kontrast_100[3] = MeasurementForm.ICChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.ORChannel.SignalAktiv)
+            if (MeasurementForm.ORChannel.IsActive)
             {
-                Kontrast_100[4] = KontrolliereMessungen.ORChannel.KonSC1_100;
+                Kontrast_100[4] = MeasurementForm.ORChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.OGChannel.SignalAktiv)
+            if (MeasurementForm.OGChannel.IsActive)
             {
-                Kontrast_100[5] = KontrolliereMessungen.OGChannel.KonSC1_100;
+                Kontrast_100[5] = MeasurementForm.OGChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.OBChannel.SignalAktiv)
+            if (MeasurementForm.OBChannel.IsActive)
             {
-                Kontrast_100[6] = KontrolliereMessungen.OBChannel.KonSC1_100;
+                Kontrast_100[6] = MeasurementForm.OBChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.OCChannel.SignalAktiv)
+            if (MeasurementForm.OCChannel.IsActive)
             {
-                Kontrast_100[7] = KontrolliereMessungen.OCChannel.KonSC1_100;
+                Kontrast_100[7] = MeasurementForm.OCChannel.StartContrastDownStaircase;
             }
             #endregion
 
@@ -497,50 +497,50 @@ namespace Light4SightNG
             {
                 if (LED_Gruppe == "innen")
                 {
-                    KontrolliereMessungen.IRChannel.Kontrast_100 = Kontrast_100[rot] * neuerFaktor / maxFaktor;
-                    KontrolliereMessungen.IGChannel.Kontrast_100 = Kontrast_100[gruen] * neuerFaktor / maxFaktor;
-                    KontrolliereMessungen.IBChannel.Kontrast_100 = Kontrast_100[blau] * neuerFaktor / maxFaktor;
-                    KontrolliereMessungen.ICChannel.Kontrast_100 = Kontrast_100[cyan] * neuerFaktor / maxFaktor;
-                    logKontraste = logmessage + KontrolliereMessungen.IRChannel.Kontrast_100 + ";" + KontrolliereMessungen.IGChannel.Kontrast_100 + ";" + KontrolliereMessungen.IBChannel.Kontrast_100 + ";" + KontrolliereMessungen.ICChannel.Kontrast_100;
+                    MeasurementForm.IRChannel.CurrentContrast = Kontrast_100[rot] * neuerFaktor / maxFaktor;
+                    MeasurementForm.IGChannel.CurrentContrast = Kontrast_100[gruen] * neuerFaktor / maxFaktor;
+                    MeasurementForm.IBChannel.CurrentContrast = Kontrast_100[blau] * neuerFaktor / maxFaktor;
+                    MeasurementForm.ICChannel.CurrentContrast = Kontrast_100[cyan] * neuerFaktor / maxFaktor;
+                    logKontraste = logmessage + MeasurementForm.IRChannel.CurrentContrast + ";" + MeasurementForm.IGChannel.CurrentContrast + ";" + MeasurementForm.IBChannel.CurrentContrast + ";" + MeasurementForm.ICChannel.CurrentContrast;
                 }
                 else
                 {
-                    KontrolliereMessungen.ORChannel.Kontrast_100 = Kontrast_100[rot] * neuerFaktor / maxFaktor;
-                    KontrolliereMessungen.OGChannel.Kontrast_100 = Kontrast_100[gruen] * neuerFaktor / maxFaktor;
-                    KontrolliereMessungen.OBChannel.Kontrast_100 = Kontrast_100[blau] * neuerFaktor / maxFaktor;
-                    KontrolliereMessungen.OCChannel.Kontrast_100 = Kontrast_100[cyan] * neuerFaktor / maxFaktor;
-                    logKontraste = logmessage + KontrolliereMessungen.ORChannel.Kontrast_100 + ";" + KontrolliereMessungen.OGChannel.Kontrast_100 + ";" + KontrolliereMessungen.OBChannel.Kontrast_100 + ";" + KontrolliereMessungen.OCChannel.Kontrast_100;
+                    MeasurementForm.ORChannel.CurrentContrast = Kontrast_100[rot] * neuerFaktor / maxFaktor;
+                    MeasurementForm.OGChannel.CurrentContrast = Kontrast_100[gruen] * neuerFaktor / maxFaktor;
+                    MeasurementForm.OBChannel.CurrentContrast = Kontrast_100[blau] * neuerFaktor / maxFaktor;
+                    MeasurementForm.OCChannel.CurrentContrast = Kontrast_100[cyan] * neuerFaktor / maxFaktor;
+                    logKontraste = logmessage + MeasurementForm.ORChannel.CurrentContrast + ";" + MeasurementForm.OGChannel.CurrentContrast + ";" + MeasurementForm.OBChannel.CurrentContrast + ";" + MeasurementForm.OCChannel.CurrentContrast;
                 }
             }
             else
             {
                 if (LED_Gruppe == "innen")
                 {
-                    KontrolliereMessungen.IRChannel.Kontrast_100 = Kontrast_100[rot];
-                    KontrolliereMessungen.IGChannel.Kontrast_100 = Kontrast_100[gruen];
-                    KontrolliereMessungen.IBChannel.Kontrast_100 = Kontrast_100[blau];
-                    KontrolliereMessungen.ICChannel.Kontrast_100 = Kontrast_100[cyan];
+                    MeasurementForm.IRChannel.CurrentContrast = Kontrast_100[rot];
+                    MeasurementForm.IGChannel.CurrentContrast = Kontrast_100[gruen];
+                    MeasurementForm.IBChannel.CurrentContrast = Kontrast_100[blau];
+                    MeasurementForm.ICChannel.CurrentContrast = Kontrast_100[cyan];
                     FaktorCFF = (1 - Convert.ToDouble(neuerFaktor) / Convert.ToDouble(maxFaktor));
-                    KontrolliereMessungen.IRChannel.Frequenz = Convert.ToInt16(Frequenz_100[rot] * FaktorCFF);
-                    KontrolliereMessungen.IGChannel.Frequenz = Convert.ToInt16(Frequenz_100[gruen] * FaktorCFF);
-                    KontrolliereMessungen.IBChannel.Frequenz = Convert.ToInt16(Frequenz_100[blau] * FaktorCFF);
-                    KontrolliereMessungen.ICChannel.Frequenz = Convert.ToInt16(Frequenz_100[cyan] * FaktorCFF);
+                    MeasurementForm.IRChannel.Frequency = Convert.ToInt16(Frequenz_100[rot] * FaktorCFF);
+                    MeasurementForm.IGChannel.Frequency = Convert.ToInt16(Frequenz_100[gruen] * FaktorCFF);
+                    MeasurementForm.IBChannel.Frequency = Convert.ToInt16(Frequenz_100[blau] * FaktorCFF);
+                    MeasurementForm.ICChannel.Frequency = Convert.ToInt16(Frequenz_100[cyan] * FaktorCFF);
                     currentCFF = Convert.ToInt16(Frequenz_100[rot] * FaktorCFF);
-                    logKontraste = logmessage + KontrolliereMessungen.IRChannel.Frequenz + ";" + KontrolliereMessungen.IGChannel.Frequenz + ";" + KontrolliereMessungen.IBChannel.Frequenz + ";" + KontrolliereMessungen.ICChannel.Frequenz;
+                    logKontraste = logmessage + MeasurementForm.IRChannel.Frequency + ";" + MeasurementForm.IGChannel.Frequency + ";" + MeasurementForm.IBChannel.Frequency + ";" + MeasurementForm.ICChannel.Frequency;
                 }
                 else
                 {
-                    KontrolliereMessungen.ORChannel.Kontrast_100 = Kontrast_100[rot];
-                    KontrolliereMessungen.OGChannel.Kontrast_100 = Kontrast_100[gruen];
-                    KontrolliereMessungen.OBChannel.Kontrast_100 = Kontrast_100[blau];
-                    KontrolliereMessungen.OCChannel.Kontrast_100 = Kontrast_100[cyan];
+                    MeasurementForm.ORChannel.CurrentContrast = Kontrast_100[rot];
+                    MeasurementForm.OGChannel.CurrentContrast = Kontrast_100[gruen];
+                    MeasurementForm.OBChannel.CurrentContrast = Kontrast_100[blau];
+                    MeasurementForm.OCChannel.CurrentContrast = Kontrast_100[cyan];
                     FaktorCFF = (1 - Convert.ToDouble(neuerFaktor) / Convert.ToDouble(maxFaktor));
-                    KontrolliereMessungen.ORChannel.Frequenz = Convert.ToInt16(Frequenz_100[rot] * FaktorCFF);
-                    KontrolliereMessungen.OGChannel.Frequenz = Convert.ToInt16(Frequenz_100[gruen] * FaktorCFF);
-                    KontrolliereMessungen.OBChannel.Frequenz = Convert.ToInt16(Frequenz_100[blau] * FaktorCFF);
-                    KontrolliereMessungen.OCChannel.Frequenz = Convert.ToInt16(Frequenz_100[cyan] * FaktorCFF);
+                    MeasurementForm.ORChannel.Frequency = Convert.ToInt16(Frequenz_100[rot] * FaktorCFF);
+                    MeasurementForm.OGChannel.Frequency = Convert.ToInt16(Frequenz_100[gruen] * FaktorCFF);
+                    MeasurementForm.OBChannel.Frequency = Convert.ToInt16(Frequenz_100[blau] * FaktorCFF);
+                    MeasurementForm.OCChannel.Frequency = Convert.ToInt16(Frequenz_100[cyan] * FaktorCFF);
                     currentCFF = Convert.ToInt16(Frequenz_100[rot] * FaktorCFF);
-                    logKontraste = logmessage + KontrolliereMessungen.ORChannel.Frequenz + ";" + KontrolliereMessungen.OGChannel.Frequenz + ";" + KontrolliereMessungen.OBChannel.Frequenz + ";" + KontrolliereMessungen.OCChannel.Frequenz;
+                    logKontraste = logmessage + MeasurementForm.ORChannel.Frequency + ";" + MeasurementForm.OGChannel.Frequency + ";" + MeasurementForm.OBChannel.Frequency + ";" + MeasurementForm.OCChannel.Frequency;
                 }
 
             }
@@ -555,14 +555,14 @@ namespace Light4SightNG
 
         void _setNewFrequency()
         {
-            KontrolliereMessungen.IRChannel.Frequenz = Frequenz;
-            KontrolliereMessungen.IGChannel.Frequenz = Frequenz;
-            KontrolliereMessungen.IBChannel.Frequenz = Frequenz;
-            KontrolliereMessungen.ICChannel.Frequenz = Frequenz;
-            KontrolliereMessungen.ORChannel.Frequenz = Frequenz;
-            KontrolliereMessungen.OGChannel.Frequenz = Frequenz;
-            KontrolliereMessungen.OBChannel.Frequenz = Frequenz;
-            KontrolliereMessungen.OCChannel.Frequenz = Frequenz;
+            MeasurementForm.IRChannel.Frequency = Frequenz;
+            MeasurementForm.IGChannel.Frequency = Frequenz;
+            MeasurementForm.IBChannel.Frequency = Frequenz;
+            MeasurementForm.ICChannel.Frequency = Frequenz;
+            MeasurementForm.ORChannel.Frequency = Frequenz;
+            MeasurementForm.OGChannel.Frequency = Frequenz;
+            MeasurementForm.OBChannel.Frequency = Frequenz;
+            MeasurementForm.OCChannel.Frequency = Frequenz;
         }
         #endregion
 
@@ -590,14 +590,14 @@ namespace Light4SightNG
                 if (SC1_aktiv == true)
                 {
                     SC1_gesehen = true;
-                    if (!testeCFF) Logmessage("Down:;gesehen;" + KontrolliereMessungen.IRChannel.Kontrast_100 + ";" + KontrolliereMessungen.IGChannel.Kontrast_100 + ";" + KontrolliereMessungen.IBChannel.Kontrast_100 + ";" + KontrolliereMessungen.ICChannel.Kontrast_100 + ";;" + KontrolliereMessungen.ORChannel.Kontrast_100 + ";" + KontrolliereMessungen.OGChannel.Kontrast_100 + ";" + KontrolliereMessungen.OBChannel.Kontrast_100 + ";" + KontrolliereMessungen.OCChannel.Kontrast_100, false);
-                    else Logmessage("Down:;gesehen;" + KontrolliereMessungen.IRChannel.Frequenz + ";" + KontrolliereMessungen.IGChannel.Frequenz + ";" + KontrolliereMessungen.IBChannel.Frequenz + ";" + KontrolliereMessungen.ICChannel.Frequenz + ";;" + KontrolliereMessungen.ORChannel.Frequenz + ";" + KontrolliereMessungen.OGChannel.Frequenz + ";" + KontrolliereMessungen.OBChannel.Frequenz + ";" + KontrolliereMessungen.OCChannel.Frequenz, false);
+                    if (!testeCFF) Logmessage("Down:;gesehen;" + MeasurementForm.IRChannel.CurrentContrast + ";" + MeasurementForm.IGChannel.CurrentContrast + ";" + MeasurementForm.IBChannel.CurrentContrast + ";" + MeasurementForm.ICChannel.CurrentContrast + ";;" + MeasurementForm.ORChannel.CurrentContrast + ";" + MeasurementForm.OGChannel.CurrentContrast + ";" + MeasurementForm.OBChannel.CurrentContrast + ";" + MeasurementForm.OCChannel.CurrentContrast, false);
+                    else Logmessage("Down:;gesehen;" + MeasurementForm.IRChannel.Frequency + ";" + MeasurementForm.IGChannel.Frequency + ";" + MeasurementForm.IBChannel.Frequency + ";" + MeasurementForm.ICChannel.Frequency + ";;" + MeasurementForm.ORChannel.Frequency + ";" + MeasurementForm.OGChannel.Frequency + ";" + MeasurementForm.OBChannel.Frequency + ";" + MeasurementForm.OCChannel.Frequency, false);
                 }
                 else
                 {
                     SC2_gesehen = true;
-                    if (!testeCFF) Logmessage("Up:;gesehen;" + KontrolliereMessungen.IRChannel.Kontrast_100 + ";" + KontrolliereMessungen.IGChannel.Kontrast_100 + ";" + KontrolliereMessungen.IBChannel.Kontrast_100 + ";" + KontrolliereMessungen.ICChannel.Kontrast_100 + ";;" + KontrolliereMessungen.ORChannel.Kontrast_100 + ";" + KontrolliereMessungen.OGChannel.Kontrast_100 + ";" + KontrolliereMessungen.OBChannel.Kontrast_100 + ";" + KontrolliereMessungen.OCChannel.Kontrast_100, false);
-                    else Logmessage("Up:;gesehen;" + KontrolliereMessungen.IRChannel.Frequenz + ";" + KontrolliereMessungen.IGChannel.Frequenz + ";" + KontrolliereMessungen.IBChannel.Frequenz + ";" + KontrolliereMessungen.ICChannel.Frequenz + ";;" + KontrolliereMessungen.ORChannel.Frequenz + ";" + KontrolliereMessungen.OGChannel.Frequenz + ";" + KontrolliereMessungen.OBChannel.Frequenz + ";" + KontrolliereMessungen.OCChannel.Frequenz, false);
+                    if (!testeCFF) Logmessage("Up:;gesehen;" + MeasurementForm.IRChannel.CurrentContrast + ";" + MeasurementForm.IGChannel.CurrentContrast + ";" + MeasurementForm.IBChannel.CurrentContrast + ";" + MeasurementForm.ICChannel.CurrentContrast + ";;" + MeasurementForm.ORChannel.CurrentContrast + ";" + MeasurementForm.OGChannel.CurrentContrast + ";" + MeasurementForm.OBChannel.CurrentContrast + ";" + MeasurementForm.OCChannel.CurrentContrast, false);
+                    else Logmessage("Up:;gesehen;" + MeasurementForm.IRChannel.Frequency + ";" + MeasurementForm.IGChannel.Frequency + ";" + MeasurementForm.IBChannel.Frequency + ";" + MeasurementForm.ICChannel.Frequency + ";;" + MeasurementForm.ORChannel.Frequency + ";" + MeasurementForm.OGChannel.Frequency + ";" + MeasurementForm.OBChannel.Frequency + ";" + MeasurementForm.OCChannel.Frequency, false);
                 }
                 Randomisierung();
             }
@@ -612,14 +612,14 @@ namespace Light4SightNG
                 if (SC1_aktiv == true)
                 {
                     SC1_gesehen = false;
-                    if (!testeCFF) Logmessage("Down:;nicht gesehen;" + KontrolliereMessungen.IRChannel.Kontrast_100 + ";" + KontrolliereMessungen.IGChannel.Kontrast_100 + ";" + KontrolliereMessungen.IBChannel.Kontrast_100 + ";" + KontrolliereMessungen.ICChannel.Kontrast_100 + ";;" + KontrolliereMessungen.ORChannel.Kontrast_100 + ";" + KontrolliereMessungen.OGChannel.Kontrast_100 + ";" + KontrolliereMessungen.OBChannel.Kontrast_100 + ";" + KontrolliereMessungen.OCChannel.Kontrast_100, false);
-                    else Logmessage("Down:;nicht gesehen;" + KontrolliereMessungen.IRChannel.Frequenz + ";" + KontrolliereMessungen.IGChannel.Frequenz + ";" + KontrolliereMessungen.IBChannel.Frequenz + ";" + KontrolliereMessungen.ICChannel.Frequenz + ";;" + KontrolliereMessungen.ORChannel.Frequenz + ";" + KontrolliereMessungen.OGChannel.Frequenz + ";" + KontrolliereMessungen.OBChannel.Frequenz + ";" + KontrolliereMessungen.OCChannel.Frequenz, false);
+                    if (!testeCFF) Logmessage("Down:;nicht gesehen;" + MeasurementForm.IRChannel.CurrentContrast + ";" + MeasurementForm.IGChannel.CurrentContrast + ";" + MeasurementForm.IBChannel.CurrentContrast + ";" + MeasurementForm.ICChannel.CurrentContrast + ";;" + MeasurementForm.ORChannel.CurrentContrast + ";" + MeasurementForm.OGChannel.CurrentContrast + ";" + MeasurementForm.OBChannel.CurrentContrast + ";" + MeasurementForm.OCChannel.CurrentContrast, false);
+                    else Logmessage("Down:;nicht gesehen;" + MeasurementForm.IRChannel.Frequency + ";" + MeasurementForm.IGChannel.Frequency + ";" + MeasurementForm.IBChannel.Frequency + ";" + MeasurementForm.ICChannel.Frequency + ";;" + MeasurementForm.ORChannel.Frequency + ";" + MeasurementForm.OGChannel.Frequency + ";" + MeasurementForm.OBChannel.Frequency + ";" + MeasurementForm.OCChannel.Frequency, false);
                 }
                 else
                 {
                     SC2_gesehen = false;
-                    if (!testeCFF) Logmessage("Up:;nicht gesehen;" + KontrolliereMessungen.IRChannel.Kontrast_100 + ";" + KontrolliereMessungen.IGChannel.Kontrast_100 + ";" + KontrolliereMessungen.IBChannel.Kontrast_100 + ";" + KontrolliereMessungen.ICChannel.Kontrast_100 + ";;" + KontrolliereMessungen.ORChannel.Kontrast_100 + ";" + KontrolliereMessungen.OGChannel.Kontrast_100 + ";" + KontrolliereMessungen.OBChannel.Kontrast_100 + ";" + KontrolliereMessungen.OCChannel.Kontrast_100, false);
-                    else Logmessage("Up:;nicht gesehen;" + KontrolliereMessungen.IRChannel.Frequenz + ";" + KontrolliereMessungen.IGChannel.Frequenz + ";" + KontrolliereMessungen.IBChannel.Frequenz + ";" + KontrolliereMessungen.ICChannel.Frequenz + ";;" + KontrolliereMessungen.ORChannel.Frequenz + ";" + KontrolliereMessungen.OGChannel.Frequenz + ";" + KontrolliereMessungen.OBChannel.Frequenz + ";" + KontrolliereMessungen.OCChannel.Frequenz, false);
+                    if (!testeCFF) Logmessage("Up:;nicht gesehen;" + MeasurementForm.IRChannel.CurrentContrast + ";" + MeasurementForm.IGChannel.CurrentContrast + ";" + MeasurementForm.IBChannel.CurrentContrast + ";" + MeasurementForm.ICChannel.CurrentContrast + ";;" + MeasurementForm.ORChannel.CurrentContrast + ";" + MeasurementForm.OGChannel.CurrentContrast + ";" + MeasurementForm.OBChannel.CurrentContrast + ";" + MeasurementForm.OCChannel.CurrentContrast, false);
+                    else Logmessage("Up:;nicht gesehen;" + MeasurementForm.IRChannel.Frequency + ";" + MeasurementForm.IGChannel.Frequency + ";" + MeasurementForm.IBChannel.Frequency + ";" + MeasurementForm.ICChannel.Frequency + ";;" + MeasurementForm.ORChannel.Frequency + ";" + MeasurementForm.OGChannel.Frequency + ";" + MeasurementForm.OBChannel.Frequency + ";" + MeasurementForm.OCChannel.Frequency, false);
                 }
                 Randomisierung();
             }
@@ -631,9 +631,9 @@ namespace Light4SightNG
         {
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm is KontrolliereMessungen)
+                if (frm is MeasurementForm)
                 {
-                    (frm as KontrolliereMessungen).LogFile(text, header);
+                    (frm as MeasurementForm).LogFile(text, header);
                 }
             }
         }

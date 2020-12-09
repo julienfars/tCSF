@@ -1,6 +1,6 @@
 ﻿namespace Light4SightNG
 {
-    partial class Steuerung
+    partial class MainForm
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Steuerung));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Rod = new System.Windows.Forms.CheckBox();
             this.LCone = new System.Windows.Forms.CheckBox();
             this.MCone = new System.Windows.Forms.CheckBox();

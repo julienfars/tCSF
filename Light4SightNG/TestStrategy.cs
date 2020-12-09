@@ -8,9 +8,9 @@ namespace Light4SightNG
     /// <summary>
     /// Diese abstrakte Klasse dient als Vorlage für eine Teststrategie und implementiert alle wesentlichen Eigenschaften und Methoden.
     /// </summary>
-    abstract class Teststrategie
+    abstract class TestStrategy
     {
-        protected AudioControlClass AudioControl;
+        protected AudioControl AudioControl;
         protected int signalStrength;
         protected int maxSignalStrength = 1000;
         protected double[] Kontrast_100 = new double[8];
@@ -29,7 +29,7 @@ namespace Light4SightNG
 
         public event EventHandler<AbbruchEventArgs> Abbruch;
 
-        protected Teststrategie(Steuerung parent)
+        protected TestStrategy(MainForm parent)
         {
             this.AudioControl = parent.AudioControl;
         }
@@ -39,37 +39,37 @@ namespace Light4SightNG
         /// </summary>
         public virtual void StarteStrategie()
         {
-            if (KontrolliereMessungen.IRChannel.SignalAktiv)
+            if (MeasurementForm.IRChannel.IsActive)
             {
-                Kontrast_100[0] = KontrolliereMessungen.IRChannel.KonSC1_100;
+                Kontrast_100[0] = MeasurementForm.IRChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.IGChannel.SignalAktiv)
+            if (MeasurementForm.IGChannel.IsActive)
             {
-                Kontrast_100[1] = KontrolliereMessungen.IGChannel.KonSC1_100;
+                Kontrast_100[1] = MeasurementForm.IGChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.IBChannel.SignalAktiv)
+            if (MeasurementForm.IBChannel.IsActive)
             {
-                Kontrast_100[2] = KontrolliereMessungen.IBChannel.KonSC1_100;
+                Kontrast_100[2] = MeasurementForm.IBChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.ICChannel.SignalAktiv)
+            if (MeasurementForm.ICChannel.IsActive)
             {
-                Kontrast_100[3] = KontrolliereMessungen.ICChannel.KonSC1_100;
+                Kontrast_100[3] = MeasurementForm.ICChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.ORChannel.SignalAktiv)
+            if (MeasurementForm.ORChannel.IsActive)
             {
-                Kontrast_100[4] = KontrolliereMessungen.ORChannel.KonSC1_100;
+                Kontrast_100[4] = MeasurementForm.ORChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.OGChannel.SignalAktiv)
+            if (MeasurementForm.OGChannel.IsActive)
             {
-                Kontrast_100[5] = KontrolliereMessungen.OGChannel.KonSC1_100;
+                Kontrast_100[5] = MeasurementForm.OGChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.OBChannel.SignalAktiv)
+            if (MeasurementForm.OBChannel.IsActive)
             {
-                Kontrast_100[6] = KontrolliereMessungen.OBChannel.KonSC1_100;
+                Kontrast_100[6] = MeasurementForm.OBChannel.StartContrastDownStaircase;
             }
-            if (KontrolliereMessungen.OCChannel.SignalAktiv)
+            if (MeasurementForm.OCChannel.IsActive)
             {
-                Kontrast_100[7] = KontrolliereMessungen.OCChannel.KonSC1_100;
+                Kontrast_100[7] = MeasurementForm.OCChannel.StartContrastDownStaircase;
             }
 
             if (LED_Gruppe == "innen")
@@ -87,13 +87,13 @@ namespace Light4SightNG
                 cyan = 7;
             }
 
-            ZeigeNeueSignalstaerke();
+            PresentNextStimulus();
         }
 
         /// <summary>
         /// Diese Methode muss implementiert werden um die Signalstärke zu setzen und die Signalwiedergabe zu starten.
         /// </summary>
-        protected abstract void ZeigeNeueSignalstaerke();
+        protected abstract void PresentNextStimulus();
         // SignalStaerke setzen
         // SignalWiedergeben();
 
@@ -109,20 +109,20 @@ namespace Light4SightNG
             if (LED_Gruppe == "innen")
             {
                 Logmessage(_SchwelleErreichtMessage +
-                KontrolliereMessungen.IRChannel.Kontrast_100 + ";" +
-                KontrolliereMessungen.IGChannel.Kontrast_100 + ";" +
-                KontrolliereMessungen.IBChannel.Kontrast_100 + ";" +
-                KontrolliereMessungen.ICChannel.Kontrast_100 + ";",
+                MeasurementForm.IRChannel.CurrentContrast + ";" +
+                MeasurementForm.IGChannel.CurrentContrast + ";" +
+                MeasurementForm.IBChannel.CurrentContrast + ";" +
+                MeasurementForm.ICChannel.CurrentContrast + ";",
                 false
                 );
             }
             else
             {
                 Logmessage(_SchwelleErreichtMessage +
-                KontrolliereMessungen.ORChannel.Kontrast_100 + ";" +
-                KontrolliereMessungen.OGChannel.Kontrast_100 + ";" +
-                KontrolliereMessungen.OBChannel.Kontrast_100 + ";" +
-                KontrolliereMessungen.OCChannel.Kontrast_100 + ";",
+                MeasurementForm.ORChannel.CurrentContrast + ";" +
+                MeasurementForm.OGChannel.CurrentContrast + ";" +
+                MeasurementForm.OBChannel.CurrentContrast + ";" +
+                MeasurementForm.OCChannel.CurrentContrast + ";",
                 false
                 );
             }
@@ -155,17 +155,17 @@ namespace Light4SightNG
 
             if (LED_Gruppe == "innen")
             {
-                KontrolliereMessungen.IRChannel.Kontrast_100 = Kontrast_100[red] * newSignalStrength / maxSignalStrength;
-                KontrolliereMessungen.IGChannel.Kontrast_100 = Kontrast_100[green] * newSignalStrength / maxSignalStrength;
-                KontrolliereMessungen.IBChannel.Kontrast_100 = Kontrast_100[blue] * newSignalStrength / maxSignalStrength;
-                KontrolliereMessungen.ICChannel.Kontrast_100 = Kontrast_100[cyan] * newSignalStrength / maxSignalStrength;
+                MeasurementForm.IRChannel.CurrentContrast = Kontrast_100[red] * newSignalStrength / maxSignalStrength;
+                MeasurementForm.IGChannel.CurrentContrast = Kontrast_100[green] * newSignalStrength / maxSignalStrength;
+                MeasurementForm.IBChannel.CurrentContrast = Kontrast_100[blue] * newSignalStrength / maxSignalStrength;
+                MeasurementForm.ICChannel.CurrentContrast = Kontrast_100[cyan] * newSignalStrength / maxSignalStrength;
             }
             else
             {
-                KontrolliereMessungen.ORChannel.Kontrast_100 = Kontrast_100[red] * newSignalStrength / maxSignalStrength;
-                KontrolliereMessungen.OGChannel.Kontrast_100 = Kontrast_100[green] * newSignalStrength / maxSignalStrength;
-                KontrolliereMessungen.OBChannel.Kontrast_100 = Kontrast_100[blue] * newSignalStrength / maxSignalStrength;
-                KontrolliereMessungen.OCChannel.Kontrast_100 = Kontrast_100[cyan] * newSignalStrength / maxSignalStrength;
+                MeasurementForm.ORChannel.CurrentContrast = Kontrast_100[red] * newSignalStrength / maxSignalStrength;
+                MeasurementForm.OGChannel.CurrentContrast = Kontrast_100[green] * newSignalStrength / maxSignalStrength;
+                MeasurementForm.OBChannel.CurrentContrast = Kontrast_100[blue] * newSignalStrength / maxSignalStrength;
+                MeasurementForm.OCChannel.CurrentContrast = Kontrast_100[cyan] * newSignalStrength / maxSignalStrength;
             }
 
             return (true);
@@ -179,14 +179,14 @@ namespace Light4SightNG
 
         void _setNewFrequency()
         {
-            KontrolliereMessungen.IRChannel.Frequenz = frequency;
-            KontrolliereMessungen.IGChannel.Frequenz = frequency;
-            KontrolliereMessungen.IBChannel.Frequenz = frequency;
-            KontrolliereMessungen.ICChannel.Frequenz = frequency;
-            KontrolliereMessungen.ORChannel.Frequenz = frequency;
-            KontrolliereMessungen.OGChannel.Frequenz = frequency;
-            KontrolliereMessungen.OBChannel.Frequenz = frequency;
-            KontrolliereMessungen.OCChannel.Frequenz = frequency;
+            MeasurementForm.IRChannel.Frequency = frequency;
+            MeasurementForm.IGChannel.Frequency = frequency;
+            MeasurementForm.IBChannel.Frequency = frequency;
+            MeasurementForm.ICChannel.Frequency = frequency;
+            MeasurementForm.ORChannel.Frequency = frequency;
+            MeasurementForm.OGChannel.Frequency = frequency;
+            MeasurementForm.OBChannel.Frequency = frequency;
+            MeasurementForm.OCChannel.Frequency = frequency;
         }
 
         #region Responses
@@ -202,13 +202,13 @@ namespace Light4SightNG
             {
                 StopSignal();
                 Gesehen = true;
-                Logmessage("Strategie:;gesehen;" + KontrolliereMessungen.IRChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.IGChannel.Kontrast_100 + ";" + KontrolliereMessungen.IBChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.ICChannel.Kontrast_100 + ";;" + KontrolliereMessungen.ORChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.OGChannel.Kontrast_100 + ";" + KontrolliereMessungen.OBChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.OCChannel.Kontrast_100, false);
+                Logmessage("Strategie:;gesehen;" + MeasurementForm.IRChannel.CurrentContrast + ";" +
+                    MeasurementForm.IGChannel.CurrentContrast + ";" + MeasurementForm.IBChannel.CurrentContrast + ";" +
+                    MeasurementForm.ICChannel.CurrentContrast + ";;" + MeasurementForm.ORChannel.CurrentContrast + ";" +
+                    MeasurementForm.OGChannel.CurrentContrast + ";" + MeasurementForm.OBChannel.CurrentContrast + ";" +
+                    MeasurementForm.OCChannel.CurrentContrast, false);
             }
-            ZeigeNeueSignalstaerke();
+            PresentNextStimulus();
         }
 
         /// <summary>
@@ -222,13 +222,13 @@ namespace Light4SightNG
             {
                 StopSignal();
                 Gesehen = false;
-                Logmessage("Strategie:;nicht gesehen;" + KontrolliereMessungen.IRChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.IGChannel.Kontrast_100 + ";" + KontrolliereMessungen.IBChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.ICChannel.Kontrast_100 + ";;" + KontrolliereMessungen.ORChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.OGChannel.Kontrast_100 + ";" + KontrolliereMessungen.OBChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.OCChannel.Kontrast_100, false);
+                Logmessage("Strategie:;nicht gesehen;" + MeasurementForm.IRChannel.CurrentContrast + ";" +
+                    MeasurementForm.IGChannel.CurrentContrast + ";" + MeasurementForm.IBChannel.CurrentContrast + ";" +
+                    MeasurementForm.ICChannel.CurrentContrast + ";;" + MeasurementForm.ORChannel.CurrentContrast + ";" +
+                    MeasurementForm.OGChannel.CurrentContrast + ";" + MeasurementForm.OBChannel.CurrentContrast + ";" +
+                    MeasurementForm.OCChannel.CurrentContrast, false);
             }
-            ZeigeNeueSignalstaerke();
+            PresentNextStimulus();
         }
 
         #endregion
@@ -239,9 +239,9 @@ namespace Light4SightNG
         {
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm is KontrolliereMessungen)
+                if (frm is MeasurementForm)
                 {
-                    (frm as KontrolliereMessungen).LogFile(text, header);
+                    (frm as MeasurementForm).LogFile(text, header);
                 }
             }
         }

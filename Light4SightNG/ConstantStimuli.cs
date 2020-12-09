@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Light4SightNG
 {
-    class ConstantStimuli : Teststrategie
+    class ConstantStimuli : TestStrategy
     {
         double std;
 
@@ -17,7 +17,7 @@ namespace Light4SightNG
         Random shuffle;
         int nextContrast;
 
-        public ConstantStimuli(Steuerung parent) : base(parent)
+        public ConstantStimuli(MainForm parent) : base(parent)
         {
 
             _SchwelleErreichtMessage = "ConstantStimulus;;";
@@ -32,7 +32,7 @@ namespace Light4SightNG
 
         }
 
-        protected override void ZeigeNeueSignalstaerke()
+        protected override void PresentNextStimulus()
         {
             if (!TesteAbbruch())
             {

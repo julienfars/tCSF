@@ -9,25 +9,25 @@ namespace Light4SightNG
     {
         public static void CreateTestChannelArrays()
         {
-            Globals.Kanal_1_IR = new double[AudioControlClass.AbtastFrequenz];
-            Globals.Kanal_2_IG = new double[AudioControlClass.AbtastFrequenz];
-            Globals.Kanal_3_IB = new double[AudioControlClass.AbtastFrequenz];
-            Globals.Kanal_4_IC = new double[AudioControlClass.AbtastFrequenz];
-            Globals.Kanal_5_OR = new double[AudioControlClass.AbtastFrequenz];
-            Globals.Kanal_6_OG = new double[AudioControlClass.AbtastFrequenz];
-            Globals.Kanal_7_OB = new double[AudioControlClass.AbtastFrequenz];
-            Globals.Kanal_8_OC = new double[AudioControlClass.AbtastFrequenz];
+            Globals.Kanal_1_IR = new double[AudioControl.AbtastFrequenz];
+            Globals.Kanal_2_IG = new double[AudioControl.AbtastFrequenz];
+            Globals.Kanal_3_IB = new double[AudioControl.AbtastFrequenz];
+            Globals.Kanal_4_IC = new double[AudioControl.AbtastFrequenz];
+            Globals.Kanal_5_OR = new double[AudioControl.AbtastFrequenz];
+            Globals.Kanal_6_OG = new double[AudioControl.AbtastFrequenz];
+            Globals.Kanal_7_OB = new double[AudioControl.AbtastFrequenz];
+            Globals.Kanal_8_OC = new double[AudioControl.AbtastFrequenz];
         }
 
         public static void WriteToWaveTestContainer(double dValue, int iChannel, int iPosition)
         {
-            AudioControlClass.WaveDaten[(((iPosition * 8) + iChannel) * 2)] = AudioControlClass.Lowbyte((Int16)dValue);
-            AudioControlClass.WaveDaten[(((iPosition * 8) + iChannel) * 2) + 1] = AudioControlClass.Highbyte((Int16)dValue);
+            AudioControl.WaveDaten[(((iPosition * 8) + iChannel) * 2)] = AudioControl.Lowbyte((Int16)dValue);
+            AudioControl.WaveDaten[(((iPosition * 8) + iChannel) * 2) + 1] = AudioControl.Highbyte((Int16)dValue);
         }
 
         public static void ConcatTestChannels()
         {
-            for (int i = 0; i <= AudioControlClass.AbtastFrequenz - 1; i++)
+            for (int i = 0; i <= AudioControl.AbtastFrequenz - 1; i++)
             {
                 WriteToWaveTestContainer(Globals.Kanal_1_IR[i], 0, i);
                 WriteToWaveTestContainer(Globals.Kanal_2_IG[i], 1, i);

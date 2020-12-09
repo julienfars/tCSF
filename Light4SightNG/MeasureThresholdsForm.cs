@@ -12,24 +12,24 @@ using System.Threading;
 
 namespace Light4SightNG
 {
-    public partial class MesseSchwellen : Form
+    public partial class MeasureThresholdsForm : Form
     {
         int[] frequenzen = { 1, 2, 4, 6, 8, 10, 12, 16, 20, 28, 36, 44 };
         int gesamtzahl = 0;
         int RFF, LFF, MFF, SFF;
         List<String> messungen = new List<String>();
-        String Probandennummer;
+        String SubjectID;
         String Augenseite;
 
-        Steuerung parentObject;
+        MainForm parentObject;
 
-        public MesseSchwellen(String pnummer, String aseite, bool ractive, String r, bool lactive, String l, bool mactive, String m, bool sactive, String s, Steuerung parentObj)
+        public MeasureThresholdsForm(String pnummer, String aseite, bool ractive, String r, bool lactive, String l, bool mactive, String m, bool sactive, String s, MainForm parentObj)
         {
 
             parentObject = parentObj;
 
             InitializeComponent();
-            Probandennummer = pnummer;
+            SubjectID = pnummer;
             Augenseite = aseite;
             try
             {
@@ -118,26 +118,26 @@ namespace Light4SightNG
             var messungenZufall = messungen.OrderBy(a => Guid.NewGuid());
             foreach (String f in messungenZufall)
             {
-                KontrolliereMessungen messeSchwelle = new KontrolliereMessungen(parentObject);
+                MeasurementForm messeSchwelle = new MeasurementForm(parentObject);
                 messeSchwelle.testeCFF = false;
                 messeSchwelle.freq = Convert.ToInt16(f.Substring(1));
                 messeSchwelle.SetDesktopLocation(this.Location.X + this.Size.Width, this.Location.Y);
                 switch (f.Substring(0, 1))
                 {
                     case "R":
-                        messeSchwelle.ShowDialog(Probandennummer, Augenseite, Steuerung.RodPath);
+                        messeSchwelle.ShowDialog(SubjectID, Augenseite, MainForm.RodPath);
                         Liste = RodList;
                         break;
                     case "L":
-                        messeSchwelle.ShowDialog(Probandennummer, Augenseite, Steuerung.LConePath);
+                        messeSchwelle.ShowDialog(SubjectID, Augenseite, MainForm.LConePath);
                         Liste = LConeList;
                         break;
                     case "M":
-                        messeSchwelle.ShowDialog(Probandennummer, Augenseite, Steuerung.MConePath);
+                        messeSchwelle.ShowDialog(SubjectID, Augenseite, MainForm.MConePath);
                         Liste = MConeList;
                         break;
                     case "S":
-                        messeSchwelle.ShowDialog(Probandennummer, Augenseite, Steuerung.SConePath);
+                        messeSchwelle.ShowDialog(SubjectID, Augenseite, MainForm.SConePath);
                         Liste = SConeList;
                         break;
                 }
@@ -170,8 +170,8 @@ namespace Light4SightNG
             myProcess.Exited += new EventHandler(myProcess_Exited);
             myProcess.Start();
             myProcess.WaitForExit();
-            ZeigeErgebnis Erg = new ZeigeErgebnis();
-            Erg.ladeBild(@"Untersuchungen\plot.bmp");
+            ShowResultsForm Erg = new ShowResultsForm();
+            Erg.LoadImage(@"Untersuchungen\plot.bmp");
             Erg.ShowDialog();
         }
 

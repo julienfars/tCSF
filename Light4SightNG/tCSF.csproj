@@ -101,51 +101,51 @@
   <ItemGroup>
     <Compile Include="CalibrationData.cs" />
     <Compile Include="EventArgs\AbbruchEventArgs.cs" />
-    <Compile Include="AudioControlClass.cs" />
+    <Compile Include="AudioControl.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="ChannelDescription.cs" />
     <Compile Include="TesteChannels.cs" />
     <Compile Include="StdStrategie.cs" />
-    <Compile Include="ZeigeErgebnis.cs">
+    <Compile Include="ShowResultsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ZeigeErgebnis.Designer_1.cs">
-      <DependentUpon>ZeigeErgebnis.cs</DependentUpon>
+    <Compile Include="ShowResultsForm.Designer_1.cs">
+      <DependentUpon>ShowResultsForm.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MesseSchwellen.cs">
+    <Compile Include="MeasureThresholdsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MesseSchwellen.Designer.cs">
-      <DependentUpon>MesseSchwellen.cs</DependentUpon>
+    <Compile Include="MeasureThresholdsForm.Designer.cs">
+      <DependentUpon>MeasureThresholdsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Steuerung.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Steuerung.Designer.cs">
-      <DependentUpon>Steuerung.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="KontrolliereMessungen.cs">
+    <Compile Include="MeasurementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KontrolliereMessungen.Designer.cs">
-      <DependentUpon>KontrolliereMessungen.cs</DependentUpon>
+    <Compile Include="MeasurementForm.Designer.cs">
+      <DependentUpon>MeasurementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LogWriter.cs">
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="zeigeErgebnis.resx">
-      <DependentUpon>ZeigeErgebnis.cs</DependentUpon>
+    <EmbeddedResource Include="ShowResultsForm.resx">
+      <DependentUpon>ShowResultsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MesseSchwellen.resx">
-      <DependentUpon>MesseSchwellen.cs</DependentUpon>
+    <EmbeddedResource Include="MeasureThresholdsForm.resx">
+      <DependentUpon>MeasureThresholdsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Steuerung.resx">
-      <DependentUpon>Steuerung.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KontrolliereMessungen.resx">
-      <DependentUpon>KontrolliereMessungen.cs</DependentUpon>
+    <EmbeddedResource Include="MeasurementForm.resx">
+      <DependentUpon>MeasurementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -168,7 +168,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="SignalGeneration.cs" />
-    <Compile Include="Teststrategie.cs" />
+    <Compile Include="TestStrategy.cs" />
     <Compile Include="BestPEST.cs" />
     <Compile Include="ConstantStimuli.cs" />
   </ItemGroup>

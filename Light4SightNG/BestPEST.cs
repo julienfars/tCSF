@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Threading;
 namespace Light4SightNG
 {
-    class BestPEST : Teststrategie
+    class BestPEST : TestStrategy
     {
         double std;
         readonly double[] plgit;
@@ -14,7 +14,7 @@ namespace Light4SightNG
 
         int trial = 0;
 
-        public BestPEST(Steuerung parent) : base(parent)
+        public BestPEST(MainForm parent) : base(parent)
         {
             double lgit;
 
@@ -47,7 +47,7 @@ namespace Light4SightNG
             //Threshold() called once more first run of ZeigeNeueSignalstaerke()
         }
 
-        protected override void ZeigeNeueSignalstaerke()
+        protected override void PresentNextStimulus()
         {
             if (!TesteAbbruch())
             {

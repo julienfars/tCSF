@@ -10,9 +10,9 @@ using System.IO;
 
 namespace Light4SightNG
 {
-    public partial class ZeigeErgebnis : Form
+    public partial class ShowResultsForm : Form
     {
-        public ZeigeErgebnis()
+        public ShowResultsForm()
         {
             InitializeComponent();
             this.button1.Enabled = Directory.GetFiles(@".\Untersuchungen", "*.txt").Length > 0;
@@ -23,19 +23,19 @@ namespace Light4SightNG
             this.Close();
         }
 
-        public void ladeBild(String pfad)
+        public void LoadImage(String pfad)
         {
             if (System.IO.File.Exists(pfad)) ergebnisBMP.Load(pfad);
         }
 
-        public void ladeText(String pfad)
+        public void LoadText(String pfad)
         {
             if (System.IO.File.Exists(pfad)) resultText.Text = File.ReadAllText(pfad);
         }
 
         void button1_Click(object sender, EventArgs e)
         {
-            bool doppelt = false;
+            bool isDuplicate = false;
             DirectoryInfo dirInfo = new DirectoryInfo(@".\Untersuchungen\" + textBox1.Text);
             if (dirInfo.Exists == false)
                 Directory.CreateDirectory(@".\Untersuchungen\" + textBox1.Text);
@@ -49,9 +49,9 @@ namespace Light4SightNG
                 if (new FileInfo(dirInfo + "\\" + mFile.Name).Exists == false)
                     mFile.MoveTo(dirInfo + "\\" + mFile.Name);
                 else
-                    doppelt = true;
+                    isDuplicate = true;
             }
-            if (doppelt) MessageBox.Show("Nicht alle Dateien konnten verschoben werden!");
+            if (isDuplicate) MessageBox.Show("Nicht alle Dateien konnten verschoben werden!");
             button1.Enabled = false;
         }
 

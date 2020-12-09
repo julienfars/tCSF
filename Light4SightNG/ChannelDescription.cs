@@ -8,62 +8,64 @@ namespace Light4SightNG
 
     public class ChannelDescription
     {
-        #region Variablen
-        /// <summary>
-        /// Private Eigenschaften des Objekts
-        /// </summary>
 
-        //Temps
         double dTempK, dTempMH;
         int iTemp;
 
         int iFrequenz = 0, iPhasenverschiebung = 0;
-        String sSignalform;
         double dMaxMHCal_cdm2 = 0.0;
         double poly4, poly3, poly2, poly1, intercept;
         double dMH_cdm2 = 0.0;
-
-        #endregion
-
         double _MittlereHelligkeit_100 = 0.0;
-        public double MittlereHelligkeit_100 { 
+        double _KonSC1_100 = 0.0;
+        double _KonSC2_100 = 0.0;
+        double _Kontrast_100 = 0.0;
+        double _SC1DeltaK_100 = 0.0;
+        double _SC2DeltaK_100 = 0.0;
+
+
+        public bool IsActive { get; set; }
+
+        /// <summary>
+        /// Indicates wether there were incorrect inputs in the channel description.
+        /// </summary>
+        public bool WrongInput { get; private set; }
+        public string SignalType { get; set; }
+
+        /// <summary>
+        /// The mean intensity of the LED in relation to the maximal possible intensity.
+        /// </summary>
+        public double PercentMeanIntensity { 
             get { return _MittlereHelligkeit_100; } 
             set { _MittlereHelligkeit_100 = value; } 
         }
 
-        double _KonSC1_100 = 0.0;
-        public double KonSC1_100 { 
+        public double StartContrastDownStaircase { 
             get { return _KonSC1_100; }  
             set { _KonSC1_100 = value; } 
         }
 
-        double _KonSC2_100 = 0.0;
-        public double KonSC2_100 { 
+        public double StartContrastUpStaircase { 
             get { return _KonSC2_100; }  
             set { _KonSC2_100 = value; } 
         }
 
-        double _Kontrast_100 = 0.0;
-        public double Kontrast_100 { 
+        public double CurrentContrast { 
             get { return _Kontrast_100; }  
             set { _Kontrast_100 = value; } 
         }
 
-        double _SC1DeltaK_100 = 0.0;
-        public double SC1DeltaK_100 { 
+        public double StepsizeDownStaircase { 
             get { return _SC1DeltaK_100; }  
             set { _SC1DeltaK_100 = value; } 
         }
 
-        double _SC2DeltaK_100 = 0.0;
-        public double SC2DeltaK_100 { 
+        public double StepsizeUpStaircase { 
             get { return _SC2DeltaK_100; }  
             set { _SC2DeltaK_100 = value; } 
         }
 
-        #region Methoden
-
-        public double MaxMHCal
+        public double MaxCandelaPerSquareMeter
         { 
             set
             {
@@ -77,12 +79,11 @@ namespace Light4SightNG
         }
 
         /// <summary>
-        /// Methode Frequenz überprüft ob der übergebene Wert innerhalb des zulässigen Frequenzbereichs von 1-100Hz liegt
-        /// [set,get]
+        /// Temporal frequency in the channel
         /// </summary>
         /// <value>int [1-100]</value>
         /// <return>int [1-100]Hz, 0 bei Fehler</return>
-        public int Frequenz
+        public int Frequency
         {
             set
             {
@@ -90,13 +91,13 @@ namespace Light4SightNG
                     iFrequenz = value;
                 else
                 {
-                    if (value == 0 && sSignalform == "Sinus")
+                    if (value == 0 && SignalType == "Sinus")
                     {
                         iFrequenz = value;
                     }
                     else
                     {
-                        Fehler = true;
+                        WrongInput = true;
                     }
                 }
             }
@@ -116,27 +117,25 @@ namespace Light4SightNG
             intercept = incpt;
         }
 
-        public double MittlereHelligkeit_cdm2
+        public double CandelaPerSquareMeter
         {
             
             set
             {
                 dTempMH = value;	
 			
-			    if (dTempMH >=0.0 && dTempMH <= dMaxMHCal_cdm2)	//Liegt der einegebene Signalparameter innerhalb des gültigen Bereichs?
+			    if (dTempMH >=0.0 && dTempMH <= dMaxMHCal_cdm2)
 			    {
-				    dMH_cdm2 = dTempMH;	//wenn ja, dann der gekapselten Variable zuweisen
-                    // dMH_100  = Math.Round((dTempMH/dMaxMHCal_cdm2),3);
-                    MittlereHelligkeit_100 = Math.Round((Math.Pow(dTempMH,4) * poly4 + Math.Pow(dTempMH,3) * poly3 + Math.Pow(dTempMH,2) * poly2 + dTempMH * poly1 + intercept), 3);
-                    if (MittlereHelligkeit_100 < 0) { MittlereHelligkeit_100 = 0; }
-                    if (MittlereHelligkeit_100 > 1) { MittlereHelligkeit_100 = 1; }
-				    dTempMH = 0;	//für die nächste benutzung vorbereiten
+				    dMH_cdm2 = dTempMH;
+                    PercentMeanIntensity = Math.Round((Math.Pow(dTempMH,4) * poly4 + Math.Pow(dTempMH,3) * poly3 + Math.Pow(dTempMH,2) * poly2 + dTempMH * poly1 + intercept), 3);
+                    if (PercentMeanIntensity < 0) { PercentMeanIntensity = 0; }
+                    if (PercentMeanIntensity > 1) { PercentMeanIntensity = 1; }
 			    }
-			    else	//Wert liegt nicht im gültigen Bereich
+			    else
 			    {
-				    dTempMH = 0;	//für die nächste Benutzung vorbereiten
-				    Fehler = true; //Fehlerindikator setzen
+                    dTempMH = 0;
 			    }
+                dTempMH = 0;
             }
 
             get
@@ -145,34 +144,25 @@ namespace Light4SightNG
             }
         }
 
-
-        public int Phasenverschiebung
+        public int GetPhase()
         {
-            set
-            {
-                iTemp = value;	
-			    if (iTemp >=0 && iTemp <=359)			//wenn die Wandlung geklappt hat wird hier auf den gültigen Wertebereich geprüft
-			    {
-				    iPhasenverschiebung = iTemp;				//liegt der Wert innerhlab der Grenzen, wird er der gekapselten Variable zugewiesen
-				    iTemp = 0;							//für nächste Benutzung zurücksetzen			
-			    }
-			    else	//liegt der Wert außerhalb des gültigen Wertebereichs
-			    {
-				    iTemp = 0;							//für nächste Benutzung zurücksetzen
-				    Fehler = true;						//Fehlerindikatr setzen
-			    }
-            }
-
-            get
-            {
-                return iPhasenverschiebung;
-            }
+            return iPhasenverschiebung;
         }
 
-        public bool SignalAktiv { get; set; }
-        public bool Fehler { get; private set; }
-        public string Signalform { get; set; }
 
-        #endregion
+        public void SetPhase(int value)
+        {
+            iTemp = value;
+            if (iTemp >= 0 && iTemp <= 359)
+            {
+                iPhasenverschiebung = iTemp;
+            }
+            else
+            {
+                WrongInput = true;
+            }
+            iTemp = 0;
+        }
+
     }
 }

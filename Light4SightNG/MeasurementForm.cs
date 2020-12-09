@@ -11,9 +11,10 @@ using System.Windows.Forms;
 
 namespace Light4SightNG
 {
-    public partial class KontrolliereMessungen : Form
+    public partial class MeasurementForm : Form
     {
         //Kanalobjekkte erzeugen
+        // public static ChannelDescription[] Channels = new ChannelDescription[8];
         public static ChannelDescription IRChannel = new ChannelDescription();
         public static ChannelDescription IGChannel = new ChannelDescription();
         public static ChannelDescription IBChannel = new ChannelDescription();
@@ -32,58 +33,59 @@ namespace Light4SightNG
         public int freq = -1;
 
         StdStrategie stdStrategie;
-        Teststrategie Strategie;
+        TestStrategy Strategie;
 
         List<ChannelDescription> channels = new List<ChannelDescription>();
 
-        Steuerung mainProgram;
+        MainForm mainProgram;
 
         //Objekte für Logging und Debugging
 
         public LogWriter logfiletmp;//Wird durch die Funktion LogFile an die Namenskonvention von DebugFile angepasst
         //public LogWriter DebugFile = new LogWriter("debugdata.txt", true);
 
-        public KontrolliereMessungen(Steuerung gpObject)
+        public MeasurementForm(MainForm gpObject)
         {
+            // Create ChannelDescriptions
+            // for (int i = 0; i < 8; i++) Channels[i] = new ChannelDescription();
 
             this.mainProgram = gpObject;
             UseBestPEST = mainProgram.UseBestPEST;
 
             InitializeComponent();
 
-            #region Kalibrierung einlesen und MaxWerte berechnen/anzeigen
             if (Globals.ReadCalibrationData() == 0)
             {
                 this.lblIRMHMax.Text = Globals.dMaxMH(0).ToString();
-                IRChannel.MaxMHCal = Globals.dMaxMH(0);
+                IRChannel.MaxCandelaPerSquareMeter = Globals.dMaxMH(0);
                 IRChannel.ParameterPolynom(Globals.poly4(0), Globals.poly3(0), Globals.poly2(0), Globals.poly1(0), Globals.intercept(0));
 
                 this.lblIGMHMax.Text = Globals.dMaxMH(1).ToString();
-                IGChannel.MaxMHCal = Globals.dMaxMH(1);
+                IGChannel.MaxCandelaPerSquareMeter = Globals.dMaxMH(1);
                 IGChannel.ParameterPolynom(Globals.poly4(1), Globals.poly3(1), Globals.poly2(1), Globals.poly1(1), Globals.intercept(1));
 
                 this.lblIBMHMax.Text = Globals.dMaxMH(2).ToString();
-                IBChannel.MaxMHCal = Globals.dMaxMH(2);
+                IBChannel.MaxCandelaPerSquareMeter = Globals.dMaxMH(2);
                 IBChannel.ParameterPolynom(Globals.poly4(2), Globals.poly3(2), Globals.poly2(2), Globals.poly1(2), Globals.intercept(2));
 
                 this.lblICMHMax.Text = Globals.dMaxMH(3).ToString();
-                ICChannel.MaxMHCal = Globals.dMaxMH(3);
+                ICChannel.MaxCandelaPerSquareMeter = Globals.dMaxMH(3);
                 ICChannel.ParameterPolynom(Globals.poly4(3), Globals.poly3(3), Globals.poly2(3), Globals.poly1(3), Globals.intercept(3));
 
                 this.lblORMHMax.Text = Globals.dMaxMH(4).ToString();
-                ORChannel.MaxMHCal = Globals.dMaxMH(4);
+                ORChannel.MaxCandelaPerSquareMeter = Globals.dMaxMH(4);
                 ORChannel.ParameterPolynom(Globals.poly4(4), Globals.poly3(4), Globals.poly2(4), Globals.poly1(4), Globals.intercept(4));
 
                 this.lblOGMHMax.Text = Globals.dMaxMH(5).ToString();
-                OGChannel.MaxMHCal = Globals.dMaxMH(5);
+                OGChannel.MaxCandelaPerSquareMeter = Globals.dMaxMH(5);
                 OGChannel.ParameterPolynom(Globals.poly4(5), Globals.poly3(5), Globals.poly2(5), Globals.poly1(5), Globals.intercept(5));
 
                 this.lblOBMHMax.Text = Globals.dMaxMH(6).ToString();
-                OBChannel.MaxMHCal = Globals.dMaxMH(6);
+                OBChannel.MaxCandelaPerSquareMeter = Globals.dMaxMH(6);
                 OBChannel.ParameterPolynom(Globals.poly4(6), Globals.poly3(6), Globals.poly2(6), Globals.poly1(6), Globals.intercept(6));
 
                 this.lblOCMHMax.Text = Globals.dMaxMH(7).ToString();
-                OCChannel.MaxMHCal = Globals.dMaxMH(7);
+                OCChannel.MaxCandelaPerSquareMeter = Globals.dMaxMH(7);
                 OCChannel.ParameterPolynom(Globals.poly4(7), Globals.poly3(7), Globals.poly2(7), Globals.poly1(7), Globals.intercept(7));
             }
             else
@@ -99,7 +101,6 @@ namespace Light4SightNG
                 btnUntersuchungAbbrechenActive(false);
                 btnUntersuchungStartenActive(false);
             }
-            #endregion
 
             channels.Add(IRChannel);
             channels.Add(IGChannel);
@@ -158,17 +159,17 @@ namespace Light4SightNG
             LogFile("Frequenz Envelope;;" + SignalGeneration.Envelope, true);
             LogFile("Pausiere Envelope;;" + Convert.ToString(SignalGeneration.PauseEnvelope), true);
 
-            if (KontrolliereMessungen.IRChannel.SignalAktiv == true)
+            if (MeasurementForm.IRChannel.IsActive == true)
             {
-                line2 = ("Signal aktiv;;" + KontrolliereMessungen.IRChannel.SignalAktiv.ToString() + ";");
-                line3 = ("Signalform;;" + KontrolliereMessungen.IRChannel.Signalform + ";");
-                line4 = ("Helligkeit;;" + KontrolliereMessungen.IRChannel.MittlereHelligkeit_cdm2.ToString() + ";");
-                line5 = ("Frequenz;;" + KontrolliereMessungen.IRChannel.Frequenz.ToString() + ";");
-                line6 = ("Phase;;" + KontrolliereMessungen.IRChannel.Phasenverschiebung.ToString() + ";");
-                line7 = ("Kontrast SC1;;" + KontrolliereMessungen.IRChannel.KonSC1_100.ToString() + ";");
-                line8 = ("Kontrast SC2;;" + KontrolliereMessungen.IRChannel.KonSC2_100.ToString() + ";");
-                line9 = ("Delta Kontrast SC1;;" + KontrolliereMessungen.IRChannel.SC1DeltaK_100.ToString() + ";");
-                line10 = ("Delta Kontrast SC2;;" + KontrolliereMessungen.IRChannel.SC2DeltaK_100.ToString() + ";");
+                line2 = ("Signal aktiv;;" + MeasurementForm.IRChannel.IsActive.ToString() + ";");
+                line3 = ("Signalform;;" + MeasurementForm.IRChannel.SignalType + ";");
+                line4 = ("Helligkeit;;" + MeasurementForm.IRChannel.CandelaPerSquareMeter.ToString() + ";");
+                line5 = ("Frequenz;;" + MeasurementForm.IRChannel.Frequency.ToString() + ";");
+                line6 = ("Phase;;" + MeasurementForm.IRChannel.GetPhase().ToString() + ";");
+                line7 = ("Kontrast SC1;;" + MeasurementForm.IRChannel.StartContrastDownStaircase.ToString() + ";");
+                line8 = ("Kontrast SC2;;" + MeasurementForm.IRChannel.StartContrastUpStaircase.ToString() + ";");
+                line9 = ("Delta Kontrast SC1;;" + MeasurementForm.IRChannel.StepsizeDownStaircase.ToString() + ";");
+                line10 = ("Delta Kontrast SC2;;" + MeasurementForm.IRChannel.StepsizeUpStaircase.ToString() + ";");
             }
             else
             {
@@ -183,17 +184,17 @@ namespace Light4SightNG
                 line10 = ("Delta Kontrast SC2;;;");
             }
 
-            if (KontrolliereMessungen.IGChannel.SignalAktiv == true)
+            if (MeasurementForm.IGChannel.IsActive == true)
             {
-                line2 = (line2 + KontrolliereMessungen.IGChannel.SignalAktiv.ToString() + ";");
-                line3 = (line3 + KontrolliereMessungen.IGChannel.Signalform + ";");
-                line4 = (line4 + KontrolliereMessungen.IGChannel.MittlereHelligkeit_cdm2.ToString() + ";");
-                line5 = (line5 + KontrolliereMessungen.IGChannel.Frequenz.ToString() + ";");
-                line6 = (line6 + KontrolliereMessungen.IGChannel.Phasenverschiebung.ToString() + ";");
-                line7 = (line7 + KontrolliereMessungen.IGChannel.KonSC1_100.ToString() + ";");
-                line8 = (line8 + KontrolliereMessungen.IGChannel.KonSC2_100.ToString() + ";");
-                line9 = (line9 + KontrolliereMessungen.IGChannel.SC1DeltaK_100.ToString() + ";");
-                line10 = (line10 + KontrolliereMessungen.IGChannel.SC2DeltaK_100.ToString() + ";");
+                line2 = (line2 + MeasurementForm.IGChannel.IsActive.ToString() + ";");
+                line3 = (line3 + MeasurementForm.IGChannel.SignalType + ";");
+                line4 = (line4 + MeasurementForm.IGChannel.CandelaPerSquareMeter.ToString() + ";");
+                line5 = (line5 + MeasurementForm.IGChannel.Frequency.ToString() + ";");
+                line6 = (line6 + MeasurementForm.IGChannel.GetPhase().ToString() + ";");
+                line7 = (line7 + MeasurementForm.IGChannel.StartContrastDownStaircase.ToString() + ";");
+                line8 = (line8 + MeasurementForm.IGChannel.StartContrastUpStaircase.ToString() + ";");
+                line9 = (line9 + MeasurementForm.IGChannel.StepsizeDownStaircase.ToString() + ";");
+                line10 = (line10 + MeasurementForm.IGChannel.StepsizeUpStaircase.ToString() + ";");
             }
             else
             {
@@ -209,17 +210,17 @@ namespace Light4SightNG
             }
 
 
-            if (KontrolliereMessungen.IBChannel.SignalAktiv == true)
+            if (MeasurementForm.IBChannel.IsActive == true)
             {
-                line2 = (line2 + KontrolliereMessungen.IBChannel.SignalAktiv.ToString() + ";");
-                line3 = (line3 + KontrolliereMessungen.IBChannel.Signalform + ";");
-                line4 = (line4 + KontrolliereMessungen.IBChannel.MittlereHelligkeit_cdm2.ToString() + ";");
-                line5 = (line5 + KontrolliereMessungen.IBChannel.Frequenz.ToString() + ";");
-                line6 = (line6 + KontrolliereMessungen.IBChannel.Phasenverschiebung.ToString() + ";");
-                line7 = (line7 + KontrolliereMessungen.IBChannel.KonSC1_100.ToString() + ";");
-                line8 = (line8 + KontrolliereMessungen.IBChannel.KonSC2_100.ToString() + ";");
-                line9 = (line9 + KontrolliereMessungen.IBChannel.SC1DeltaK_100.ToString() + ";");
-                line10 = (line10 + KontrolliereMessungen.IBChannel.SC2DeltaK_100.ToString() + ";");
+                line2 = (line2 + MeasurementForm.IBChannel.IsActive.ToString() + ";");
+                line3 = (line3 + MeasurementForm.IBChannel.SignalType + ";");
+                line4 = (line4 + MeasurementForm.IBChannel.CandelaPerSquareMeter.ToString() + ";");
+                line5 = (line5 + MeasurementForm.IBChannel.Frequency.ToString() + ";");
+                line6 = (line6 + MeasurementForm.IBChannel.GetPhase().ToString() + ";");
+                line7 = (line7 + MeasurementForm.IBChannel.StartContrastDownStaircase.ToString() + ";");
+                line8 = (line8 + MeasurementForm.IBChannel.StartContrastUpStaircase.ToString() + ";");
+                line9 = (line9 + MeasurementForm.IBChannel.StepsizeDownStaircase.ToString() + ";");
+                line10 = (line10 + MeasurementForm.IBChannel.StepsizeUpStaircase.ToString() + ";");
             }
             else
             {
@@ -234,17 +235,17 @@ namespace Light4SightNG
                 line10 = (line10 + ";");
             }
 
-            if (KontrolliereMessungen.ICChannel.SignalAktiv == true)
+            if (MeasurementForm.ICChannel.IsActive == true)
             {
-                line2 = (line2 + KontrolliereMessungen.ICChannel.SignalAktiv.ToString() + ";;");
-                line3 = (line3 + KontrolliereMessungen.ICChannel.Signalform + ";;");
-                line4 = (line4 + KontrolliereMessungen.ICChannel.MittlereHelligkeit_cdm2.ToString() + ";;");
-                line5 = (line5 + KontrolliereMessungen.ICChannel.Frequenz.ToString() + ";;");
-                line6 = (line6 + KontrolliereMessungen.ICChannel.Phasenverschiebung.ToString() + ";;");
-                line7 = (line7 + KontrolliereMessungen.ICChannel.KonSC1_100.ToString() + ";;");
-                line8 = (line8 + KontrolliereMessungen.ICChannel.KonSC2_100.ToString() + ";;");
-                line9 = (line9 + KontrolliereMessungen.ICChannel.SC1DeltaK_100.ToString() + ";;");
-                line10 = (line10 + KontrolliereMessungen.ICChannel.SC2DeltaK_100.ToString() + ";;");
+                line2 = (line2 + MeasurementForm.ICChannel.IsActive.ToString() + ";;");
+                line3 = (line3 + MeasurementForm.ICChannel.SignalType + ";;");
+                line4 = (line4 + MeasurementForm.ICChannel.CandelaPerSquareMeter.ToString() + ";;");
+                line5 = (line5 + MeasurementForm.ICChannel.Frequency.ToString() + ";;");
+                line6 = (line6 + MeasurementForm.ICChannel.GetPhase().ToString() + ";;");
+                line7 = (line7 + MeasurementForm.ICChannel.StartContrastDownStaircase.ToString() + ";;");
+                line8 = (line8 + MeasurementForm.ICChannel.StartContrastUpStaircase.ToString() + ";;");
+                line9 = (line9 + MeasurementForm.ICChannel.StepsizeDownStaircase.ToString() + ";;");
+                line10 = (line10 + MeasurementForm.ICChannel.StepsizeUpStaircase.ToString() + ";;");
             }
             else
             {
@@ -259,17 +260,17 @@ namespace Light4SightNG
                 line10 = (line10 + ";;;");
             }
 
-            if (KontrolliereMessungen.ORChannel.SignalAktiv == true)
+            if (MeasurementForm.ORChannel.IsActive == true)
             {
-                line2 = (line2 + KontrolliereMessungen.ORChannel.SignalAktiv.ToString() + ";");
-                line3 = (line3 + KontrolliereMessungen.ORChannel.Signalform + ";");
-                line4 = (line4 + KontrolliereMessungen.ORChannel.MittlereHelligkeit_cdm2.ToString() + ";");
-                line5 = (line5 + KontrolliereMessungen.ORChannel.Frequenz.ToString() + ";");
-                line6 = (line6 + KontrolliereMessungen.ORChannel.Phasenverschiebung.ToString() + ";");
-                line7 = (line7 + KontrolliereMessungen.ORChannel.KonSC1_100.ToString() + ";");
-                line8 = (line8 + KontrolliereMessungen.ORChannel.KonSC2_100.ToString() + ";");
-                line9 = (line9 + KontrolliereMessungen.ORChannel.SC1DeltaK_100.ToString() + ";");
-                line10 = (line10 + KontrolliereMessungen.ORChannel.SC2DeltaK_100.ToString() + ";");
+                line2 = (line2 + MeasurementForm.ORChannel.IsActive.ToString() + ";");
+                line3 = (line3 + MeasurementForm.ORChannel.SignalType + ";");
+                line4 = (line4 + MeasurementForm.ORChannel.CandelaPerSquareMeter.ToString() + ";");
+                line5 = (line5 + MeasurementForm.ORChannel.Frequency.ToString() + ";");
+                line6 = (line6 + MeasurementForm.ORChannel.GetPhase().ToString() + ";");
+                line7 = (line7 + MeasurementForm.ORChannel.StartContrastDownStaircase.ToString() + ";");
+                line8 = (line8 + MeasurementForm.ORChannel.StartContrastUpStaircase.ToString() + ";");
+                line9 = (line9 + MeasurementForm.ORChannel.StepsizeDownStaircase.ToString() + ";");
+                line10 = (line10 + MeasurementForm.ORChannel.StepsizeUpStaircase.ToString() + ";");
             }
             else
             {
@@ -284,17 +285,17 @@ namespace Light4SightNG
                 line10 = (line10 + ";");
             }
 
-            if (KontrolliereMessungen.OGChannel.SignalAktiv == true)
+            if (MeasurementForm.OGChannel.IsActive == true)
             {
-                line2 = (line2 + KontrolliereMessungen.OGChannel.SignalAktiv.ToString() + ";");
-                line3 = (line3 + KontrolliereMessungen.OGChannel.Signalform + ";");
-                line4 = (line4 + KontrolliereMessungen.OGChannel.MittlereHelligkeit_cdm2.ToString() + ";");
-                line5 = (line5 + KontrolliereMessungen.OGChannel.Frequenz.ToString() + ";");
-                line6 = (line6 + KontrolliereMessungen.OGChannel.Phasenverschiebung.ToString() + ";");
-                line7 = (line7 + KontrolliereMessungen.OGChannel.KonSC1_100.ToString() + ";");
-                line8 = (line8 + KontrolliereMessungen.OGChannel.KonSC2_100.ToString() + ";");
-                line9 = (line9 + KontrolliereMessungen.OGChannel.SC1DeltaK_100.ToString() + ";");
-                line10 = (line10 + KontrolliereMessungen.OGChannel.SC2DeltaK_100.ToString() + ";");
+                line2 = (line2 + MeasurementForm.OGChannel.IsActive.ToString() + ";");
+                line3 = (line3 + MeasurementForm.OGChannel.SignalType + ";");
+                line4 = (line4 + MeasurementForm.OGChannel.CandelaPerSquareMeter.ToString() + ";");
+                line5 = (line5 + MeasurementForm.OGChannel.Frequency.ToString() + ";");
+                line6 = (line6 + MeasurementForm.OGChannel.GetPhase().ToString() + ";");
+                line7 = (line7 + MeasurementForm.OGChannel.StartContrastDownStaircase.ToString() + ";");
+                line8 = (line8 + MeasurementForm.OGChannel.StartContrastUpStaircase.ToString() + ";");
+                line9 = (line9 + MeasurementForm.OGChannel.StepsizeDownStaircase.ToString() + ";");
+                line10 = (line10 + MeasurementForm.OGChannel.StepsizeUpStaircase.ToString() + ";");
             }
             else
             {
@@ -309,17 +310,17 @@ namespace Light4SightNG
                 line10 = (line10 + ";");
             }
 
-            if (KontrolliereMessungen.OBChannel.SignalAktiv == true)
+            if (MeasurementForm.OBChannel.IsActive == true)
             {
-                line2 = (line2 + KontrolliereMessungen.OBChannel.SignalAktiv.ToString() + ";");
-                line3 = (line3 + KontrolliereMessungen.OBChannel.Signalform + ";");
-                line4 = (line4 + KontrolliereMessungen.OBChannel.MittlereHelligkeit_cdm2.ToString() + ";");
-                line5 = (line5 + KontrolliereMessungen.OBChannel.Frequenz.ToString() + ";");
-                line6 = (line6 + KontrolliereMessungen.OBChannel.Phasenverschiebung.ToString() + ";");
-                line7 = (line7 + KontrolliereMessungen.OBChannel.KonSC1_100.ToString() + ";");
-                line8 = (line8 + KontrolliereMessungen.OBChannel.KonSC2_100.ToString() + ";");
-                line9 = (line9 + KontrolliereMessungen.OBChannel.SC1DeltaK_100.ToString() + ";");
-                line10 = (line10 + KontrolliereMessungen.OBChannel.SC2DeltaK_100.ToString() + ";");
+                line2 = (line2 + MeasurementForm.OBChannel.IsActive.ToString() + ";");
+                line3 = (line3 + MeasurementForm.OBChannel.SignalType + ";");
+                line4 = (line4 + MeasurementForm.OBChannel.CandelaPerSquareMeter.ToString() + ";");
+                line5 = (line5 + MeasurementForm.OBChannel.Frequency.ToString() + ";");
+                line6 = (line6 + MeasurementForm.OBChannel.GetPhase().ToString() + ";");
+                line7 = (line7 + MeasurementForm.OBChannel.StartContrastDownStaircase.ToString() + ";");
+                line8 = (line8 + MeasurementForm.OBChannel.StartContrastUpStaircase.ToString() + ";");
+                line9 = (line9 + MeasurementForm.OBChannel.StepsizeDownStaircase.ToString() + ";");
+                line10 = (line10 + MeasurementForm.OBChannel.StepsizeUpStaircase.ToString() + ";");
             }
             else
             {
@@ -334,17 +335,17 @@ namespace Light4SightNG
                 line10 = (line10 + ";");
             }
 
-            if (KontrolliereMessungen.OCChannel.SignalAktiv == true)
+            if (MeasurementForm.OCChannel.IsActive == true)
             {
-                line2 = (line2 + KontrolliereMessungen.OCChannel.SignalAktiv.ToString() + ";");
-                line3 = (line3 + KontrolliereMessungen.OCChannel.Signalform + ";");
-                line4 = (line4 + KontrolliereMessungen.OCChannel.MittlereHelligkeit_cdm2.ToString() + ";");
-                line5 = (line5 + KontrolliereMessungen.OCChannel.Frequenz.ToString() + ";");
-                line6 = (line6 + KontrolliereMessungen.OCChannel.Phasenverschiebung.ToString() + ";");
-                line7 = (line7 + KontrolliereMessungen.OCChannel.KonSC1_100.ToString() + ";");
-                line8 = (line8 + KontrolliereMessungen.OCChannel.KonSC2_100.ToString() + ";");
-                line9 = (line9 + KontrolliereMessungen.OCChannel.SC1DeltaK_100.ToString() + ";");
-                line10 = (line10 + KontrolliereMessungen.OCChannel.SC2DeltaK_100.ToString() + ";");
+                line2 = (line2 + MeasurementForm.OCChannel.IsActive.ToString() + ";");
+                line3 = (line3 + MeasurementForm.OCChannel.SignalType + ";");
+                line4 = (line4 + MeasurementForm.OCChannel.CandelaPerSquareMeter.ToString() + ";");
+                line5 = (line5 + MeasurementForm.OCChannel.Frequency.ToString() + ";");
+                line6 = (line6 + MeasurementForm.OCChannel.GetPhase().ToString() + ";");
+                line7 = (line7 + MeasurementForm.OCChannel.StartContrastDownStaircase.ToString() + ";");
+                line8 = (line8 + MeasurementForm.OCChannel.StartContrastUpStaircase.ToString() + ";");
+                line9 = (line9 + MeasurementForm.OCChannel.StepsizeDownStaircase.ToString() + ";");
+                line10 = (line10 + MeasurementForm.OCChannel.StepsizeUpStaircase.ToString() + ";");
             }
             else
             {
@@ -503,110 +504,110 @@ namespace Light4SightNG
             return dLMax > MHcdm2_max || dLMin < 0 ? "Kontrastwert für " + KanalInfoString + " ist ungültig!" : "OK";
         }
 
-        void SignalEigenschaftenEinlesen()
+        void ReadSignalDescription()
         {
-            IRChannel.SignalAktiv = cbAktivIR.Checked;
+            IRChannel.IsActive = cbAktivIR.Checked;
             if (cbAktivIR.Checked)
             {
-                IRChannel.Signalform = cbSigFormIR.Text;
-                IRChannel.Frequenz = int.Parse(tbFreqIR.Text);
-                IRChannel.KonSC1_100 = double.Parse(tbKonIRSC1.Text);
-                IRChannel.KonSC2_100 = double.Parse(tbKonIRSC2.Text);
-                IRChannel.SC1DeltaK_100 = double.Parse(tbIRSC1DeltaK.Text);
-                IRChannel.SC2DeltaK_100 = double.Parse(tbIRSC2DeltaK.Text);
-                IRChannel.MittlereHelligkeit_cdm2 = double.Parse(tbMHIR.Text);
-                IRChannel.Phasenverschiebung = int.Parse(tbPhasVerschIR.Text);
+                IRChannel.SignalType = cbSigFormIR.Text;
+                IRChannel.Frequency = int.Parse(tbFreqIR.Text);
+                IRChannel.StartContrastDownStaircase = double.Parse(tbKonIRSC1.Text);
+                IRChannel.StartContrastUpStaircase = double.Parse(tbKonIRSC2.Text);
+                IRChannel.StepsizeDownStaircase = double.Parse(tbIRSC1DeltaK.Text);
+                IRChannel.StepsizeUpStaircase = double.Parse(tbIRSC2DeltaK.Text);
+                IRChannel.CandelaPerSquareMeter = double.Parse(tbMHIR.Text);
+                IRChannel.SetPhase(int.Parse(tbPhasVerschIR.Text));
             }
 
-            IGChannel.SignalAktiv = cbAktivIG.Checked;
+            IGChannel.IsActive = cbAktivIG.Checked;
             if (cbAktivIG.Checked)
             {
-                IGChannel.Signalform = cbSigFormIG.Text;
-                IGChannel.Frequenz = int.Parse(tbFreqIG.Text);
-                IGChannel.KonSC1_100 = double.Parse(tbKonIGSC1.Text);
-                IGChannel.KonSC2_100 = double.Parse(tbKonIGSC2.Text);
-                IGChannel.SC1DeltaK_100 = double.Parse(tbIGSC1DeltaK.Text);
-                IGChannel.SC2DeltaK_100 = double.Parse(tbIGSC2DeltaK.Text);
-                IGChannel.MittlereHelligkeit_cdm2 = double.Parse(tbMHIG.Text);
-                IGChannel.Phasenverschiebung = int.Parse(tbPhasVerschIG.Text);
+                IGChannel.SignalType = cbSigFormIG.Text;
+                IGChannel.Frequency = int.Parse(tbFreqIG.Text);
+                IGChannel.StartContrastDownStaircase = double.Parse(tbKonIGSC1.Text);
+                IGChannel.StartContrastUpStaircase = double.Parse(tbKonIGSC2.Text);
+                IGChannel.StepsizeDownStaircase = double.Parse(tbIGSC1DeltaK.Text);
+                IGChannel.StepsizeUpStaircase = double.Parse(tbIGSC2DeltaK.Text);
+                IGChannel.CandelaPerSquareMeter = double.Parse(tbMHIG.Text);
+                IGChannel.SetPhase(int.Parse(tbPhasVerschIG.Text));
             }
 
-            IBChannel.SignalAktiv = cbAktivIB.Checked;
+            IBChannel.IsActive = cbAktivIB.Checked;
             if (cbAktivIB.Checked)
             {
-                IBChannel.Signalform = cbSigFormIB.Text;
-                IBChannel.Frequenz = int.Parse(tbFreqIB.Text);
-                IBChannel.KonSC1_100 = double.Parse(tbKonIBSC1.Text);
-                IBChannel.KonSC2_100 = double.Parse(tbKonIBSC2.Text);
-                IBChannel.SC1DeltaK_100 = double.Parse(tbIBSC1DeltaK.Text);
-                IBChannel.SC2DeltaK_100 = double.Parse(tbIBSC2DeltaK.Text);
-                IBChannel.MittlereHelligkeit_cdm2 = double.Parse(tbMHIB.Text);
-                IBChannel.Phasenverschiebung = int.Parse(tbPhasVerschIB.Text);
+                IBChannel.SignalType = cbSigFormIB.Text;
+                IBChannel.Frequency = int.Parse(tbFreqIB.Text);
+                IBChannel.StartContrastDownStaircase = double.Parse(tbKonIBSC1.Text);
+                IBChannel.StartContrastUpStaircase = double.Parse(tbKonIBSC2.Text);
+                IBChannel.StepsizeDownStaircase = double.Parse(tbIBSC1DeltaK.Text);
+                IBChannel.StepsizeUpStaircase = double.Parse(tbIBSC2DeltaK.Text);
+                IBChannel.CandelaPerSquareMeter = double.Parse(tbMHIB.Text);
+                IBChannel.SetPhase(int.Parse(tbPhasVerschIB.Text));
             }
 
-            ICChannel.SignalAktiv = cbAktivIC.Checked;
+            ICChannel.IsActive = cbAktivIC.Checked;
             if (cbAktivIC.Checked)
             {
-                ICChannel.Signalform = cbSigFormIC.Text;
-                ICChannel.Frequenz = int.Parse(tbFreqIC.Text);
-                ICChannel.KonSC1_100 = double.Parse(tbKonICSC1.Text);
-                ICChannel.KonSC2_100 = double.Parse(tbKonICSC2.Text);
-                ICChannel.SC1DeltaK_100 = double.Parse(tbICSC1DeltaK.Text);
-                ICChannel.SC2DeltaK_100 = double.Parse(tbICSC2DeltaK.Text);
-                ICChannel.MittlereHelligkeit_cdm2 = double.Parse(tbMHIC.Text);
-                ICChannel.Phasenverschiebung = int.Parse(tbPhasVerschIC.Text);
+                ICChannel.SignalType = cbSigFormIC.Text;
+                ICChannel.Frequency = int.Parse(tbFreqIC.Text);
+                ICChannel.StartContrastDownStaircase = double.Parse(tbKonICSC1.Text);
+                ICChannel.StartContrastUpStaircase = double.Parse(tbKonICSC2.Text);
+                ICChannel.StepsizeDownStaircase = double.Parse(tbICSC1DeltaK.Text);
+                ICChannel.StepsizeUpStaircase = double.Parse(tbICSC2DeltaK.Text);
+                ICChannel.CandelaPerSquareMeter = double.Parse(tbMHIC.Text);
+                ICChannel.SetPhase(int.Parse(tbPhasVerschIC.Text));
             }
 
-            ORChannel.SignalAktiv = cbAktivOR.Checked;
+            ORChannel.IsActive = cbAktivOR.Checked;
             if (cbAktivOR.Checked)
             {
-                ORChannel.Signalform = cbSigFormOR.Text;
-                ORChannel.Frequenz = int.Parse(tbFreqOR.Text);
-                ORChannel.KonSC1_100 = double.Parse(tbKonORSC1.Text);
-                ORChannel.KonSC2_100 = double.Parse(tbKonORSC2.Text);
-                ORChannel.SC1DeltaK_100 = double.Parse(tbORSC1DeltaK.Text);
-                ORChannel.SC2DeltaK_100 = double.Parse(tbORSC2DeltaK.Text);
-                ORChannel.MittlereHelligkeit_cdm2 = double.Parse(tbMHOR.Text);
-                ORChannel.Phasenverschiebung = int.Parse(tbPhasVerschOR.Text);
+                ORChannel.SignalType = cbSigFormOR.Text;
+                ORChannel.Frequency = int.Parse(tbFreqOR.Text);
+                ORChannel.StartContrastDownStaircase = double.Parse(tbKonORSC1.Text);
+                ORChannel.StartContrastUpStaircase = double.Parse(tbKonORSC2.Text);
+                ORChannel.StepsizeDownStaircase = double.Parse(tbORSC1DeltaK.Text);
+                ORChannel.StepsizeUpStaircase = double.Parse(tbORSC2DeltaK.Text);
+                ORChannel.CandelaPerSquareMeter = double.Parse(tbMHOR.Text);
+                ORChannel.SetPhase(int.Parse(tbPhasVerschOR.Text));
             }
 
-            OGChannel.SignalAktiv = cbAktivOG.Checked;
+            OGChannel.IsActive = cbAktivOG.Checked;
             if (cbAktivOG.Checked)
             {
-                OGChannel.Signalform = cbSigFormOG.Text;
-                OGChannel.Frequenz = int.Parse(tbFreqOG.Text);
-                OGChannel.KonSC1_100 = double.Parse(tbKonOGSC1.Text);
-                OGChannel.KonSC2_100 = double.Parse(tbKonOGSC2.Text);
-                OGChannel.SC1DeltaK_100 = double.Parse(tbOGSC1DeltaK.Text);
-                OGChannel.SC2DeltaK_100 = double.Parse(tbOGSC2DeltaK.Text);
-                OGChannel.MittlereHelligkeit_cdm2 = double.Parse(tbMHOG.Text);
-                OGChannel.Phasenverschiebung = int.Parse(tbPhasVerschOG.Text);
+                OGChannel.SignalType = cbSigFormOG.Text;
+                OGChannel.Frequency = int.Parse(tbFreqOG.Text);
+                OGChannel.StartContrastDownStaircase = double.Parse(tbKonOGSC1.Text);
+                OGChannel.StartContrastUpStaircase = double.Parse(tbKonOGSC2.Text);
+                OGChannel.StepsizeDownStaircase = double.Parse(tbOGSC1DeltaK.Text);
+                OGChannel.StepsizeUpStaircase = double.Parse(tbOGSC2DeltaK.Text);
+                OGChannel.CandelaPerSquareMeter = double.Parse(tbMHOG.Text);
+                OGChannel.SetPhase(int.Parse(tbPhasVerschOG.Text));
             }
 
-            OBChannel.SignalAktiv = cbAktivOB.Checked;
+            OBChannel.IsActive = cbAktivOB.Checked;
             if (cbAktivOB.Checked)
             {
-                OBChannel.Signalform = cbSigFormOB.Text;
-                OBChannel.Frequenz = int.Parse(tbFreqOB.Text);
-                OBChannel.KonSC1_100 = double.Parse(tbKonOBSC1.Text);
-                OBChannel.KonSC2_100 = double.Parse(tbKonOBSC2.Text);
-                OBChannel.SC1DeltaK_100 = double.Parse(tbOBSC1DeltaK.Text);
-                OBChannel.SC2DeltaK_100 = double.Parse(tbOBSC2DeltaK.Text);
-                OBChannel.MittlereHelligkeit_cdm2 = double.Parse(tbMHOB.Text);
-                OBChannel.Phasenverschiebung = int.Parse(tbPhasVerschOB.Text);
+                OBChannel.SignalType = cbSigFormOB.Text;
+                OBChannel.Frequency = int.Parse(tbFreqOB.Text);
+                OBChannel.StartContrastDownStaircase = double.Parse(tbKonOBSC1.Text);
+                OBChannel.StartContrastUpStaircase = double.Parse(tbKonOBSC2.Text);
+                OBChannel.StepsizeDownStaircase = double.Parse(tbOBSC1DeltaK.Text);
+                OBChannel.StepsizeUpStaircase = double.Parse(tbOBSC2DeltaK.Text);
+                OBChannel.CandelaPerSquareMeter = double.Parse(tbMHOB.Text);
+                OBChannel.SetPhase(int.Parse(tbPhasVerschOB.Text));
             }
 
-            OCChannel.SignalAktiv = cbAktivOC.Checked;
+            OCChannel.IsActive = cbAktivOC.Checked;
             if (cbAktivOC.Checked)
             {
-                OCChannel.Signalform = cbSigFormOC.Text;
-                OCChannel.Frequenz = int.Parse(tbFreqOC.Text);
-                OCChannel.KonSC1_100 = double.Parse(tbKonOCSC1.Text);
-                OCChannel.KonSC2_100 = double.Parse(tbKonOCSC2.Text);
-                OCChannel.SC1DeltaK_100 = double.Parse(tbOCSC1DeltaK.Text);
-                OCChannel.SC2DeltaK_100 = double.Parse(tbOCSC2DeltaK.Text);
-                OCChannel.MittlereHelligkeit_cdm2 = double.Parse(tbMHOC.Text);
-                OCChannel.Phasenverschiebung = int.Parse(tbPhasVerschOC.Text);
+                OCChannel.SignalType = cbSigFormOC.Text;
+                OCChannel.Frequency = int.Parse(tbFreqOC.Text);
+                OCChannel.StartContrastDownStaircase = double.Parse(tbKonOCSC1.Text);
+                OCChannel.StartContrastUpStaircase = double.Parse(tbKonOCSC2.Text);
+                OCChannel.StepsizeDownStaircase = double.Parse(tbOCSC1DeltaK.Text);
+                OCChannel.StepsizeUpStaircase = double.Parse(tbOCSC2DeltaK.Text);
+                OCChannel.CandelaPerSquareMeter = double.Parse(tbMHOC.Text);
+                OCChannel.SetPhase(int.Parse(tbPhasVerschOC.Text));
             }
 
 
@@ -622,7 +623,7 @@ namespace Light4SightNG
                 if (this.testeCFF) logfiletmp = new LogWriter(tbProbandenNummer.Text + "_" + this.cbAugenseite.Text + "_" + time.ToString(format) + ".cff", false);
                 else logfiletmp = new LogWriter(tbProbandenNummer.Text + "_" + this.cbAugenseite.Text + "_" + time.ToString(format) + ".txt", false);
 
-                this.SignalEigenschaftenEinlesen();
+                this.ReadSignalDescription();
 
                 Globals.flagUntersuchunglaeuft = true;
                 this.btnUntersuchungAbbrechen.Enabled = true;
@@ -633,10 +634,10 @@ namespace Light4SightNG
                 this.cbAugenseite.Enabled = false;
                 this.KeyPreview = true;
 
-                if ((IRChannel.SC1DeltaK_100 < float.Epsilon) &&
-                    (IGChannel.SC1DeltaK_100 < float.Epsilon) &&
-                    (Math.Abs(IBChannel.SC1DeltaK_100) < float.Epsilon) &&
-                    (ICChannel.SC1DeltaK_100 < float.Epsilon))
+                if ((IRChannel.StepsizeDownStaircase < float.Epsilon) &&
+                    (IGChannel.StepsizeDownStaircase < float.Epsilon) &&
+                    (Math.Abs(IBChannel.StepsizeDownStaircase) < float.Epsilon) &&
+                    (ICChannel.StepsizeDownStaircase < float.Epsilon))
                 {
                     if (UseBestPEST) Strategie = new ConstantStimuli(mainProgram);
                     else stdStrategie = new StdStrategie(mainProgram, "außen", testeCFF);
@@ -876,7 +877,7 @@ namespace Light4SightNG
 
         void btnSavePreset_Click(object sender, EventArgs e)
         {
-            SignalEigenschaftenEinlesen();
+            ReadSignalDescription();
             DirectoryInfo d = new DirectoryInfo(@".\presets\");
             d.Create();
 
@@ -891,15 +892,15 @@ namespace Light4SightNG
 
                 foreach (ChannelDescription chan in channels)
                 {
-                    temp = chan.SignalAktiv.ToString() + ";";
-                    temp = temp + chan.Signalform + ";";
-                    temp = temp + chan.Frequenz.ToString() + ";";
-                    temp = temp + chan.MittlereHelligkeit_cdm2.ToString() + ";";
-                    temp = temp + chan.Phasenverschiebung.ToString() + ";";
-                    temp = temp + chan.KonSC1_100.ToString() + ";";
-                    temp = temp + chan.SC1DeltaK_100.ToString() + ";";
-                    temp = temp + chan.KonSC2_100.ToString() + ";";
-                    temp = temp + chan.SC2DeltaK_100.ToString() + ";";
+                    temp = chan.IsActive.ToString() + ";";
+                    temp = temp + chan.SignalType + ";";
+                    temp = temp + chan.Frequency.ToString() + ";";
+                    temp = temp + chan.CandelaPerSquareMeter.ToString() + ";";
+                    temp = temp + chan.GetPhase().ToString() + ";";
+                    temp = temp + chan.StartContrastDownStaircase.ToString() + ";";
+                    temp = temp + chan.StepsizeDownStaircase.ToString() + ";";
+                    temp = temp + chan.StartContrastUpStaircase.ToString() + ";";
+                    temp = temp + chan.StepsizeUpStaircase.ToString() + ";";
                     sw.WriteLine(temp);
                 }
                 sw.Flush();
