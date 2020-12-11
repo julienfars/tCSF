@@ -17,7 +17,7 @@ namespace Light4SightNG
         public List<int> contrastPresentations;
         public List<int> PTcontrast;
         public List<int> contrasts;
-        private readonly List<int> contrasts_basic = new List<int>() { 0, 25, 50, 100, 300, 500, 700, 900, 950, 975, 1000 }; //2Hz - Low freq
+        private readonly List<int> contrasts_basic = new List<int>() { 0, 25, 50, 100, 300, 500, 700, 900, 950, 975, 1000 }; 
 
         Random shuffle;
         int nextContrast;
