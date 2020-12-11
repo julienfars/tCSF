@@ -65,9 +65,12 @@
             this.LabelAlgorithms = new System.Windows.Forms.Label();
             this.NumberOfTrials = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.PredictedThreshold = new System.Windows.Forms.NumericUpDown();
             this.gbProband.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ergebnisseVorhanden)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumberOfTrials)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PredictedThreshold)).BeginInit();
             this.SuspendLayout();
             // 
             // Rod
@@ -398,12 +401,11 @@
             this.selectAlgorithm.FormattingEnabled = true;
             this.selectAlgorithm.Items.AddRange(new object[] {
             "Randomly-Interleaved-Staircases",
-            "BestPEST",
-            "Up-Staircase",
-            "Down-Staircase"});
+            "Constant Stimuli",
+            "Threshold finder (BP)"});
             this.selectAlgorithm.Location = new System.Drawing.Point(520, 171);
             this.selectAlgorithm.Name = "selectAlgorithm";
-            this.selectAlgorithm.Size = new System.Drawing.Size(163, 56);
+            this.selectAlgorithm.Size = new System.Drawing.Size(163, 43);
             this.selectAlgorithm.TabIndex = 34;
             this.selectAlgorithm.SelectedIndexChanged += new System.EventHandler(this.selectAlgorithm_SelectedIndexChanged);
             // 
@@ -418,6 +420,7 @@
             // 
             // NumberOfTrials
             // 
+            this.NumberOfTrials.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.NumberOfTrials.Location = new System.Drawing.Point(520, 260);
             this.NumberOfTrials.Name = "NumberOfTrials";
             this.NumberOfTrials.Size = new System.Drawing.Size(120, 20);
@@ -429,15 +432,34 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(517, 244);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 13);
+            this.label3.Size = new System.Drawing.Size(151, 13);
             this.label3.TabIndex = 37;
-            this.label3.Text = "Anzahl Trials (BestPEST)";
+            this.label3.Text = "Anzahl Trials (Constant Stimuli)";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(497, 312);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(191, 13);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "Predicted threshold for Constant Stimuli\r\n";
+            // 
+            // PredictedThreshold
+            // 
+            this.PredictedThreshold.Location = new System.Drawing.Point(520, 330);
+            this.PredictedThreshold.Name = "PredictedThreshold";
+            this.PredictedThreshold.Size = new System.Drawing.Size(120, 20);
+            this.PredictedThreshold.TabIndex = 40;
+            this.PredictedThreshold.ValueChanged += new System.EventHandler(this.PredictedThreshold_ValueChanged);
             // 
             // Steuerung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 415);
+            this.Controls.Add(this.PredictedThreshold);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.NumberOfTrials);
             this.Controls.Add(this.LabelAlgorithms);
@@ -472,10 +494,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Steuerung";
             this.Text = "Messe Freq.-Empf.-Kurven";
+            this.Load += new System.EventHandler(this.Steuerung_Load);
             this.gbProband.ResumeLayout(false);
             this.gbProband.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ergebnisseVorhanden)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumberOfTrials)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PredictedThreshold)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,5 +543,7 @@
         private System.Windows.Forms.ListBox selectAlgorithm;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown NumberOfTrials;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown PredictedThreshold;
     }
 }
