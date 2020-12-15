@@ -183,21 +183,6 @@ namespace Light4SightNG
             { result.Enabled = false; }
         }
 
-        private void SConeList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MesseSchwellen_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LConeList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         void ergebnisseVorhanden_Created(object sender, FileSystemEventArgs e)
         {
             if (Directory.GetFiles(@".\Untersuchungen", "*.txt").Length > 0)
