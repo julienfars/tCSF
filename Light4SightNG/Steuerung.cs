@@ -19,8 +19,10 @@ namespace Light4SightNG
         public static String MConePath = @"presets/mcone.pre";
         public static String SConePath = @"presets/scone.pre";
 
+        public bool UseConstantStimuli;
         public bool UseBestPEST;
         public int NTrials;
+        public int PThreshold;
 
         //Objekt für die Audioschnittstelle. Dient der Steuerung der Wiedergabe(Start,Stop,Puffer)
         public AudioControlClass AudioControl = new AudioControlClass();
@@ -432,24 +434,19 @@ namespace Light4SightNG
         {
             switch (selectAlgorithm.Text)
             {
-                case "BestPEST":
-                    UseBestPEST = true;
+                case "Constant Stimuli":
+                    UseConstantStimuli = true;
                     NumberOfTrials.Enabled = true;
                     break;
                 case "Randomly-Interleaved-Staircases":
-                    UseBestPEST = false;
+                    UseConstantStimuli = false;
                     Globals.Staircase = "beide";
                     NumberOfTrials.Enabled = false;
                     break;
-                case "Up-Staircase":
-                    UseBestPEST = false;
-                    Globals.Staircase = "up";
-                    NumberOfTrials.Enabled = false;
-                    break;
-                case "Down-Staircase":
-                    UseBestPEST = false;
-                    Globals.Staircase = "down";
-                    NumberOfTrials.Enabled = false;
+                case "Threshold finder (BP)":
+                    UseConstantStimuli = false;
+                    UseBestPEST = true;
+                    NumberOfTrials.Enabled = true;
                     break;
             }
         }
@@ -459,6 +456,14 @@ namespace Light4SightNG
             NTrials = (int)NumberOfTrials.Value;
         }
 
+        private void Steuerung_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        private void PredictedThreshold_ValueChanged(object sender, EventArgs e)
+        {
+            PThreshold = (int)PredictedThreshold.Value;
+        }
     }
 }
