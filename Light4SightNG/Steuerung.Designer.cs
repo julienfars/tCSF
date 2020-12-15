@@ -430,11 +430,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(517, 244);
+            this.label3.Location = new System.Drawing.Point(497, 244);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 13);
+            this.label3.Size = new System.Drawing.Size(189, 13);
             this.label3.TabIndex = 37;
-            this.label3.Text = "Anzahl Trials (Constant Stimuli)";
+            this.label3.Text = "Anzahl Trials (Constant Stimuli and BP)";
             // 
             // label4
             // 
@@ -447,6 +447,12 @@
             // 
             // PredictedThreshold
             // 
+            this.PredictedThreshold.DecimalPlaces = 2;
+            this.PredictedThreshold.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.PredictedThreshold.Location = new System.Drawing.Point(520, 330);
             this.PredictedThreshold.Name = "PredictedThreshold";
             this.PredictedThreshold.Size = new System.Drawing.Size(120, 20);

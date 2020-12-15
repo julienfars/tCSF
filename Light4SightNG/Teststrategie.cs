@@ -14,6 +14,7 @@ namespace Light4SightNG
         protected int signalStrength;
         protected int maxSignalStrength = 1000;
         protected double[] Kontrast_100 = new double[8];
+        
 
         protected string LED_Gruppe = "außen";
 

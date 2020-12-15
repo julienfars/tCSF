@@ -17,7 +17,7 @@ namespace Light4SightNG
         public List<int> contrastPresentations;
         public List<int> PTcontrast;
         public List<int> contrasts;
-        private readonly List<int> contrasts_basic = new List<int>() { 0, 25, 50, 100, 300, 500, 700, 900, 950, 975, 1000 }; 
+        private readonly List<int> contrasts_basic = new List<int>() { 0, 10, 25, 50, 100, 300, 500, 700, 900, 1000 }; //2Hz - Low freq
 
         Random shuffle;
         int nextContrast;
@@ -32,7 +32,7 @@ namespace Light4SightNG
             PThreshold = parent.PThreshold *10;
             //step = PThreshold / 10; not used, was written to generate a list of numbers by mathematical contrainst 
             // generate the list of contrasts here 
-            PTcontrast = new List<int>() { PThreshold-60, PThreshold-35, PThreshold-20, PThreshold-10, PThreshold-5, PThreshold-2, PThreshold+2, PThreshold+5, PThreshold+10, PThreshold+20, PThreshold+35, PThreshold+60 };
+            PTcontrast = new List<int>() { PThreshold-40, PThreshold-30, PThreshold-20, PThreshold-10, PThreshold-5, PThreshold-2, PThreshold+2, PThreshold+5, PThreshold+10, PThreshold+20, PThreshold+30, PThreshold+40 };
             PTcontrast = PTcontrast.Where(i => i >= 0).ToList();
             PTcontrast = PTcontrast.Where(i => i < 1000).ToList();
             var contrasts = contrasts_basic.Concat(PTcontrast);

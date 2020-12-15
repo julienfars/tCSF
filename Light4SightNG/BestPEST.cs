@@ -13,6 +13,7 @@ namespace Light4SightNG
         public int NTrials { get; set; }
 
         int trial = 0;
+        int ratio; 
 
         public BestPEST(Steuerung parent) : base(parent)
         {
@@ -53,6 +54,10 @@ namespace Light4SightNG
             {
                 trial++;
                 Threshold();
+                if (signalStrength < maxSignalStrength/8)//new & trial > NTrials / 2
+                {
+                    signalStrength = signalStrength / 2;
+                }
                 this.ChangeContrast(signalStrength);
                 this.PlaySignal();
             }
@@ -63,6 +68,10 @@ namespace Light4SightNG
                     NTrials++;
                     trial++;
                     Threshold();
+                    if (signalStrength < maxSignalStrength / 8)//new & trial > NTrials / 2
+                    {
+                        signalStrength = signalStrength / 2;
+                    }
                     this.ChangeContrast(signalStrength);
                     this.PlaySignal();
                 }
