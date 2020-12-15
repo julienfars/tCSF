@@ -19,9 +19,9 @@ namespace Light4SightNG
 
             dMaxMHTmp = srKalibrierungsdaten.ReadLine().Split(charSep, StringSplitOptions.RemoveEmptyEntries);
 
-            for (int i = 0; i < 10000; i++)
-            luminance = srKalibrierungsdaten.ReadLine().Split(charSep, StringSplitOptions.RemoveEmptyEntries)[i, ];
-            internalValue = srKalibrierungsdaten.ReadLine().Split(charSep, StringSplitOptions.RemoveEmptyEntries)[i, ];
+            //for (int i = 0; i < 10000; i++)
+            //luminance = srKalibrierungsdaten.ReadLine().Split(charSep, StringSplitOptions.RemoveEmptyEntries)[i, ];
+            //internalValue = srKalibrierungsdaten.ReadLine().Split(charSep, StringSplitOptions.RemoveEmptyEntries)[i, ];
         }
     }
 }
