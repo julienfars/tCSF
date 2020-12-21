@@ -13,7 +13,6 @@ namespace Light4SightNG
         public int NTrials { get; set; }
 
         int trial = 0;
-        int ratio; 
 
         public BestPEST(Steuerung parent) : base(parent)
         {
