@@ -11,13 +11,12 @@ namespace Light4SightNG
         double std;
 
         public int NTrials { get; set; }
-        public int PThreshold { get; set; }
-
+        public double PThreshold { get; set; }
 
         public List<int> contrastPresentations;
         public List<int> PTcontrast;
         public List<int> contrasts;
-        private readonly List<int> contrasts_basic = new List<int>() { 0, 10, 25, 50, 100, 300, 500, 700, 900, 1000 }; //2Hz - Low freq
+        private readonly List<int> contrasts_basic = new List<int>() { 0, 1000, 2500, 5000, 10000, 30000, 50000, 70000, 90000, 100000 }; 
 
         Random shuffle;
         int nextContrast;
@@ -27,14 +26,13 @@ namespace Light4SightNG
         {
 
             _SchwelleErreichtMessage = "ConstantStimulus;;";
-
             NTrials = parent.NTrials;
-            PThreshold = parent.PThreshold *10;
-            //step = PThreshold / 10; not used, was written to generate a list of numbers by mathematical contrainst 
+            PThreshold = parent.PThreshold *1000; // to get the accurate threshold considering our actual list of basic contrasts (that range from 0 to 100000)
             // generate the list of contrasts here 
-            PTcontrast = new List<int>() { PThreshold-40, PThreshold-30, PThreshold-20, PThreshold-10, PThreshold-5, PThreshold-2, PThreshold+2, PThreshold+5, PThreshold+10, PThreshold+20, PThreshold+30, PThreshold+40 };
+            //here is a temporary change 
+            PTcontrast = new List<int>() { (int)(PThreshold*.6), (int)(PThreshold * .7), (int)(PThreshold * .8), (int)(PThreshold * .9), (int)(PThreshold * .95), (int)(PThreshold * .98), (int)(PThreshold * 1.02), (int)(PThreshold * 1.05), (int)(PThreshold * 1.1), (int)(PThreshold * 1.2), (int)(PThreshold * 1.3), (int)(PThreshold * 1.4) };
             PTcontrast = PTcontrast.Where(i => i >= 0).ToList();
-            PTcontrast = PTcontrast.Where(i => i < 1000).ToList();
+            PTcontrast = PTcontrast.Where(i => i < 100000).ToList();
             var contrasts = contrasts_basic.Concat(PTcontrast);
 
             contrastPresentations = new List<int>();
@@ -50,7 +48,7 @@ namespace Light4SightNG
             if (!TesteAbbruch())
             {
                 nextContrast = shuffle.Next(contrastPresentations.Count);
-                this.ChangeContrast(contrastPresentations[nextContrast]);
+                this.ChangeContrastCS(contrastPresentations[nextContrast]);
                 contrastPresentations.RemoveAt(nextContrast);
                 this.PlaySignal();
             }

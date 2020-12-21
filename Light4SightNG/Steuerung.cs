@@ -22,7 +22,7 @@ namespace Light4SightNG
         public bool UseConstantStimuli;
         public bool UseBestPEST;
         public int NTrials;
-        public int PThreshold;
+        public double PThreshold;
 
         //Objekt für die Audioschnittstelle. Dient der Steuerung der Wiedergabe(Start,Stop,Puffer)
         public AudioControlClass AudioControl = new AudioControlClass();
@@ -463,7 +463,7 @@ namespace Light4SightNG
 
         private void PredictedThreshold_ValueChanged(object sender, EventArgs e)
         {
-            PThreshold = (int)PredictedThreshold.Value;
+            PThreshold = (double)PredictedThreshold.Value;
         }
     }
 }

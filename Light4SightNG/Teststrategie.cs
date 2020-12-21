@@ -13,6 +13,7 @@ namespace Light4SightNG
         protected AudioControlClass AudioControl;
         protected int signalStrength;
         protected int maxSignalStrength = 1000;
+        protected int maxSignalStrengthCS = 100000;
         protected double[] Kontrast_100 = new double[8];
         
 
@@ -174,6 +175,30 @@ namespace Light4SightNG
                 KontrolliereMessungen.OGChannel.Kontrast_100 = Kontrast_100[green] * newSignalStrength / maxSignalStrength;
                 KontrolliereMessungen.OBChannel.Kontrast_100 = Kontrast_100[blue] * newSignalStrength / maxSignalStrength;
                 KontrolliereMessungen.OCChannel.Kontrast_100 = Kontrast_100[cyan] * newSignalStrength / maxSignalStrength;
+            }
+
+            return (true);
+        }
+
+        protected bool ChangeContrastCS(int newSignalStrength) //I needed a new ChangeContrast with the new maximal strength, WITHOUT having to make modifications over the BestPEST method
+        {
+
+            if (newSignalStrength < 0) { return (false); }
+            if (newSignalStrength > maxSignalStrengthCS) { return (false); }
+
+            if (LED_Gruppe == "innen")
+            {
+                KontrolliereMessungen.IRChannel.Kontrast_100 = Kontrast_100[red] * newSignalStrength / maxSignalStrengthCS;
+                KontrolliereMessungen.IGChannel.Kontrast_100 = Kontrast_100[green] * newSignalStrength / maxSignalStrengthCS;
+                KontrolliereMessungen.IBChannel.Kontrast_100 = Kontrast_100[blue] * newSignalStrength / maxSignalStrengthCS;
+                KontrolliereMessungen.ICChannel.Kontrast_100 = Kontrast_100[cyan] * newSignalStrength / maxSignalStrengthCS;
+            }
+            else
+            {
+                KontrolliereMessungen.ORChannel.Kontrast_100 = Kontrast_100[red] * newSignalStrength / maxSignalStrengthCS;
+                KontrolliereMessungen.OGChannel.Kontrast_100 = Kontrast_100[green] * newSignalStrength / maxSignalStrengthCS;
+                KontrolliereMessungen.OBChannel.Kontrast_100 = Kontrast_100[blue] * newSignalStrength / maxSignalStrengthCS;
+                KontrolliereMessungen.OCChannel.Kontrast_100 = Kontrast_100[cyan] * newSignalStrength / maxSignalStrengthCS;
             }
 
             return (true);
