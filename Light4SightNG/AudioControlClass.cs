@@ -43,10 +43,10 @@ namespace Light4SightNG
         readonly static int _AbtastFrequenz = 96000;
         public static int AbtastFrequenz { get { return _AbtastFrequenz; } }
 
-        readonly static double _DeltaPI = (2 * Math.PI / AbtastFrequenz);
+        readonly static double _DeltaPI = (2 * Math.PI / ScanRate);
         public static double DeltaPI { get { return _DeltaPI; } } 
 
-        readonly static int _BytesProSekunde = AnzahlKanaele * AbtastFrequenz * 2;
+        readonly static int _BytesProSekunde = AnzahlKanaele * ScanRate * 2;
         public static int BytesProSekunde { get { return _BytesProSekunde; } }
 
         readonly static Int16 _SampleContainerGroesse = 16;
@@ -79,7 +79,7 @@ namespace Light4SightNG
             SignalFormat.AverageBytesPerSecond = AudioControlClass.BytesProSekunde;
             SignalFormat.BlockAlignment = AudioControlClass.Blockausrichtung;
             SignalFormat.Channels = AudioControlClass.AnzahlKanaele;
-            SignalFormat.SamplesPerSecond = AudioControlClass.AbtastFrequenz;
+            SignalFormat.SamplesPerSecond = AudioControlClass.ScanRate;
             SignalFormat.BitsPerSample = AudioControlClass.SampleContainerGroesse;
             SignalFormat.FormatTag = SlimDX.Multimedia.WaveFormatTag.Pcm;
             cbWaveSize = AudioControlClass.SampleLaenge * SignalFormat.Channels * SignalFormat.SamplesPerSecond * SignalFormat.BitsPerSample / 8;
@@ -185,7 +185,7 @@ namespace Light4SightNG
             for (int i = 0; i < signalCopy.Length; i++)
             {
                 signalCopy[i] *= Math.Sin(dWinkel);
-                dWinkel += 2 * Math.PI * AudioControlClass.TraegerFrequenz / AudioControlClass.AbtastFrequenz;
+                dWinkel += 2 * Math.PI * AudioControlClass.TraegerFrequenz / AudioControlClass.ScanRate;
                 if (dWinkel > 2 * Math.PI)
                     dWinkel -= 2 * Math.PI;
                 WriteToWaveContainer(signalCopy[i], channel, i);
