@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Light4SightNG
 {
-    class ConstantStimuli : Teststrategie
+    class ConstantStimuli : TestStrategy
     {
         double std;
 
@@ -22,7 +22,7 @@ namespace Light4SightNG
         int nextContrast;
         public int step;
 
-        public ConstantStimuli(Steuerung parent) : base(parent)
+        public ConstantStimuli(Mainform parent) : base(parent)
         {
 
             _SchwelleErreichtMessage = "ConstantStimulus;;";
@@ -43,9 +43,9 @@ namespace Light4SightNG
 
         }
 
-        protected override void ZeigeNeueSignalstaerke()
+        protected override void PresentNextStimulus()
         {
-            if (!TesteAbbruch())
+            if (!AbortCriterionReached())
             {
                 nextContrast = shuffle.Next(contrastPresentations.Count);
                 this.ChangeContrastCS(contrastPresentations[nextContrast]);
@@ -58,7 +58,7 @@ namespace Light4SightNG
             }
         }
 
-        protected override bool TesteAbbruch()
+        protected override bool AbortCriterionReached()
         {
             return (contrastPresentations.Count == 0);
         }
