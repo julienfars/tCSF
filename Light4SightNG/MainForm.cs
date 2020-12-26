@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Light4SightNG
 {
-    public partial class Steuerung : Form
+    public partial class MainForm : Form
     {
         public static String RodPath = @"presets/rod.pre";
         public static String LConePath = @"presets/lcone.pre";
@@ -27,7 +27,7 @@ namespace Light4SightNG
         //Objekt für die Audioschnittstelle. Dient der Steuerung der Wiedergabe(Start,Stop,Puffer)
         public AudioControlClass AudioControl = new AudioControlClass();
 
-        public Steuerung()
+        public MainForm()
         {
 
             InitializeComponent();
@@ -48,17 +48,16 @@ namespace Light4SightNG
             comboBox2.Items.AddRange(Directory.GetFiles(@".\presets", "*.pre"));
             comboBox3.Items.AddRange(Directory.GetFiles(@".\presets", "*.pre"));
             comboBox4.Items.AddRange(Directory.GetFiles(@".\presets", "*.pre"));
+            
             selectAlgorithm.SelectedIndex = 0;
             NumberOfTrials.Enabled = false;
             SignalGeneration.InitializeValues();
+            
             envFreq.SelectedIndex = 0;
             pEnv.Checked = false;
             SignalGeneration.Envelope = "0";
             SignalGeneration.PauseEnvelope = false;
-            //comboBox1.SelectedIndex = 1;
-            //comboBox2.SelectedIndex = 2;
-            //comboBox3.SelectedIndex = 3;
-            //comboBox4.SelectedIndex = 4;
+            
             if (Directory.GetFiles(@".\Untersuchungen", "*.txt").Length > 0)
             { result.Enabled = true; }
             else
@@ -68,12 +67,12 @@ namespace Light4SightNG
         void mRCFF_Click(object sender, EventArgs e)
         {
             String bkCFF = RCFF.Text;
-            KontrolliereMessungen.cff = -1;
-            KontrolliereMessungen determineCFF = new KontrolliereMessungen(this);
+            MeasurementForm.cff = -1;
+            MeasurementForm determineCFF = new MeasurementForm(this);
             determineCFF.testeCFF = true;
             determineCFF.SetDesktopLocation(this.Location.X + this.Size.Width, this.Location.Y);
             determineCFF.ShowDialog(tbProbandenNummer.Text, cbAugenseite.Text, RodPath);
-            RCFF.Text = Convert.ToString(KontrolliereMessungen.cff);
+            RCFF.Text = Convert.ToString(MeasurementForm.cff);
             if (RCFF.Text == "-1") { MessageBox.Show("Messung der CFF nicht erfolgreich."); RCFF.Text = bkCFF; }
             determineCFF.Dispose();
         }
@@ -81,12 +80,12 @@ namespace Light4SightNG
         void mLCFF_Click(object sender, EventArgs e)
         {
             String bkCFF = LCFF.Text;
-            KontrolliereMessungen.cff = -1;
-            KontrolliereMessungen determineCFF = new KontrolliereMessungen(this);
+            MeasurementForm.cff = -1;
+            MeasurementForm determineCFF = new MeasurementForm(this);
             determineCFF.testeCFF = true;
             determineCFF.SetDesktopLocation(this.Location.X + this.Size.Width, this.Location.Y);
             determineCFF.ShowDialog(tbProbandenNummer.Text, cbAugenseite.Text, LConePath);
-            LCFF.Text = Convert.ToString(KontrolliereMessungen.cff);
+            LCFF.Text = Convert.ToString(MeasurementForm.cff);
             if (LCFF.Text == "-1") { MessageBox.Show("Messung der CFF nicht erfolgreich."); LCFF.Text = bkCFF; }
             determineCFF.Dispose();
         }
