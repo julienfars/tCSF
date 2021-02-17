@@ -18,30 +18,30 @@ namespace Light4SightNG
         {
             double lgit;
 
-            plgit = new double[2 * MaximaleSignalStaerke];
-            mlgit = new double[2 * MaximaleSignalStaerke];
+            plgit = new double[2 * maxSignalStrength];
+            mlgit = new double[2 * maxSignalStrength];
 
             _SchwelleErreichtMessage = "BestPEST: Schwelle erreicht!;;";
 
             NTrials = parent.NTrials;
 
-            std = MaximaleSignalStaerke / 5;
+            std = maxSignalStrength / 5;
 
-            for (int i = 0; i < (2 * MaximaleSignalStaerke); i++)
+            for (int i = 0; i < (2 * maxSignalStrength); i++)
             {
-                lgit = 1 / (1 + Math.Exp((MaximaleSignalStaerke - i) / std));
+                lgit = 1 / (1 + Math.Exp((maxSignalStrength - i) / std));
                 plgit[i] = Math.Log(lgit);
                 mlgit[i] = Math.Log(1 - lgit);
             }
 
-            probability = new double[2 * MaximaleSignalStaerke];
+            probability = new double[2 * maxSignalStrength];
 
-            SignalStaerke = MaximaleSignalStaerke;
+            signalStrength = maxSignalStrength;
             Gesehen = true;
 
             Threshold();
 
-            SignalStaerke = 0;
+            signalStrength = 0;
             Gesehen = false;
 
             //Threshold() called once more first run of ZeigeNeueSignalstaerke()
@@ -53,6 +53,7 @@ namespace Light4SightNG
             {
                 trial++;
                 Threshold();
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -67,6 +68,10 @@ namespace Light4SightNG
                 this.ChangeContrast(SignalStaerke);
                 this.SignalWiedergeben();
 >>>>>>> parent of e1303e6 (Add files via upload)
+=======
+                this.ChangeContrast(signalStrength);
+                this.PlaySignal();
+>>>>>>> parent of 247768d (Revert "Started renaming variables and created Class Constant Stimuli.")
             }
             else
             {
@@ -87,10 +92,10 @@ namespace Light4SightNG
             int p2 = 0;
             double max = -10000;
 
-            for (int i = 0; i < MaximaleSignalStaerke; i++)
+            for (int i = 0; i < maxSignalStrength; i++)
             {
-                if (Gesehen) probability[i] = probability[i] + plgit[MaximaleSignalStaerke + SignalStaerke - i - 1];
-                if (!Gesehen) probability[i] = probability[i] + mlgit[MaximaleSignalStaerke + SignalStaerke - i - 1];
+                if (Gesehen) probability[i] = probability[i] + plgit[maxSignalStrength + signalStrength - i - 1];
+                if (!Gesehen) probability[i] = probability[i] + mlgit[maxSignalStrength + signalStrength - i - 1];
                 if (probability[i] > max)
                 {
                     max = probability[i];
@@ -101,7 +106,7 @@ namespace Light4SightNG
                     p2 = i;
                 }
             }
-            SignalStaerke = (int)Math.Floor((double)(p1 + p2) / 2);
+            signalStrength = (int)Math.Floor((double)(p1 + p2) / 2);
         }
     }
 }
