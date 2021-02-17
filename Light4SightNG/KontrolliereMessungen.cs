@@ -27,12 +27,12 @@ namespace Light4SightNG
 
         public bool testeCFF = false;
 
-        public bool UseConstantStimuli;
         public bool UseBestPEST;
+
         public int freq = -1;
 
         StdStrategie stdStrategie;
-        Teststrategie Strategie;
+        BestPEST Strategie;
 
         List<ChannelDescription> channels = new List<ChannelDescription>();
 
@@ -47,7 +47,6 @@ namespace Light4SightNG
         {
 
             this.mainProgram = gpObject;
-            UseConstantStimuli = mainProgram.UseConstantStimuli;
             UseBestPEST = mainProgram.UseBestPEST;
 
             InitializeComponent();
@@ -127,8 +126,7 @@ namespace Light4SightNG
             this.btnLoadPreset_Click(this, null, Presets);
             this.btnUntersuchungStarten_Click(this, null);
             this.prepareLogFile();
-            if (UseConstantStimuli) Strategie.StarteStrategie();
-            else if (UseBestPEST) Strategie.StarteStrategie();
+            if (UseBestPEST) Strategie.StarteStrategie();
             else stdStrategie.StartStdStrategie();
             this.ShowDialog();
         }
@@ -640,26 +638,22 @@ namespace Light4SightNG
                     (Math.Abs(IBChannel.SC1DeltaK_100) < float.Epsilon) &&
                     (ICChannel.SC1DeltaK_100 < float.Epsilon))
                 {
-                    if (UseConstantStimuli) Strategie = new ConstantStimuli(mainProgram);
-                    else if (UseBestPEST) Strategie = new BestPEST(mainProgram);
+                    if (UseBestPEST) Strategie = new BestPEST(mainProgram);
                     else stdStrategie = new StdStrategie(mainProgram, "außen", testeCFF);
                 }
                 else
                 {
-                    if (UseConstantStimuli) Strategie = new ConstantStimuli(mainProgram);
-                    else if (UseBestPEST) Strategie = new BestPEST(mainProgram);
+                    if (UseBestPEST) Strategie = new BestPEST(mainProgram);
                     else stdStrategie = new StdStrategie(mainProgram, "innen", testeCFF);
                 }
-                if (UseConstantStimuli) Strategie.Abbruch += new EventHandler<AbbruchEventArgs>(stdStrategie_abbruch);
-                else if (UseBestPEST) Strategie.Abbruch += new EventHandler<AbbruchEventArgs>(stdStrategie_abbruch);
+                if (UseBestPEST) Strategie.Abbruch += new EventHandler<AbbruchEventArgs>(stdStrategie_abbruch);
                 else stdStrategie.abbruch += new EventHandler<AbbruchEventArgs>(stdStrategie_abbruch);
 
                 if (!testeCFF)
                 {
                     if (freq > 0)
                     {
-                        if (UseConstantStimuli) Strategie._setNewFrequency(freq);
-                        else if (UseBestPEST) Strategie._setNewFrequency(freq);
+                        if (UseBestPEST) Strategie._setNewFrequency(freq);
                         else stdStrategie._setNewFrequency(freq);
                     }
                 }
@@ -721,7 +715,7 @@ namespace Light4SightNG
         {
             if (e.KeyCode == Keys.Y)
             {
-                if (UseConstantStimuli | UseBestPEST)
+                if (UseBestPEST)
                 {
                     if (Strategie != null) { Strategie.Gesehen_KeyDown(e); }
                 }
@@ -732,7 +726,7 @@ namespace Light4SightNG
             }
             if (e.KeyCode == Keys.M)
             {
-                if (UseConstantStimuli | UseBestPEST)
+                if (UseBestPEST)
                 {
                     if (Strategie != null) { Strategie.Nichtgesehen_KeyDown(e); }
                 }

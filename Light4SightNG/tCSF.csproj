@@ -100,7 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalibrationData.cs" />
-    <Compile Include="BestPEST.cs" />
     <Compile Include="EventArgs\AbbruchEventArgs.cs" />
     <Compile Include="AudioControlClass.cs" />
     <Compile Include="Globals.cs" />
@@ -171,10 +170,14 @@
     <Compile Include="SignalGeneration.cs" />
     <Compile Include="Teststrategie.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="BestPEST.cs" />
 =======
 >>>>>>> parent of 58089e3 (Add files via upload)
     <Compile Include="ConstantStimuli.cs" />
+=======
+    <Compile Include="BestPEST.cs" />
+>>>>>>> parent of e1303e6 (Add files via upload)
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
