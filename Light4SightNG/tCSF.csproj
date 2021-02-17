@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalibrationData.cs" />
+    <Compile Include="BestPEST.cs" />
     <Compile Include="EventArgs\AbbruchEventArgs.cs" />
     <Compile Include="AudioControlClass.cs" />
     <Compile Include="Globals.cs" />
@@ -169,7 +170,10 @@
     </Compile>
     <Compile Include="SignalGeneration.cs" />
     <Compile Include="Teststrategie.cs" />
+<<<<<<< HEAD
     <Compile Include="BestPEST.cs" />
+=======
+>>>>>>> parent of 58089e3 (Add files via upload)
     <Compile Include="ConstantStimuli.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -14,6 +14,7 @@ namespace Light4SightNG
         protected int signalStrength;
         protected int maxSignalStrength = 1000;
         protected double[] Kontrast_100 = new double[8];
+        
 
         protected string LED_Gruppe = "außen";
 
@@ -115,6 +116,10 @@ namespace Light4SightNG
                 KontrolliereMessungen.ICChannel.Kontrast_100 + ";",
                 false
                 );
+                //new part 
+                Logmessage("CS Predicted Threshold is :" + (KontrolliereMessungen.IRChannel.Kontrast_100 / KontrolliereMessungen.IRChannel.KonSC1_100) * 100
+                 , false);
+                
             }
             else
             {
@@ -125,6 +130,9 @@ namespace Light4SightNG
                 KontrolliereMessungen.OCChannel.Kontrast_100 + ";",
                 false
                 );
+                //new part 
+                Logmessage("CS Predicted Threshold is :" + (KontrolliereMessungen.ORChannel.Kontrast_100 / KontrolliereMessungen.ORChannel.KonSC1_100)*100
+               ,false);
             }
 
             this.Abbruch(this, e);

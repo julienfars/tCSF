@@ -42,6 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.result = new System.Windows.Forms.Button();
             this.ergebnisseVorhanden = new System.IO.FileSystemWatcher();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.ergebnisseVorhanden)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +90,7 @@
             this.LConeList.Name = "LConeList";
             this.LConeList.Size = new System.Drawing.Size(60, 199);
             this.LConeList.TabIndex = 56;
+            this.LConeList.SelectedIndexChanged += new System.EventHandler(this.LConeList_SelectedIndexChanged);
             // 
             // MConeList
             // 
@@ -107,6 +109,7 @@
             this.SConeList.Name = "SConeList";
             this.SConeList.Size = new System.Drawing.Size(60, 199);
             this.SConeList.TabIndex = 58;
+            this.SConeList.SelectedIndexChanged += new System.EventHandler(this.SConeList_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -167,11 +170,19 @@
             this.ergebnisseVorhanden.Created += new System.IO.FileSystemEventHandler(this.ergebnisseVorhanden_Created);
             this.ergebnisseVorhanden.Deleted += new System.IO.FileSystemEventHandler(this.ergebnisseVorhanden_Deleted);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(443, 24);
+            this.menuStrip1.TabIndex = 64;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // MesseSchwellen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 334);
+            this.ClientSize = new System.Drawing.Size(443, 334);
             this.Controls.Add(this.result);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -184,10 +195,13 @@
             this.Controls.Add(this.start);
             this.Controls.Add(this.fortschritt);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MesseSchwellen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MesseSchwellen";
+            this.Load += new System.EventHandler(this.MesseSchwellen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ergebnisseVorhanden)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -209,5 +223,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button result;
         private System.IO.FileSystemWatcher ergebnisseVorhanden;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }
