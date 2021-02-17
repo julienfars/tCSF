@@ -167,10 +167,10 @@ namespace Light4SightNG
 
                 if (TIFC)
                 {
-                    if (FI && i > (sinusLength / 2)) TempSinus[i] = MHLR;
-                    if (!FI && i <= (sinusLength / 2)) TempSinus[i] = MHLR;
-                    if (Math.Abs(i - (sinusLength / 2)) < 10) TempSinus[i] = 0;
-
+                    if (FI && i > (AudioControlClass.AbtastFrequenz / 2)) TempSinus[i] = MHLR;
+                    if (!FI && i <= (AudioControlClass.AbtastFrequenz / 2)) TempSinus[i] = MHLR;
+                    if (Math.Abs(i - (AudioControlClass.AbtastFrequenz / 2)) < 10) TempSinus[i] = 0;
+                    if (i > AudioControlClass.AbtastFrequenz) TempSinus[i] = MHLR / 2;
                 }
 
                 // add carrier

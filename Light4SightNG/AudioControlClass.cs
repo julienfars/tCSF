@@ -58,7 +58,7 @@ namespace Light4SightNG
         readonly static int _TraegerFrequenz = 20000;
         public static int TraegerFrequenz { get { return _TraegerFrequenz; } }
 
-        readonly static int _SampleLaenge = 1;
+        readonly static int _SampleLaenge = 2;
         public static int SampleLaenge { get { return _SampleLaenge; } }
 
         public static byte Highbyte(Int16 HiTemp)
