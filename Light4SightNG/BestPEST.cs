@@ -29,20 +29,20 @@ namespace Light4SightNG
 
             for (int i = 0; i < (2 * maxSignalStrength); i++)
             {
-                lgit = 1 / (1 + Math.Exp((maxSignalStrength - i) / std));
+                lgit = 0.5 / (0.5 + Math.Exp((maxSignalStrength - i) / std));
                 plgit[i] = Math.Log(lgit);
                 mlgit[i] = Math.Log(1 - lgit);
             }
 
             probability = new double[2 * maxSignalStrength];
 
-            signalStrength = maxSignalStrength;
-            Gesehen = true;
+            signalStrength = 1;
+            Gesehen = false;
 
             Threshold();
 
             signalStrength = 0;
-            Gesehen = false;
+            Gesehen = true;
 
             //Threshold() called once more first run of ZeigeNeueSignalstaerke()
         }

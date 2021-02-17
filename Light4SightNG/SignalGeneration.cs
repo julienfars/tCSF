@@ -19,6 +19,9 @@ namespace Light4SightNG
         static double[] env;
         static bool _pauseEnvelope = true;
 
+        static bool TIFC = false; // two interval forced-choice?
+        static bool FI = true; // first Interval?
+
         public static void InitializeValues()
         {
 
@@ -36,9 +39,12 @@ namespace Light4SightNG
             Globals.Kanal_8_OC = new double[AudioControlClass.AbtastFrequenz];
         }
 
-        public static void Untersuchungssignal()
+        public static void Untersuchungssignal(bool twoIntervalForcedChoice = false, bool firstInterval = true)
         {
             #region IR Kanal
+
+            TIFC = twoIntervalForcedChoice;
+            FI = firstInterval;
 
             if (KontrolliereMessungen.IRChannel.SignalAktiv)
             {
@@ -143,7 +149,8 @@ namespace Light4SightNG
 
         static double[] Sinus(double MHLR, double KLR, int Frequenz, int Phasenwinkel)
         {
-            double[] TempSinus = new double[AudioControlClass.AbtastFrequenz * AudioControlClass.SampleLaenge];
+            int sinusLength = AudioControlClass.AbtastFrequenz * AudioControlClass.SampleLaenge;
+            double[] TempSinus = new double[sinusLength];
             double dWinkel = 0.0;
 
             for (int i = 0; i <= (AudioControlClass.AbtastFrequenz * AudioControlClass.SampleLaenge) - 1; i++)
@@ -155,6 +162,16 @@ namespace Light4SightNG
                 // add envelope
 
                 TempSinus[i] = (TempSinus[i] - MHLR) * env[i] + MHLR;
+
+                // create two intervals
+
+                if (TIFC)
+                {
+                    if (FI && i > (sinusLength / 2)) TempSinus[i] = MHLR;
+                    if (!FI && i <= (sinusLength / 2)) TempSinus[i] = MHLR;
+                    if (Math.Abs(i - (sinusLength / 2)) < 10) TempSinus[i] = 0;
+
+                }
 
                 // add carrier
 

@@ -14,6 +14,9 @@ namespace Light4SightNG
         protected int signalStrength;
         protected int maxSignalStrength = 1000;
         protected double[] Kontrast_100 = new double[8];
+        protected Random coin = new Random();
+
+        protected bool firstInterval = false; // stimulus was presented in first interval
 
         protected string LED_Gruppe = "außen";
 
@@ -137,8 +140,9 @@ namespace Light4SightNG
         /// </summary>
         public void PlaySignal()
         {
+            firstInterval = (coin.Next(2) == 0);
             AudioControl.InitWaveContainer();
-            SignalGeneration.Untersuchungssignal();
+            SignalGeneration.Untersuchungssignal(twoIntervalForcedChoice: true, firstInterval: firstInterval);  ;
             AudioControl.PlaySignal();
         }
 
@@ -200,15 +204,30 @@ namespace Light4SightNG
         {
             if (e.KeyCode == Keys.Y)
             {
-                StopSignal();
-                Gesehen = true;
-                Logmessage("Strategie:;gesehen;" + KontrolliereMessungen.IRChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.IGChannel.Kontrast_100 + ";" + KontrolliereMessungen.IBChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.ICChannel.Kontrast_100 + ";;" + KontrolliereMessungen.ORChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.OGChannel.Kontrast_100 + ";" + KontrolliereMessungen.OBChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.OCChannel.Kontrast_100, false);
+                if (firstInterval) Correct_Response(); else Incorrect_Response();
             }
             ZeigeNeueSignalstaerke();
+        }
+
+        private void Correct_Response()
+        {
+            StopSignal();
+            Gesehen = true;
+            Logmessage("Strategie:;korrekt;" + KontrolliereMessungen.IRChannel.Kontrast_100 + ";" +
+                KontrolliereMessungen.IGChannel.Kontrast_100 + ";" + KontrolliereMessungen.IBChannel.Kontrast_100 + ";" +
+                KontrolliereMessungen.ICChannel.Kontrast_100 + ";;" + KontrolliereMessungen.ORChannel.Kontrast_100 + ";" +
+                KontrolliereMessungen.OGChannel.Kontrast_100 + ";" + KontrolliereMessungen.OBChannel.Kontrast_100 + ";" +
+                KontrolliereMessungen.OCChannel.Kontrast_100, false);
+        }
+        private void Incorrect_Response()
+        {
+            StopSignal();
+            Gesehen = false;
+            Logmessage("Strategie:;nicht korrekt;" + KontrolliereMessungen.IRChannel.Kontrast_100 + ";" +
+                KontrolliereMessungen.IGChannel.Kontrast_100 + ";" + KontrolliereMessungen.IBChannel.Kontrast_100 + ";" +
+                KontrolliereMessungen.ICChannel.Kontrast_100 + ";;" + KontrolliereMessungen.ORChannel.Kontrast_100 + ";" +
+                KontrolliereMessungen.OGChannel.Kontrast_100 + ";" + KontrolliereMessungen.OBChannel.Kontrast_100 + ";" +
+                KontrolliereMessungen.OCChannel.Kontrast_100, false);
         }
 
         /// <summary>
@@ -220,13 +239,7 @@ namespace Light4SightNG
         {
             if (e.KeyCode == Keys.M)
             {
-                StopSignal();
-                Gesehen = false;
-                Logmessage("Strategie:;nicht gesehen;" + KontrolliereMessungen.IRChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.IGChannel.Kontrast_100 + ";" + KontrolliereMessungen.IBChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.ICChannel.Kontrast_100 + ";;" + KontrolliereMessungen.ORChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.OGChannel.Kontrast_100 + ";" + KontrolliereMessungen.OBChannel.Kontrast_100 + ";" +
-                    KontrolliereMessungen.OCChannel.Kontrast_100, false);
+                if (!firstInterval) Correct_Response(); else Incorrect_Response();
             }
             ZeigeNeueSignalstaerke();
         }
