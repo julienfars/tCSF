@@ -172,16 +172,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
     <Compile Include="BestPEST.cs" />
-<<<<<<< HEAD
 =======
 >>>>>>> parent of 58089e3 (Add files via upload)
     <Compile Include="ConstantStimuli.cs" />
 =======
     <Compile Include="BestPEST.cs" />
 >>>>>>> parent of e1303e6 (Add files via upload)
-=======
-    <Compile Include="ConstantStimuli.cs" />
->>>>>>> parent of 247768d (Revert "Started renaming variables and created Class Constant Stimuli.")
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
